@@ -17,7 +17,7 @@ class sword {
     translate(swordPos.x, swordPos.y);
     rectMode(CENTER);
     fill(255, 0, 0);
-    rect(0, 0, 50, 50);
+    ellipse(0, 0, 50, 50);
     popMatrix();
   }
 
