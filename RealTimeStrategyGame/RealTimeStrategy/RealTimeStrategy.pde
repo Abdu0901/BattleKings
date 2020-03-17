@@ -2,7 +2,7 @@
 ArrayList<sword> swords = new ArrayList<sword>(); 
 ArrayList<king> kings = new ArrayList<king>(); 
 ArrayList<archer> archers = new ArrayList<archer>(); 
-ArrayList<horse> horses = new ArrayList<horse>(); 
+ArrayList<horseman> horsemen = new ArrayList<horseman>(); 
 
 void setup() {
   size(1400, 700);

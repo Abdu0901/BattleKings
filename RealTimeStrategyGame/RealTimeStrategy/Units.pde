@@ -31,8 +31,8 @@ class archer extends Unit {
   }
 }
 
-class horse extends Unit {
+class horseman extends Unit {
 
-  void horseMovement() {
+  void horsemanMovement() {
   }
 }
