@@ -3,8 +3,6 @@ ArrayList<sword> swords = new ArrayList<sword>();
 ArrayList<king> kings = new ArrayList<king>();
 ArrayList<archer> archers = new ArrayList<archer>();
 ArrayList<horseman> horsemen = new ArrayList<horseman>();
-int moneyssssssssssssssssssssssssssss;
-int wait = 0;
 
 //A variable that displays the current selected screen
 int Screen = 0;
