@@ -1,10 +1,13 @@
-class sword {
-  PVector swordPos;
-  PVector swordVel = new PVector(1,0);
-  
-    void update() {
+class Unit {
+  PVector pos;
+  PVector vel;
+}
+
+class sword extends Unit {
+
+  void update() {
     pushMatrix();
-    translate(swordPos.x, swordPos.y);
+    translate(this.pos.x, this.pos.y);
     rectMode(CENTER);
     fill(255, 0, 0);
     ellipse(0, 0, 50, 50);
@@ -12,17 +15,15 @@ class sword {
   }
 
   void swordMovement() {
-    swordPos.add(swordVel);
+    this.pos.add(this.vel);
   }
 }
 
-class king {
-  PVector kingPos;
-  PVector kingVel;
-  
-    void update() {
+class king extends Unit {
+
+  void update() {
     pushMatrix();
-    translate(kingPos.x, kingPos.y);
+    translate(this.pos.x, this.pos.y);
     rectMode(CENTER);
     fill(255, 0, 0);
     ellipse(0, 0, 50, 50);
@@ -30,17 +31,14 @@ class king {
   }
 
   void kingMovement() {
-
   }
 }
 
-class archer {
-  PVector archerPos;
-  PVector archerVel;
-  
-    void update() {
+class archer extends Unit {
+
+  void update() {
     pushMatrix();
-    translate(archerPos.x, archerPos.y);
+    translate(this.pos.x, this.pos.y);
     rectMode(CENTER);
     fill(255, 0, 0);
     ellipse(0, 0, 50, 50);
@@ -48,16 +46,13 @@ class archer {
   }
 
   void archerMovement() {
-
   }
 }
-class horse {
-  PVector horsePos;
-  PVector horseVel;
-  
-    void update() {
+class horse extends Unit {
+
+  void update() {
     pushMatrix();
-    translate(horsePos.x, horsePos.y);
+    translate(this.pos.x, this.pos.y);
     rectMode(CENTER);
     fill(255, 0, 0);
     ellipse(0, 0, 50, 50);
@@ -65,6 +60,5 @@ class horse {
   }
 
   void horseMovement() {
-
   }
 }
