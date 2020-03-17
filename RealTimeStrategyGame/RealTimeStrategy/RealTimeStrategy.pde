@@ -38,15 +38,4 @@ void draw() {
     EndScreen();
     break;
   }
-
-  final int k = keyCode;
-  if (k == LEFT | k == 'A') {
-    swords.add(new sword());
-  }
-
-  for (int i2 = swords.size()-1; i2>=0; i2--) {
-    f = swords.get(i2);
-    f.update();
-    f.swordMovement();
-  }
 }
