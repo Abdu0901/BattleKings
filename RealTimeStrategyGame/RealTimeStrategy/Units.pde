@@ -1,6 +1,6 @@
 class sword {
   PVector swordPos;
-  PVector swordVel;
+  PVector swordVel = new PVector(1,0);
   
     void update() {
     pushMatrix();
@@ -12,7 +12,7 @@ class sword {
   }
 
   void swordMovement() {
-
+    swordPos.add(swordVel);
   }
 }
 
