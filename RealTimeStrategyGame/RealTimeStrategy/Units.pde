@@ -4,7 +4,7 @@ class Unit {
 }
 
 class sword extends Unit {
-  PVector pos = new PVector (500, 500);
+  PVector pos = new PVector (50, 350);
   PVector vel = new PVector (10, 0);
 
   void update() {
