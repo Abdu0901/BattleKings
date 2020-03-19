@@ -1,6 +1,7 @@
 void GameScreen() {
   background (backGroundColor);
   GoldGenerator();
+  AddUnits();
 }
 
 //Resources used to buy troops
@@ -16,4 +17,8 @@ void GoldGenerator() {
     println("Current amount of Gold: " + Gold);
     Timer = 0;
   }
+}
+
+void AddUnits() {
+  
 }
