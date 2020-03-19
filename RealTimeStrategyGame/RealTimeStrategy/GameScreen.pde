@@ -22,7 +22,7 @@ void GoldGenerator() {
 void AddUnits() {
   sword f;
   
-  if (swords.size() < 3) {
+  if (swords.size() < 1) {
     swords.add(new sword());
   }
 
