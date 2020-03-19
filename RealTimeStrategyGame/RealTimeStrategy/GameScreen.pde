@@ -1,3 +1,5 @@
+Button DeploySword;
+
 void GameScreen() {
   background (backGroundColor);
   GoldGenerator();
@@ -21,8 +23,13 @@ void GoldGenerator() {
 
 void AddUnits() {
   sword f;
-  
-  if (swords.size() < 1) {
+
+  boolean mouseJustPressed = mousePressed & !lastMousePressed;
+  lastMousePressed = mousePressed;
+
+  DeploySword = new Button(width/3, 450, 100, 200, strokeColor, "Sword", 20, 0, bRed, bGreen, bBlue);
+  DeploySword.ButtonUpdate();
+  if (DeploySword.isButtonPressed(mouseX, mouseY, mouseJustPressed, DeploySword) == true) {
     swords.add(new sword());
   }
 
