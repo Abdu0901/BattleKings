@@ -13,6 +13,8 @@ class Unit {
 }
 
 class sword extends Unit {
+  PVector pos = new PVector (500, 500);
+  PVector vel = new PVector (10, 0);
 
   void swordMovement() {
     this.pos.add(this.vel);

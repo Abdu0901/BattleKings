@@ -20,5 +20,15 @@ void GoldGenerator() {
 }
 
 void AddUnits() {
+  sword f;
   
+  if (swords.size() < 3) {
+    swords.add(new sword());
+  }
+
+  for (int i2 = swords.size()-1; i2>=0; i2--) {
+    f = swords.get(i2);
+    f.update();
+    f.swordMovement();
+  }
 }
