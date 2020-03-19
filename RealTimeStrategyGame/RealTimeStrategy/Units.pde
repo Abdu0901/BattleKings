@@ -1,19 +1,20 @@
 class Unit {
   PVector pos;
   PVector vel;
-
-  void update() {
-    pushMatrix();
-    rectMode(CENTER);
-    fill(255, 0, 0);
-    ellipse(0, 0, 50, 50);
-    popMatrix();
-  }
 }
 
 class sword extends Unit {
   PVector pos = new PVector (500, 500);
   PVector vel = new PVector (10, 0);
+
+  void update() {
+    pushMatrix();
+    translate(pos.x,pos.y);
+    rectMode(CENTER);
+    fill(255, 0, 0);
+    ellipse(0, 0, 50, 50);
+    popMatrix();
+  }
 
   void swordMovement() {
     pos.add(this.vel);
@@ -27,12 +28,31 @@ class king extends Unit {
 }
 
 class archer extends Unit {
+  
+    void update() {
+    pushMatrix();
+    translate(pos.x,pos.y);
+    rectMode(CENTER);
+    fill(255, 0, 0);
+    ellipse(0, 0, 50, 50);
+    popMatrix();
+  }
 
   void archerMovement() {
   }
 }
 
 class horseman extends Unit {
+  
+  
+    void update() {
+    pushMatrix();
+    translate(pos.x,pos.y);
+    rectMode(CENTER);
+    fill(255, 0, 0);
+    ellipse(0, 0, 50, 50);
+    popMatrix();
+  }
 
   void horsemanMovement() {
   }
