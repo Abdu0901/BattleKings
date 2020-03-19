@@ -1,4 +1,7 @@
 Button DeploySword;
+Button DeployKing;
+Button DeployHorseman;
+Button DeployArcher;
 
 void GameScreen() {
   background (backGroundColor);
@@ -22,7 +25,8 @@ void GoldGenerator() {
 }
 
 void AddUnits() {
-  sword f;
+  sword s;
+  king k;
 
   boolean mouseJustPressed = mousePressed & !lastMousePressed;
   lastMousePressed = mousePressed;
@@ -36,8 +40,22 @@ void AddUnits() {
   }
 
   for (int i2 = swords.size()-1; i2>=0; i2--) {
-    f = swords.get(i2);
-    f.update();
-    f.swordMovement();
+    s = swords.get(i2);
+    s.update();
+    s.swordMovement();
+
+    DeployKing = new Button(700, 450, 100, 200, strokeColor, "King(20)", 20, 0, bRed, bGreen, bBlue);
+    DeployKing.ButtonUpdate();
+    if (DeployKing.isButtonPressed(mouseX, mouseY, mouseJustPressed, DeployKing) == true && Gold > 19) {
+      Gold = Gold -20;
+      println("Current amount of Gold: " + Gold);
+      kings.add(new king());
+    }
+
+    for (int i3 = kings.size()-1; i3>=0; i3--) {
+      k = kings.get(i3);
+      k.update();
+      k.kingMovement();
+    }
   }
 }
