@@ -29,7 +29,9 @@ void AddUnits() {
 
   DeploySword = new Button(width/3, 450, 100, 200, strokeColor, "Sword", 20, 0, bRed, bGreen, bBlue);
   DeploySword.ButtonUpdate();
-  if (DeploySword.isButtonPressed(mouseX, mouseY, mouseJustPressed, DeploySword) == true) {
+  if (DeploySword.isButtonPressed(mouseX, mouseY, mouseJustPressed, DeploySword) == true && Gold > 19) {
+    Gold = Gold -20;
+    println("Current amount of Gold: " + Gold);
     swords.add(new sword());
   }
 
