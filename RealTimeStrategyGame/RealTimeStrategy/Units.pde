@@ -4,7 +4,6 @@ class Unit {
 
   void update() {
     pushMatrix();
-    translate(this.pos.x, this.pos.y);
     rectMode(CENTER);
     fill(255, 0, 0);
     ellipse(0, 0, 50, 50);
@@ -17,7 +16,7 @@ class sword extends Unit {
   PVector vel = new PVector (10, 0);
 
   void swordMovement() {
-    this.pos.add(this.vel);
+    pos.add(this.vel);
   }
 }
 
