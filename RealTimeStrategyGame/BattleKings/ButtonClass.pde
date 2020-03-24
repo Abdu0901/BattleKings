@@ -35,21 +35,22 @@ class Button {
   void ButtonUpdate() {
     stroke(strokeColor);
     fill(bRed, bGreen, bBlue);
+    rectMode(CENTER);
     rect(xPos, yPos, wSize, hSize);
     textSize(textSize);
     fill(ctextColor);
     switch (textAlign) {
     case 0:
       textAlign(CENTER, CENTER);
-      text(buttonText, xPos + wSize/2, yPos + hSize/2);
+      text(buttonText, xPos, yPos);
       break;
     case 1:
       textAlign(RIGHT, CENTER);
-      text(buttonText, xPos + wSize, yPos + hSize/2);
+      text(buttonText, xPos + wSize/2, yPos);
       break;
     case 2:
       textAlign(LEFT, CENTER);
-      text(buttonText, xPos+3, yPos + hSize/2);
+      text(buttonText, xPos + 3 - wSize/2, yPos);
       break;
     }
   }
