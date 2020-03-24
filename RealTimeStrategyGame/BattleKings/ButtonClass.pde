@@ -9,14 +9,14 @@ class Button {
   String buttonText;
 
   boolean isButtonPressed(int mouseXPos, int mouseYPos, boolean isMousePressed, Button button) {
-    if (mouseXPos > button.xPos && mouseXPos < button.xPos+button.wSize && mouseYPos > button.yPos && mouseYPos < button.yPos+button.hSize) {
+    if (mouseXPos > button.xPos/2 && mouseXPos < button.xPos+button.wSize && mouseYPos > button.yPos/2 && mouseYPos < button.yPos+button.hSize) {
       if (isMousePressed == true) {
         return true;
       }
     }
     return false;
   }
-
+  
   Button(int xPos, int yPos, int wSize, int hSize, int strokeColor, String buttonText, int textSize, int textAlign, int bRed, int bGreen, int bBlue) {
     this.xPos = xPos;
     this.yPos = yPos;
