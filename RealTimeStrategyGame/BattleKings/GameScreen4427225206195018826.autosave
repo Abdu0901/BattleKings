@@ -2,16 +2,12 @@ Button DeploySword;
 Button DeployKing;
 Button DeployHorseman;
 Button DeployArcher;
-enemyBase EnemyBase;
-base FriendBase;
 
 void GameScreen() {
   background (BKBackground);
-  FriendBase = new base();
-  EnemyBase = new enemyBase();
   GoldGenerator();
   AddUnits();
-  FriendBase.update();
+// base.update();
 }
 
 //Resources used to buy troops
