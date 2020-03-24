@@ -23,7 +23,9 @@ int strokeColor = 0;
 int bW = 1400; 
 int bH = 700;
 
+//Images for the different screens
 PImage BKBackground;
+PImage BKStartScreen;
 
 //Images for the Characters
 PImage BKSword;
@@ -35,6 +37,8 @@ void setup() {
   size(1400, 700);
   BKBackground = loadImage("BK Background.jpg");
   BKBackground.resize(bW, bH);
+  BKStartScreen = loadImage("BK StartScreen.jpg");
+  BKStartScreen.resize(bW, bH);
   BKSword = loadImage("BK Sword.png");
   BKBow = loadImage("BK Bow.png");
   BKKing = loadImage("BK Crown.png");
