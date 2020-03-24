@@ -25,10 +25,20 @@ int bH = 700;
 
 PImage BKBackground;
 
+//Images for the Characters
+PImage BKSword;
+PImage BKBow;
+PImage BKKing;
+PImage BKHorseman;
+
 void setup() {
   size(1400, 700);
   BKBackground = loadImage("BK Background.jpg");
   BKBackground.resize(bW, bH);
+  BKSword = loadImage("BK Sword.png");
+  BKBow = loadImage("BK Bow.png");
+  BKKing = loadImage("BK Crown.png");
+  BKHorseman = loadImage("BK Horse.png");
 }
 
 void draw() {
