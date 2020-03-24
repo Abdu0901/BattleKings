@@ -19,8 +19,16 @@ int textColor = 0;
 //Stroke Color
 int strokeColor = 0;
 
+//Width and Height for Background 
+int bW = 1400; 
+int bH = 700;
+
+PImage BKBackground;
+
 void setup() {
   size(1400, 700);
+  BKBackground = loadImage("BK Background.jpg");
+  BKBackground.resize(bW, bH);
 }
 
 void draw() {

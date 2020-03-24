@@ -4,7 +4,7 @@ Button DeployHorseman;
 Button DeployArcher;
 
 void GameScreen() {
-  background (backGroundColor);
+  background (BKBackground);
   GoldGenerator();
   AddUnits();
 }
