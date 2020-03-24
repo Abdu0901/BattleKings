@@ -7,6 +7,7 @@ void GameScreen() {
   background (BKBackground);
   GoldGenerator();
   AddUnits();
+  base.update();
 }
 
 //Resources used to buy troops
