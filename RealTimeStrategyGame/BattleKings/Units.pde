@@ -13,6 +13,8 @@ class sword extends Unit {
     rectMode(CENTER);
     fill(255, 0, 0);
     ellipse(0, 0, 50, 50);
+    BKSword.resize(50, 50);
+    image(BKSword, -25, -25);
     popMatrix();
   }
 
@@ -35,6 +37,8 @@ class king extends Unit {
     rectMode(CENTER);
     fill(255, 0, 0);
     ellipse(0, 0, 50, 50);
+    BKKing.resize(50, 50);
+    image(BKKing, -25, -25);
     popMatrix();
   }
 }
@@ -49,6 +53,8 @@ class archer extends Unit {
     rectMode(CENTER);
     fill(255, 0, 0);
     ellipse(0, 0, 50, 50);
+    BKBow.resize(50, 50);
+    image(BKBow, -25, -25);
     popMatrix();
   }
 
@@ -68,6 +74,8 @@ class horseman extends Unit {
     rectMode(CENTER);
     fill(255, 0, 0);
     ellipse(0, 0, 50, 50);
+    BKHorseman.resize(50, 50);
+    image(BKHorseman, -25, -25);
     popMatrix();
   }
 
