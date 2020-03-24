@@ -1,4 +1,4 @@
-//Abdullah, Jens and Magnus DDU. RealTime Strategy Game
+//Abdullah, Jens and Magnus DDU. BattleKings a RealTime Strategy Game.
 ArrayList<sword> swords = new ArrayList<sword>();
 ArrayList<king> kings = new ArrayList<king>();
 ArrayList<archer> archers = new ArrayList<archer>();
