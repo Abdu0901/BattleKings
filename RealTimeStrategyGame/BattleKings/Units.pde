@@ -19,6 +19,9 @@ class sword extends Unit {
   }
 
   void swordMovement() {
+    if(dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=200){
+      
+    }
     pos.add(this.vel);
   }
 }
