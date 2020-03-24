@@ -12,6 +12,7 @@ void GameScreen() {
   GoldGenerator();
   AddUnits();
   FriendBase.update();
+  EnemyBase.update();
 }
 
 //Resources used to buy troops

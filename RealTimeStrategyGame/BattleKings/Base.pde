@@ -2,13 +2,13 @@ class base {
   PVector pos = new PVector (50, 200);
   
   void update() {
-    fill(255, 0, 0);
+    fill(0, 0, 255);
     rect(pos.x, pos.y, 50, 50);
   }
 }
 
 class enemyBase {
-  PVector pos = new PVector (50, 600);
+  PVector pos = new PVector (1300, 200);
 
   void update() {
     rectMode(CENTER);
