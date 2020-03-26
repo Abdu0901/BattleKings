@@ -26,6 +26,8 @@ class sword extends Unit {
       vel.setMag(2.5);
       pos.add(vel);
     }
+    pos.x = constrain(pos.x, 0, width);
+    pos.y = constrain(pos.y, 0, height);
     pos.add(this.vel);
 
     if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=20 && taller > 9) {
@@ -40,11 +42,14 @@ class king extends Unit {
   PVector vel = new PVector (10, 0);
 
   void kingMovement() {
+
     if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=200) {
       PVector vel = PVector.sub(EnemyBase.pos, pos);
       vel.setMag(2.5);
       pos.add(vel);
     }
+    pos.x = constrain(pos.x, 0, width);
+    pos.y = constrain(pos.y, 0, height);
     pos.add(this.vel);
   }
 
@@ -83,6 +88,8 @@ class archer extends Unit {
 
       //   add(arrow);
     }
+    pos.x = constrain(pos.x, 0, width);
+    pos.y = constrain(pos.y, 0, height);
     pos.add(this.vel);
   }
 }
@@ -109,12 +116,14 @@ class horseman extends Unit {
       vel.setMag(2.5);
       pos.add(vel);
     }
+    pos.x = constrain(pos.x, 0, width);
+    pos.y = constrain(pos.y, 0, height);
     pos.add(this.vel);
   }
 }
 
 class arrow extends Unit {
-//  PVector pos = new PVector (archer.pos.x, archer.pos.y);
+  //  PVector pos = new PVector (archer.pos.x, archer.pos.y);
   PVector vel = new PVector (15, 0);
 
 
