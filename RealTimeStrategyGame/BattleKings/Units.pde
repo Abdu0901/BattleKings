@@ -31,7 +31,7 @@ class king extends Unit {
   PVector vel = new PVector (10, 0);
 
   void kingMovement() {
-    PVector vel = PVector.sub(enemyBase.pos, this.pos);
+    PVector vel = PVector.sub(EnemyBase.pos, this.pos);
     vel.setMag(2.5);
     pos.add(this.vel);
   }
