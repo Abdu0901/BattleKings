@@ -2,12 +2,13 @@
 class Unit {
   PVector pos;
   PVector vel;
+  int taller = 0;
+  boolean InCombat = false;
 }
 
 class sword extends Unit {
   PVector pos = new PVector (50, 350);
   PVector vel = new PVector (2, 0);
-  int taller = 0;
 
   void update() {
     pushMatrix();
@@ -22,16 +23,19 @@ class sword extends Unit {
 
   void swordMovement() {
     taller++;
-    if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=200) {
+    //Checks if unit is in combat, if true, stops the unit from moving
+    if (InCombat == true) {
+      vel.set( 0, 0);
+    } //If above is false, unit will move towards enemy base
+    else if (InCombat == false) {
       PVector vel = PVector.sub(EnemyBase.pos, pos);
       vel.setMag(2.5);
+      pos.x = constrain(pos.x, 0, width);
+      pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
-    }
-    pos.x = constrain(pos.x, 0, width);
-    pos.y = constrain(pos.y, 0, height);
-    pos.add(this.vel);
-
-    if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=20 && taller > 9) {
+    } //If unit is close to enemy base, InCombat becomes true and unit damages the base
+    if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=120 && taller > 9) {
+      InCombat = true;
       taller = 0;
       EnemyBase.life = EnemyBase.life -1;
     }
@@ -43,15 +47,23 @@ class king extends Unit {
   PVector vel = new PVector (10, 0);
 
   void kingMovement() {
-
-    if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=200) {
+    taller++;
+    //Checks if unit is in combat, if true, stops the unit from moving
+    if (InCombat == true) {
+      vel.set( 0, 0);
+    } //If above is false, unit will move towards enemy base
+    else if (InCombat == false) {
       PVector vel = PVector.sub(EnemyBase.pos, pos);
       vel.setMag(2.5);
+      pos.x = constrain(pos.x, 0, width);
+      pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
+    } //If unit is close to enemy base, InCombat becomes true and unit damages the base
+    if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=120 && taller > 9) {
+      InCombat = true;
+      taller = 0;
+      EnemyBase.life = EnemyBase.life -1;
     }
-    pos.x = constrain(pos.x, 0, width);
-    pos.y = constrain(pos.y, 0, height);
-    pos.add(this.vel);
   }
 
   void update() {
@@ -82,23 +94,41 @@ class archer extends Unit {
   }
 
   void archerMovement() {
-    if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=200) {
-      /*      PVector vel = PVector.sub(EnemyBase.pos, pos);
-       vel.setMag(2.5);
-       pos.add(vel);  */
-
-      //   add(arrow);
+    taller++;
+    //Checks if unit is in combat, if true, stops the unit from moving
+    if (InCombat == true) {
+      vel.set( 0, 0);
+    } //If above is false, unit will move towards enemy base
+    else if (InCombat == false) {
+      PVector vel = PVector.sub(EnemyBase.pos, pos);
+      vel.setMag(2.5);
+      pos.x = constrain(pos.x, 0, width);
+      pos.y = constrain(pos.y, 0, height);
+      pos.add(vel);
+    } //If unit is close to enemy base, InCombat becomes true and unit damages the base
+    if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=120 && taller > 9) {
+      InCombat = true;
+      taller = 0;
+      EnemyBase.life = EnemyBase.life -1;
     }
-    pos.x = constrain(pos.x, 0, width);
-    pos.y = constrain(pos.y, 0, height);
-    pos.add(this.vel);
+    /*
+    if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=200) {
+     PVector vel = PVector.sub(EnemyBase.pos, pos);
+     vel.setMag(2.5);
+     pos.add(vel);  
+     
+     //   add(arrow);
+     }
+     pos.x = constrain(pos.x, 0, width);
+     pos.y = constrain(pos.y, 0, height);
+     pos.add(this.vel);
+     */
   }
 }
 
 class horseman extends Unit {
   PVector pos = new PVector (50, 350);
   PVector vel = new PVector (15, 0);
-
 
   void update() {
     pushMatrix();
@@ -112,21 +142,29 @@ class horseman extends Unit {
   }
 
   void horsemanMovement() {
-    if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=200) {
+    taller++;
+    //Checks if unit is in combat, if true, stops the unit from moving
+    if (InCombat == true) {
+      vel.set(0, 0);
+    } //If above is false, unit will move towards enemy base
+    else if (InCombat == false) {
       PVector vel = PVector.sub(EnemyBase.pos, pos);
       vel.setMag(2.5);
+      pos.x = constrain(pos.x, 0, width);
+      pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
+    } //If unit is close to enemy base, InCombat becomes true and unit damages the base
+    if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=120 && taller > 9) {
+      InCombat = true;
+      taller = 0;
+      EnemyBase.life = EnemyBase.life -1;
     }
-    pos.x = constrain(pos.x, 0, width);
-    pos.y = constrain(pos.y, 0, height);
-    pos.add(this.vel);
   }
 }
 
 class arrow extends Unit {
   //  PVector pos = new PVector (archer.pos.x, archer.pos.y);
   PVector vel = new PVector (15, 0);
-
 
   void update() {
     pushMatrix();
