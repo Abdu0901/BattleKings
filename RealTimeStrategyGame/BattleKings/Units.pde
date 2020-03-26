@@ -20,6 +20,9 @@ class sword extends Unit {
 
   void swordMovement() {
     if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=200) {
+      PVector vel = PVector.sub(EnemyBase.pos, pos);
+      vel.setMag(2.5);
+      pos.add(vel);
     }
     pos.add(this.vel);
   }
@@ -30,9 +33,12 @@ class king extends Unit {
   PVector vel = new PVector (10, 0);
 
   void kingMovement() {
-    PVector vel = PVector.sub(EnemyBase.pos, pos);
-    vel.setMag(2.5);
-    pos.add(vel);
+    if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=200) {
+      PVector vel = PVector.sub(EnemyBase.pos, pos);
+      vel.setMag(2.5);
+      pos.add(vel);
+    }
+    pos.add(this.vel);
   }
 
   void update() {
@@ -63,6 +69,11 @@ class archer extends Unit {
   }
 
   void archerMovement() {
+    if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=200) {
+      PVector vel = PVector.sub(EnemyBase.pos, pos);
+      vel.setMag(2.5);
+      pos.add(vel);
+    }
     pos.add(this.vel);
   }
 }
@@ -84,6 +95,11 @@ class horseman extends Unit {
   }
 
   void horsemanMovement() {
+    if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=200) {
+      PVector vel = PVector.sub(EnemyBase.pos, pos);
+      vel.setMag(2.5);
+      pos.add(vel);
+    }
     pos.add(this.vel);
   }
 }
