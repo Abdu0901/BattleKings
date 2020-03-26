@@ -6,6 +6,7 @@ class Unit {
 class sword extends Unit {
   PVector pos = new PVector (50, 350);
   PVector vel = new PVector (2, 0);
+  int taller = 0;
 
   void update() {
     pushMatrix();
@@ -19,12 +20,18 @@ class sword extends Unit {
   }
 
   void swordMovement() {
+    taller++;
     if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=200) {
       PVector vel = PVector.sub(EnemyBase.pos, pos);
       vel.setMag(2.5);
       pos.add(vel);
     }
     pos.add(this.vel);
+
+    if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=20 && taller > 9) {
+      taller = 0;
+      EnemyBase.life = EnemyBase.life -1;
+    }
   }
 }
 
@@ -107,7 +114,7 @@ class horseman extends Unit {
 }
 
 class arrow extends Unit {
-  PVector pos = new PVector (archer.pos.x, archer.pos.y);
+//  PVector pos = new PVector (archer.pos.x, archer.pos.y);
   PVector vel = new PVector (15, 0);
 
 
