@@ -35,6 +35,7 @@ PImage BKHorseman;
 
 void setup() {
   size(1400, 700);
+  //Loads images
   BKBackground = loadImage("BK Background.jpg");
   BKBackground.resize(bW, bH);
   BKStartScreen = loadImage("BK StartScreen.jpg");
@@ -43,6 +44,9 @@ void setup() {
   BKBow = loadImage("BK Bow.png");
   BKKing = loadImage("BK Crown.png");
   BKHorseman = loadImage("BK Horse.png");
+
+  FriendBase = new base();
+  EnemyBase = new enemyBase();
 }
 
 void draw() {

@@ -7,12 +7,17 @@ base FriendBase;
 
 void GameScreen() {
   background (BKBackground);
-  FriendBase = new base();
-  EnemyBase = new enemyBase();
   GoldGenerator();
   AddUnits();
   FriendBase.update();
   EnemyBase.update();
+  
+  //Checks if any of the bases has lost all HP
+  if (EnemyBase.life <= 0) {
+    Screen = 2;
+  } else if (FriendBase.life <= 0) {
+    Screen = 2;
+  }
 }
 
 //Resources used to buy troops
