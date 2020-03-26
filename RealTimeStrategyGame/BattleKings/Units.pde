@@ -19,8 +19,7 @@ class sword extends Unit {
   }
 
   void swordMovement() {
-    if(dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=200){
-      
+    if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=200) {
     }
     pos.add(this.vel);
   }
@@ -31,9 +30,9 @@ class king extends Unit {
   PVector vel = new PVector (10, 0);
 
   void kingMovement() {
-    PVector vel = PVector.sub(EnemyBase.pos, this.pos);
+    PVector vel = PVector.sub(EnemyBase.pos, pos);
     vel.setMag(2.5);
-    pos.add(this.vel);
+    pos.add(vel);
   }
 
   void update() {
