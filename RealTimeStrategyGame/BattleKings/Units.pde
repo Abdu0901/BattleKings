@@ -70,9 +70,11 @@ class archer extends Unit {
 
   void archerMovement() {
     if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=200) {
-      PVector vel = PVector.sub(EnemyBase.pos, pos);
-      vel.setMag(2.5);
-      pos.add(vel);
+      /*      PVector vel = PVector.sub(EnemyBase.pos, pos);
+       vel.setMag(2.5);
+       pos.add(vel);  */
+
+      //   add(arrow);
     }
     pos.add(this.vel);
   }
@@ -100,6 +102,28 @@ class horseman extends Unit {
       vel.setMag(2.5);
       pos.add(vel);
     }
+    pos.add(this.vel);
+  }
+}
+
+class arrow extends Unit {
+  PVector pos = new PVector (archer.pos.x, archer.pos.y);
+  PVector vel = new PVector (15, 0);
+
+
+  void update() {
+    pushMatrix();
+    translate(pos.x, pos.y);
+    rectMode(CENTER);
+    fill(255, 0, 0);
+    ellipse(0, 0, 20, 20);
+    popMatrix();
+  }
+
+  void arrowMovement() {
+    PVector vel = PVector.sub(EnemyBase.pos, pos);
+    vel.setMag(2.5);
+    pos.add(vel);
     pos.add(this.vel);
   }
 }

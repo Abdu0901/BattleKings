@@ -1,5 +1,6 @@
 class base {
   PVector pos = new PVector (50, 200);
+  int life = 100;
   
   void update() {
     rectMode(CENTER);
@@ -10,6 +11,7 @@ class base {
 
 class enemyBase {
   PVector pos = new PVector (1300, 200);
+  int life = 100;
 
   void update() {
     rectMode(CENTER);
