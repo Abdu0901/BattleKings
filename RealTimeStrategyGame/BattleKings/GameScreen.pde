@@ -11,7 +11,7 @@ void GameScreen() {
   AddUnits();
   FriendBase.update();
   EnemyBase.update();
-  
+
   //Checks if any of the bases has lost all HP
   if (EnemyBase.life <= 0) {
     Screen = 2;
@@ -27,6 +27,10 @@ int Timer = 0;
 
 //Counter that generates gold
 void GoldGenerator() {
+  fill(255);
+  textSize(30);
+  textAlign(LEFT, CENTER);
+  text("Gold: " + Gold, 25, 25);
   Timer = Timer +1;
   if (Timer == 100) {
     Gold = Gold +20;

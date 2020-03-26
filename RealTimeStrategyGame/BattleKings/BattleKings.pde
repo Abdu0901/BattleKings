@@ -44,7 +44,7 @@ void setup() {
   BKBow = loadImage("BK Bow.png");
   BKKing = loadImage("BK Crown.png");
   BKHorseman = loadImage("BK Horse.png");
-
+  //Creates bases
   FriendBase = new base();
   EnemyBase = new enemyBase();
 }
