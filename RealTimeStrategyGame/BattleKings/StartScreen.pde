@@ -3,6 +3,7 @@ Button StartGame;
 //Definin variables needed or button check
 boolean lastMousePressed = false;
 
+//StartScreen which includes info about the game and a start button
 void StartScreen() {
   background(BKStartScreen);
   Screen = 0;

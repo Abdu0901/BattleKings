@@ -1,3 +1,4 @@
+//Class for Buttons including a constructor for creating buttons
 class Button {
   int xPos, yPos;
   int wSize, hSize;

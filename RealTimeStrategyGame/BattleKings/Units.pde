@@ -1,3 +1,4 @@
+//Class Unit includes the different units and their interactions
 class Unit {
   PVector pos;
   PVector vel;

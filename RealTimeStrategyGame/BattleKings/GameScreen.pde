@@ -5,6 +5,7 @@ Button DeployArcher;
 enemyBase EnemyBase;
 base FriendBase;
 
+//Where all the fun is =]
 void GameScreen() {
   background (BKBackground);
   GoldGenerator();
@@ -27,10 +28,12 @@ int Timer = 0;
 
 //Counter that generates gold
 void GoldGenerator() {
+  //Text that shows the current amount of Gold the player has
   fill(255);
   textSize(30);
   textAlign(LEFT, CENTER);
   text("Gold: " + Gold, 25, 25);
+  //Timer that generates gold for the player
   Timer = Timer +1;
   if (Timer == 100) {
     Gold = Gold +20;
@@ -39,6 +42,7 @@ void GoldGenerator() {
   }
 }
 
+//The buttons which deploys units
 void AddUnits() {
   sword s;
   king k;
@@ -47,7 +51,8 @@ void AddUnits() {
 
   boolean mouseJustPressed = mousePressed & !lastMousePressed;
   lastMousePressed = mousePressed;
-
+  
+  //Deploy Swords button
   DeploySword = new Button(width/3, 450, 100, 200, strokeColor, "Sword(20)", 20, 0, bRed, bGreen, bBlue);
   DeploySword.ButtonUpdate();
   if (DeploySword.isButtonPressed(mouseX, mouseY, mouseJustPressed, DeploySword) == true && Gold > 19) {
@@ -55,12 +60,13 @@ void AddUnits() {
     println("Current amount of Gold: " + Gold);
     swords.add(new sword());
   }
-
   for (int i2 = swords.size()-1; i2>=0; i2--) {
     s = swords.get(i2);
     s.update();
     s.swordMovement();
   }
+  
+  //Deploy Kings button
   DeployKing = new Button(600, 450, 100, 200, strokeColor, "King(20)", 20, 0, bRed, bGreen, bBlue);
   DeployKing.ButtonUpdate();
   if (DeployKing.isButtonPressed(mouseX, mouseY, mouseJustPressed, DeployKing) == true && Gold > 19) {
@@ -68,13 +74,13 @@ void AddUnits() {
     println("Current amount of Gold: " + Gold);
     kings.add(new king());
   }
-
   for (int i3 = kings.size()-1; i3>=0; i3--) {
     k = kings.get(i3);
     k.update();
     k.kingMovement();
   }
-
+  
+  //Deploy Horsemen button
   DeployHorseman = new Button(750, 450, 100, 200, strokeColor, "horseman(20)", 20, 0, bRed, bGreen, bBlue);
   DeployHorseman.ButtonUpdate();
   if (DeployHorseman.isButtonPressed(mouseX, mouseY, mouseJustPressed, DeployHorseman) == true && Gold > 19) {
@@ -82,13 +88,13 @@ void AddUnits() {
     println("Current amount of Gold: " + Gold);
     horsemen.add(new horseman());
   }
-
   for (int i4 = horsemen.size()-1; i4>=0; i4--) {
     h = horsemen.get(i4);
     h.update();
     h.horsemanMovement();
   }
-
+  
+  //Deploy Archers button
   DeployArcher = new Button(900, 450, 100, 200, strokeColor, "archer(20)", 20, 0, bRed, bGreen, bBlue);
   DeployArcher.ButtonUpdate();
   if (DeployArcher.isButtonPressed(mouseX, mouseY, mouseJustPressed, DeployArcher) == true && Gold > 19) {
@@ -96,7 +102,6 @@ void AddUnits() {
     println("Current amount of Gold: " + Gold);
     archers.add(new archer());
   }
-
   for (int i5 = archers.size()-1; i5>=0; i5--) {
     a = archers.get(i5);
     a.update();
