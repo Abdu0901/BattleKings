@@ -106,7 +106,7 @@ class archer extends Unit {
       pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
     } //If unit is close to enemy base, InCombat becomes true and unit damages the base
-    if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=120 && taller > 9) {
+    if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=300 && taller > 9) {
       InCombat = true;
       taller = 0;
       EnemyBase.life = EnemyBase.life -1;
