@@ -37,6 +37,7 @@ PImage BKHorseman;
 
 void setup() {
   size(1400, 700);
+  frameRate(60);
   //Loads images
   BKBackground = loadImage("BK Background.jpg");
   BKBackground.resize(bW, bH);

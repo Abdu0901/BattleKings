@@ -51,9 +51,9 @@ void AddUnits() {
 
   boolean mouseJustPressed = mousePressed & !lastMousePressed;
   lastMousePressed = mousePressed;
-  
+
   //Deploy Swords button
-  DeploySword = new Button(width/3, 450, 100, 200, strokeColor, "Sword(20)", 20, 0, bRed, bGreen, bBlue);
+  DeploySword = new Button(175, 675, 350, 50, strokeColor, "Sword(20)", 35, 0, bRed, bGreen, bBlue);
   DeploySword.ButtonUpdate();
   if (DeploySword.isButtonPressed(mouseX, mouseY, mouseJustPressed, DeploySword) == true && Gold > 19) {
     Gold = Gold -20;
@@ -65,9 +65,9 @@ void AddUnits() {
     s.update();
     s.swordMovement();
   }
-  
+
   //Deploy Kings button
-  DeployKing = new Button(600, 450, 100, 200, strokeColor, "King(20)", 20, 0, bRed, bGreen, bBlue);
+  DeployKing = new Button(525, 675, 350, 50, strokeColor, "King(20)", 35, 0, bRed, bGreen, bBlue);
   DeployKing.ButtonUpdate();
   if (DeployKing.isButtonPressed(mouseX, mouseY, mouseJustPressed, DeployKing) == true && Gold > 19) {
     Gold = Gold -20;
@@ -79,9 +79,9 @@ void AddUnits() {
     k.update();
     k.kingMovement();
   }
-  
+
   //Deploy Horsemen button
-  DeployHorseman = new Button(750, 450, 100, 200, strokeColor, "horseman(20)", 20, 0, bRed, bGreen, bBlue);
+  DeployHorseman = new Button(875, 675, 350, 50, strokeColor, "Horseman(20)", 35, 0, bRed, bGreen, bBlue);
   DeployHorseman.ButtonUpdate();
   if (DeployHorseman.isButtonPressed(mouseX, mouseY, mouseJustPressed, DeployHorseman) == true && Gold > 19) {
     Gold = Gold -20;
@@ -93,9 +93,9 @@ void AddUnits() {
     h.update();
     h.horsemanMovement();
   }
-  
+
   //Deploy Archers button
-  DeployArcher = new Button(900, 450, 100, 200, strokeColor, "archer(20)", 20, 0, bRed, bGreen, bBlue);
+  DeployArcher = new Button(1225, 675, 350, 50, strokeColor, "Archer(20)", 35, 0, bRed, bGreen, bBlue);
   DeployArcher.ButtonUpdate();
   if (DeployArcher.isButtonPressed(mouseX, mouseY, mouseJustPressed, DeployArcher) == true && Gold > 19) {
     Gold = Gold -20;
