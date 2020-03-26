@@ -32,7 +32,7 @@ class sword extends Unit {
       vel.setMag(2.5);
       pos.x = constrain(pos.x, 0, width);
       pos.y = constrain(pos.y, 0, height);
-      pos.add(vel);
+      this.pos.add(this.vel);
     } //If unit is close to enemy base, InCombat becomes true and unit damages the base
     if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=120 && taller > 9) {
       InCombat = true;
@@ -57,7 +57,7 @@ class king extends Unit {
       vel.setMag(2.5);
       pos.x = constrain(pos.x, 0, width);
       pos.y = constrain(pos.y, 0, height);
-      pos.add(vel);
+      this.pos.add(this.vel);
     } //If unit is close to enemy base, InCombat becomes true and unit damages the base
     if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=120 && taller > 9) {
       InCombat = true;
@@ -104,7 +104,7 @@ class archer extends Unit {
       vel.setMag(2.5);
       pos.x = constrain(pos.x, 0, width);
       pos.y = constrain(pos.y, 0, height);
-      pos.add(vel);
+      this.pos.add(this.vel);
     } //If unit is close to enemy base, InCombat becomes true and unit damages the base
     if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=300 && taller > 9) {
       InCombat = true;
@@ -152,7 +152,7 @@ class horseman extends Unit {
       vel.setMag(2.5);
       pos.x = constrain(pos.x, 0, width);
       pos.y = constrain(pos.y, 0, height);
-      pos.add(vel);
+      this.pos.add(this.vel);
     } //If unit is close to enemy base, InCombat becomes true and unit damages the base
     if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=120 && taller > 9) {
       InCombat = true;
