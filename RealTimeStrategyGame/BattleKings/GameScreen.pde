@@ -58,17 +58,14 @@ void AddUnits() {
   horseman h;
   archer a;
 
-  boolean mouseJustPressed = mousePressed & !lastMousePressed;
-  lastMousePressed = mousePressed;
-
   //Deploy Swords button
   DeploySword = new Button(175, 675, 350, 50, strokeColor, "Sword(20)", 35, 0, bRed, bGreen, bBlue);
   DeploySword.ButtonUpdate();
-  if (DeploySword.isButtonPressed(mouseX, mouseY, mouseJustPressed, DeploySword) == true && Gold > 19) {
-    SelectedUnitNum = 1;
+  if (SwordDP == true && Gold > 19 && mousePressed == true) {
     Gold = Gold -20;
     println("Current amount of Gold: " + Gold);
     swords.add(new sword());
+    SelectedUnitNum = 0;
   }
   for (int i2 = swords.size()-1; i2>=0; i2--) {
     s = swords.get(i2);
@@ -79,11 +76,11 @@ void AddUnits() {
   //Deploy Kings button
   DeployKing = new Button(525, 675, 350, 50, strokeColor, "King(20)", 35, 0, bRed, bGreen, bBlue);
   DeployKing.ButtonUpdate();
-  if (DeployKing.isButtonPressed(mouseX, mouseY, mouseJustPressed, DeployKing) == true && Gold > 19) {
-    SelectedUnitNum = 2;
+  if (KingDP == true && Gold > 19 && mousePressed == true) {
     Gold = Gold -20;
     println("Current amount of Gold: " + Gold);
     kings.add(new king());
+    SelectedUnitNum = 0;
   }
   for (int i3 = kings.size()-1; i3>=0; i3--) {
     k = kings.get(i3);
@@ -94,11 +91,11 @@ void AddUnits() {
   //Deploy Horsemen button
   DeployHorseman = new Button(875, 675, 350, 50, strokeColor, "Horseman(20)", 35, 0, bRed, bGreen, bBlue);
   DeployHorseman.ButtonUpdate();
-  if (DeployHorseman.isButtonPressed(mouseX, mouseY, mouseJustPressed, DeployHorseman) == true && Gold > 19) {
-    SelectedUnitNum = 3;
+  if (HorsemanDP == true && Gold > 19 && mousePressed == true) {
     Gold = Gold -20;
     println("Current amount of Gold: " + Gold);
     horsemen.add(new horseman());
+    SelectedUnitNum = 0;
   }
   for (int i4 = horsemen.size()-1; i4>=0; i4--) {
     h = horsemen.get(i4);
@@ -109,11 +106,11 @@ void AddUnits() {
   //Deploy Archers button
   DeployArcher = new Button(1225, 675, 350, 50, strokeColor, "Archer(20)", 35, 0, bRed, bGreen, bBlue);
   DeployArcher.ButtonUpdate();
-  if (DeployArcher.isButtonPressed(mouseX, mouseY, mouseJustPressed, DeployArcher) == true && Gold > 19) {
-    SelectedUnitNum = 4;
+  if (BowDP == true && Gold > 19 && mousePressed == true) {
     Gold = Gold -20;
     println("Current amount of Gold: " + Gold);
     archers.add(new archer());
+    SelectedUnitNum = 0;
   }
   for (int i5 = archers.size()-1; i5>=0; i5--) {
     a = archers.get(i5);

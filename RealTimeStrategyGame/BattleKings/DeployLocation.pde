@@ -45,3 +45,12 @@ void mousePressed(){
   DeployX = mouseX;
   DeployY = mouseY;
 }
+
+void keyPressed() {
+  final int k = keyCode;
+
+  if      (k == '1') SelectedUnitNum = 1;
+  else if (k == '2') SelectedUnitNum = 2;
+  else if (k == '3') SelectedUnitNum = 3;
+  else if (k == '4') SelectedUnitNum = 4;
+}
