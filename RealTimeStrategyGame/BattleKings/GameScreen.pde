@@ -59,7 +59,7 @@ void AddUnits() {
   archer a;
 
   //Deploy Swords button
-  DeploySword = new Button(175, 675, 350, 50, strokeColor, "Sword(20)", 35, 0, bRed, bGreen, bBlue);
+  DeploySword = new Button(175, 675, 350, 50, strokeColor, "[1] Sword(20)", 35, 0, bRed, bGreen, bBlue);
   DeploySword.ButtonUpdate();
   if (SwordDP == true && Gold > 19 && mousePressed == true) {
     Gold = Gold -20;
@@ -74,7 +74,7 @@ void AddUnits() {
   }
 
   //Deploy Kings button
-  DeployKing = new Button(525, 675, 350, 50, strokeColor, "King(20)", 35, 0, bRed, bGreen, bBlue);
+  DeployKing = new Button(525, 675, 350, 50, strokeColor, "[2] King(20)", 35, 0, bRed, bGreen, bBlue);
   DeployKing.ButtonUpdate();
   if (KingDP == true && Gold > 19 && mousePressed == true) {
     Gold = Gold -20;
@@ -89,7 +89,7 @@ void AddUnits() {
   }
 
   //Deploy Horsemen button
-  DeployHorseman = new Button(875, 675, 350, 50, strokeColor, "Horseman(20)", 35, 0, bRed, bGreen, bBlue);
+  DeployHorseman = new Button(875, 675, 350, 50, strokeColor, "[3] Horseman(20)", 35, 0, bRed, bGreen, bBlue);
   DeployHorseman.ButtonUpdate();
   if (HorsemanDP == true && Gold > 19 && mousePressed == true) {
     Gold = Gold -20;
@@ -104,7 +104,7 @@ void AddUnits() {
   }
 
   //Deploy Archers button
-  DeployArcher = new Button(1225, 675, 350, 50, strokeColor, "Archer(20)", 35, 0, bRed, bGreen, bBlue);
+  DeployArcher = new Button(1225, 675, 350, 50, strokeColor, "[4] Archer(20)", 35, 0, bRed, bGreen, bBlue);
   DeployArcher.ButtonUpdate();
   if (BowDP == true && Gold > 19 && mousePressed == true) {
     Gold = Gold -20;
