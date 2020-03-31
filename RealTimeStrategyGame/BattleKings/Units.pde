@@ -7,7 +7,7 @@ class Unit {
 }
 
 class sword extends Unit {
-  PVector pos = new PVector (50, 350);
+  PVector pos = new PVector (DeployX, DeployY);
   PVector vel = new PVector (3, 0);
 
   void update() {
@@ -43,9 +43,8 @@ class sword extends Unit {
 }
 
 class king extends Unit {
-  PVector pos = new PVector (50, 350);
+  PVector pos = new PVector (DeployX, DeployY);
   PVector vel = new PVector (5, 0);
-
   void kingMovement() {
     taller++;
     //Checks if unit is in combat, if true, stops the unit from moving
@@ -79,7 +78,7 @@ class king extends Unit {
 }
 
 class archer extends Unit {
-  PVector pos = new PVector (50, 350);
+  PVector pos = new PVector (DeployX, DeployY);
   PVector vel = new PVector (5, 0);
 
   void update() {
@@ -115,8 +114,8 @@ class archer extends Unit {
     if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=200) {
      PVector vel = PVector.sub(EnemyBase.pos, pos);
      vel.setMag(2.5);
-     pos.add(vel);  
-     
+     pos.add(vel);
+
      //   add(arrow);
      }
      pos.x = constrain(pos.x, 0, width);
@@ -127,7 +126,7 @@ class archer extends Unit {
 }
 
 class horseman extends Unit {
-  PVector pos = new PVector (50, 350);
+  PVector pos = new PVector (DeployX, DeployY);
   PVector vel = new PVector (10, 0);
 
   void update() {
