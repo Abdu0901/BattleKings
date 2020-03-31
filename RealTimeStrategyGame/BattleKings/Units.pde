@@ -8,7 +8,7 @@ class Unit {
 
 class sword extends Unit {
   PVector pos = new PVector (50, 350);
-  PVector vel = new PVector (2, 0);
+  PVector vel = new PVector (3, 0);
 
   void update() {
     pushMatrix();
@@ -44,7 +44,7 @@ class sword extends Unit {
 
 class king extends Unit {
   PVector pos = new PVector (50, 350);
-  PVector vel = new PVector (10, 0);
+  PVector vel = new PVector (5, 0);
 
   void kingMovement() {
     taller++;
@@ -80,7 +80,7 @@ class king extends Unit {
 
 class archer extends Unit {
   PVector pos = new PVector (50, 350);
-  PVector vel = new PVector (10, 0);
+  PVector vel = new PVector (5, 0);
 
   void update() {
     pushMatrix();
@@ -128,7 +128,7 @@ class archer extends Unit {
 
 class horseman extends Unit {
   PVector pos = new PVector (50, 350);
-  PVector vel = new PVector (15, 0);
+  PVector vel = new PVector (10, 0);
 
   void update() {
     pushMatrix();
