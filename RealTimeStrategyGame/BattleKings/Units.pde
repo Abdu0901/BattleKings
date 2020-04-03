@@ -13,6 +13,7 @@ class sword extends Unit {
   void update() {
     pushMatrix();
     translate(pos.x, pos.y);
+    rotate(atan2(EnemyBase.pos.y - pos.y, EnemyBase.pos.x - pos.x));
     rectMode(CENTER);
     fill(0, 0, 255);
     ellipse(0, 0, 50, 50);
@@ -68,6 +69,7 @@ class king extends Unit {
   void update() {
     pushMatrix();
     translate(pos.x, pos.y);
+    rotate(atan2(EnemyBase.pos.y - pos.y, EnemyBase.pos.x - pos.x));
     rectMode(CENTER);
     fill(0, 0, 255);
     ellipse(0, 0, 50, 50);
@@ -84,6 +86,7 @@ class archer extends Unit {
   void update() {
     pushMatrix();
     translate(pos.x, pos.y);
+    rotate(atan2(EnemyBase.pos.y - pos.y, EnemyBase.pos.x - pos.x));
     rectMode(CENTER);
     fill(0, 0, 255);
     ellipse(0, 0, 50, 50);
@@ -132,6 +135,7 @@ class horseman extends Unit {
   void update() {
     pushMatrix();
     translate(pos.x, pos.y);
+    rotate(atan2(EnemyBase.pos.y - pos.y, EnemyBase.pos.x - pos.x));
     rectMode(CENTER);
     fill(0, 0, 255);
     ellipse(0, 0, 50, 50);
