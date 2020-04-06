@@ -1,3 +1,15 @@
+//Cost of the troops
+int SwordCost = 20;
+int KingCost = 20;
+int ArcherCost = 20;
+int HorseManCost = 20;
+
+//Cost of the troops
+int SwordDamage = 1;
+int KingDamage = 1;
+int ArcherDamage = 1;
+int HorseManDamage = 1;
+
 //Class Unit includes the different units and their interactions
 class Unit {
   PVector pos;
@@ -38,7 +50,7 @@ class sword extends Unit {
     if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=120 && taller > 9) {
       InCombat = true;
       taller = 0;
-      EnemyBase.life = EnemyBase.life -1;
+      EnemyBase.life = EnemyBase.life -SwordDamage;
     }
   }
 }
@@ -62,7 +74,7 @@ class king extends Unit {
     if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=120 && taller > 9) {
       InCombat = true;
       taller = 0;
-      EnemyBase.life = EnemyBase.life -1;
+      EnemyBase.life = EnemyBase.life -KingDamage;
     }
   }
 
@@ -111,7 +123,7 @@ class archer extends Unit {
     if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=300 && taller > 9) {
       InCombat = true;
       taller = 0;
-      EnemyBase.life = EnemyBase.life -1;
+      EnemyBase.life = EnemyBase.life -ArcherDamage;
     }
     /*
     if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=200) {
@@ -160,7 +172,7 @@ class horseman extends Unit {
     if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=120 && taller > 9) {
       InCombat = true;
       taller = 0;
-      EnemyBase.life = EnemyBase.life -1;
+      EnemyBase.life = EnemyBase.life -HorseManDamage;
     }
   }
 }

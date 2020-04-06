@@ -59,10 +59,10 @@ void AddUnits() {
   archer a;
 
   //Deploy Swords button
-  DeploySword = new Button(175, 675, 350, 50, strokeColor, "[1] Sword(20)", 35, 0, bRed, bGreen, bBlue);
+  DeploySword = new Button(175, 675, 350, 50, strokeColor, "[1] Sword(" + SwordCost + ")", 35, 0, bRed, bGreen, bBlue);
   DeploySword.ButtonUpdate();
-  if (SwordDP == true && Gold > 19 && mousePressed == true) {
-    Gold = Gold -20;
+  if (SwordDP == true && Gold > SwordCost-1 && mousePressed == true) {
+    Gold = Gold -SwordCost;
     println("Current amount of Gold: " + Gold);
     swords.add(new sword());
     SelectedUnitNum = 0;
@@ -74,10 +74,10 @@ void AddUnits() {
   }
 
   //Deploy Kings button
-  DeployKing = new Button(525, 675, 350, 50, strokeColor, "[2] King(20)", 35, 0, bRed, bGreen, bBlue);
+  DeployKing = new Button(525, 675, 350, 50, strokeColor, "[2] King(" + KingCost + ")", 35, 0, bRed, bGreen, bBlue);
   DeployKing.ButtonUpdate();
-  if (KingDP == true && Gold > 19 && mousePressed == true) {
-    Gold = Gold -20;
+  if (KingDP == true && Gold > KingCost-1 && mousePressed == true) {
+    Gold = Gold -KingCost;
     println("Current amount of Gold: " + Gold);
     kings.add(new king());
     SelectedUnitNum = 0;
@@ -89,10 +89,10 @@ void AddUnits() {
   }
 
   //Deploy Horsemen button
-  DeployHorseman = new Button(875, 675, 350, 50, strokeColor, "[3] Horseman(20)", 35, 0, bRed, bGreen, bBlue);
+  DeployHorseman = new Button(875, 675, 350, 50, strokeColor, "[3] Horseman(" + HorseManCost + ")", 35, 0, bRed, bGreen, bBlue);
   DeployHorseman.ButtonUpdate();
-  if (HorsemanDP == true && Gold > 19 && mousePressed == true) {
-    Gold = Gold -20;
+  if (HorsemanDP == true && Gold > HorseManCost-1 && mousePressed == true) {
+    Gold = Gold -HorseManCost;
     println("Current amount of Gold: " + Gold);
     horsemen.add(new horseman());
     SelectedUnitNum = 0;
@@ -104,10 +104,10 @@ void AddUnits() {
   }
 
   //Deploy Archers button
-  DeployArcher = new Button(1225, 675, 350, 50, strokeColor, "[4] Archer(20)", 35, 0, bRed, bGreen, bBlue);
+  DeployArcher = new Button(1225, 675, 350, 50, strokeColor, "[4] Archer(" + ArcherCost + ")", 35, 0, bRed, bGreen, bBlue);
   DeployArcher.ButtonUpdate();
-  if (BowDP == true && Gold > 19 && mousePressed == true) {
-    Gold = Gold -20;
+  if (BowDP == true && Gold > ArcherCost-1 && mousePressed == true) {
+    Gold = Gold -ArcherCost;
     println("Current amount of Gold: " + Gold);
     archers.add(new archer());
     SelectedUnitNum = 0;
