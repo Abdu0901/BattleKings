@@ -4,11 +4,17 @@ int KingCost = 20;
 int ArcherCost = 20;
 int HorseManCost = 20;
 
-//Cost of the troops
+//Damage of the troops
 int SwordDamage = 1;
 int KingDamage = 1;
 int ArcherDamage = 1;
 int HorseManDamage = 1;
+
+//Speed of the troops
+int VeryFastSpeed = 4;
+int FastSpeed = 3;
+int MediumSpeed = 2;
+int SlowSpeed = 1;
 
 //Class Unit includes the different units and their interactions
 class Unit {
@@ -20,7 +26,7 @@ class Unit {
 
 class sword extends Unit {
   PVector pos = new PVector (DeployX, DeployY);
-  PVector vel = new PVector (3, 0);
+  PVector vel = new PVector (MediumSpeed, 0);
 
   void update() {
     pushMatrix();
@@ -42,7 +48,7 @@ class sword extends Unit {
     } //If above is false, unit will move towards enemy base
     else if (InCombat == false) {
       PVector vel = PVector.sub(EnemyBase.pos, pos);
-      vel.setMag(2.5);
+      vel.setMag(MediumSpeed);
       pos.x = constrain(pos.x, 0, width);
       pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
@@ -57,7 +63,7 @@ class sword extends Unit {
 
 class king extends Unit {
   PVector pos = new PVector (DeployX, DeployY);
-  PVector vel = new PVector (5, 0);
+  PVector vel = new PVector (FastSpeed, 0);
   void kingMovement() {
     taller++;
     //Checks if unit is in combat, if true, stops the unit from moving
@@ -66,7 +72,7 @@ class king extends Unit {
     } //If above is false, unit will move towards enemy base
     else if (InCombat == false) {
       PVector vel = PVector.sub(EnemyBase.pos, pos);
-      vel.setMag(2.5);
+      vel.setMag(FastSpeed);
       pos.x = constrain(pos.x, 0, width);
       pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
@@ -93,7 +99,7 @@ class king extends Unit {
 
 class archer extends Unit {
   PVector pos = new PVector (DeployX, DeployY);
-  PVector vel = new PVector (5, 0);
+  PVector vel = new PVector (SlowSpeed, 0);
 
   void update() {
     pushMatrix();
@@ -115,7 +121,7 @@ class archer extends Unit {
     } //If above is false, unit will move towards enemy base
     else if (InCombat == false) {
       PVector vel = PVector.sub(EnemyBase.pos, pos);
-      vel.setMag(2.5);
+      vel.setMag(SlowSpeed);
       pos.x = constrain(pos.x, 0, width);
       pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
@@ -142,7 +148,7 @@ class archer extends Unit {
 
 class horseman extends Unit {
   PVector pos = new PVector (DeployX, DeployY);
-  PVector vel = new PVector (10, 0);
+  PVector vel = new PVector (VeryFastSpeed, 0);
 
   void update() {
     pushMatrix();
@@ -164,7 +170,7 @@ class horseman extends Unit {
     } //If above is false, unit will move towards enemy base
     else if (InCombat == false) {
       PVector vel = PVector.sub(EnemyBase.pos, pos);
-      vel.setMag(2.5);
+      vel.setMag(VeryFastSpeed);
       pos.x = constrain(pos.x, 0, width);
       pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
