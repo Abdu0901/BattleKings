@@ -16,6 +16,12 @@ int FastSpeed = 3;
 int MediumSpeed = 2;
 int SlowSpeed = 1;
 
+//Health of the troops
+int SwordHP = 20;
+int KingHP = 20;
+int ArcherHP = 20;
+int HorseManHP = 20;
+
 //Class Unit includes the different units and their interactions
 class Unit {
   PVector pos;
@@ -27,6 +33,7 @@ class Unit {
 class sword extends Unit {
   PVector pos = new PVector (DeployX, DeployY);
   PVector vel = new PVector (MediumSpeed, 0);
+  int life = SwordHP;
 
   void update() {
     pushMatrix();
@@ -64,6 +71,8 @@ class sword extends Unit {
 class king extends Unit {
   PVector pos = new PVector (DeployX, DeployY);
   PVector vel = new PVector (FastSpeed, 0);
+  int life = KingHP;
+  
   void kingMovement() {
     taller++;
     //Checks if unit is in combat, if true, stops the unit from moving
@@ -100,6 +109,7 @@ class king extends Unit {
 class archer extends Unit {
   PVector pos = new PVector (DeployX, DeployY);
   PVector vel = new PVector (SlowSpeed, 0);
+  int life = ArcherHP;
 
   void update() {
     pushMatrix();
@@ -149,6 +159,7 @@ class archer extends Unit {
 class horseman extends Unit {
   PVector pos = new PVector (DeployX, DeployY);
   PVector vel = new PVector (VeryFastSpeed, 0);
+  int life = HorseManHP;
 
   void update() {
     pushMatrix();
