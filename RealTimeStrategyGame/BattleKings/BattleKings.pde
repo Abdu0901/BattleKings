@@ -1,10 +1,15 @@
 //Abdullah, Jens and Magnus DDU. BattleKings a RealTime Strategy Game.
 
 //ArrayList that contains the objects of each unit
-ArrayList<sword> swords = new ArrayList<sword>();
-ArrayList<king> kings = new ArrayList<king>();
-ArrayList<archer> archers = new ArrayList<archer>();
-ArrayList<horseman> horsemen = new ArrayList<horseman>();
+ArrayList<Fsword> Fswords = new ArrayList<Fsword>();
+ArrayList<Fking> Fkings = new ArrayList<Fking>();
+ArrayList<Farcher> Farchers = new ArrayList<Farcher>();
+ArrayList<Fhorseman> Fhorsemen = new ArrayList<Fhorseman>();
+
+ArrayList<Esword> Eswords = new ArrayList<Esword>();
+ArrayList<Eking> Ekings = new ArrayList<Eking>();
+ArrayList<Earcher> Earchers = new ArrayList<Earcher>();
+ArrayList<Ehorseman> Ehorsemen = new ArrayList<Ehorseman>();
 
 //A variable that displays the current selected screen
 int Screen = 0;
