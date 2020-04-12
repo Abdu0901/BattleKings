@@ -39,6 +39,10 @@ PImage BKSword;
 PImage BKBow;
 PImage BKKing;
 PImage BKHorseman;
+PImage BKESword;
+PImage BKEBow;
+PImage BKEKing;
+PImage BKEHorseman;
 
 void setup() {
   size(1400, 700);
@@ -52,6 +56,10 @@ void setup() {
   BKBow = loadImage("BK Bow.png");
   BKKing = loadImage("BK Crown.png");
   BKHorseman = loadImage("BK Horse.png");
+  BKESword = loadImage("BK ESword.png");
+  BKEBow = loadImage("BK EBow.png");
+  BKEKing = loadImage("BK ECrown.png");
+  BKEHorseman = loadImage("BK EHorse.png");
   //Creates bases
   FriendBase = new base();
   EnemyBase = new enemyBase();
