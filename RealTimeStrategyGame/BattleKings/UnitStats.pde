@@ -1,8 +1,10 @@
+int CheapCost = 20;
+
 //Cost of the troops
-int SwordCost = 20;
-int KingCost = 20;
-int ArcherCost = 20;
-int HorseManCost = 20;
+int SwordCost = CheapCost, ESwordCost = CheapCost;
+int KingCost = CheapCost, EKingCost = CheapCost;
+int ArcherCost = CheapCost, EArcherCost = CheapCost;
+int HorseManCost = CheapCost, EHorseManCost = CheapCost;
 
 //Damage of the troops
 int SwordDamage = 1;
