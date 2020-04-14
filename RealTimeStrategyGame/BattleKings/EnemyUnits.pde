@@ -19,7 +19,7 @@ class Esword extends EnemyUnit {
     fill(255, 0, 0);
     ellipse(0, 0, 50, 50);
     BKSword.resize(50, 50);
-    image(BKSword, -25, -25);
+    image(BKSword, 0, 0);
     popMatrix();
   }
 
@@ -48,7 +48,7 @@ class Eking extends EnemyUnit {
   PVector pos = new PVector (EDeployLocationX, EDeployLocationY);
   PVector vel = new PVector (FastSpeed, 0);
   int life = KingHP;
-  
+
   void EkingMovement() {
     taller++;
     //Checks if EnemyUnit is in combat, if true, stops the EnemyUnit from moving
@@ -77,7 +77,7 @@ class Eking extends EnemyUnit {
     fill(255, 0, 0);
     ellipse(0, 0, 50, 50);
     BKKing.resize(50, 50);
-    image(BKKing, -25, -25);
+    image(BKKing, 0, 0);
     popMatrix();
   }
 }
@@ -95,7 +95,7 @@ class Earcher extends EnemyUnit {
     fill(255, 0, 0);
     ellipse(0, 0, 50, 50);
     BKBow.resize(50, 50);
-    image(BKBow, -25, -25);
+    image(BKBow, 0, 0);
     popMatrix();
   }
 
@@ -145,7 +145,7 @@ class Ehorseman extends EnemyUnit {
     fill(255, 0, 0);
     ellipse(0, 0, 50, 50);
     BKHorseman.resize(50, 50);
-    image(BKHorseman, -25, -25);
+    image(BKHorseman, 0, 0);
     popMatrix();
   }
 
@@ -171,22 +171,22 @@ class Ehorseman extends EnemyUnit {
 }
 /*
 class arrow extends EnemyUnit {
-  //  PVector pos = new PVector (archer.pos.x, archer.pos.y);
-  PVector vel = new PVector (15, 0);
-
-  void update() {
-    pushMatrix();
-    translate(pos.x, pos.y);
-    rectMode(CENTER);
-    fill(255, 0, 0);
-    ellipse(0, 0, 20, 20);
-    popMatrix();
-  }
-
-  void arrowMovement() {
-    PVector vel = PVector.sub(FriendBase.pos, pos);
-    vel.setMag(2.5);
-    pos.add(vel);
-    pos.add(this.vel);
-  }
-}*/
+ //  PVector pos = new PVector (archer.pos.x, archer.pos.y);
+ PVector vel = new PVector (15, 0);
+ 
+ void update() {
+ pushMatrix();
+ translate(pos.x, pos.y);
+ rectMode(CENTER);
+ fill(255, 0, 0);
+ ellipse(0, 0, 20, 20);
+ popMatrix();
+ }
+ 
+ void arrowMovement() {
+ PVector vel = PVector.sub(FriendBase.pos, pos);
+ vel.setMag(2.5);
+ pos.add(vel);
+ pos.add(this.vel);
+ }
+ }*/

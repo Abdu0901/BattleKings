@@ -6,6 +6,7 @@ boolean lastMousePressed = false;
 //StartScreen which includes info about the game and a start button
 void StartScreen() {
   background(BKStartScreen);
+  imageMode(CENTER);
   Screen = 0;
   boolean mouseJustPressed = mousePressed & !lastMousePressed;
   lastMousePressed = mousePressed;

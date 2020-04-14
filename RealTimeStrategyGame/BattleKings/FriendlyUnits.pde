@@ -19,7 +19,7 @@ class Fsword extends FriendlyUnit {
     fill(0, 0, 255);
     ellipse(0, 0, 50, 50);
     BKSword.resize(50, 50);
-    image(BKSword, -25, -25);
+    image(BKSword, 0, 0);
     popMatrix();
   }
 
@@ -67,11 +67,6 @@ class Fking extends FriendlyUnit {
       taller = 0;
       EnemyBase.life = EnemyBase.life -KingDamage;
     }
-    /* if (dist(pos.x, pos.y, EnemyUnit.pos.x, EnemyUnit.pos.y)<=120 && taller > 9) {
-     InCombat = true;
-     taller = 0;
-     EnemyUnit.life = EnemyUnit.life - KingDamage;
-     } */
   }
 
   void update() {
@@ -82,7 +77,7 @@ class Fking extends FriendlyUnit {
     fill(0, 0, 255);
     ellipse(0, 0, 50, 50);
     BKKing.resize(50, 50);
-    image(BKKing, -25, -25);
+    image(BKKing, 0, 0);
     popMatrix();
   }
 }
@@ -100,7 +95,7 @@ class Farcher extends FriendlyUnit {
     fill(0, 0, 255);
     ellipse(0, 0, 50, 50);
     BKBow.resize(50, 50);
-    image(BKBow, -25, -25);
+    image(BKBow, 0, 0);
     popMatrix();
   }
 
@@ -150,7 +145,7 @@ class Fhorseman extends FriendlyUnit {
     fill(0, 0, 255);
     ellipse(0, 0, 50, 50);
     BKHorseman.resize(50, 50);
-    image(BKHorseman, -25, -25);
+    image(BKHorseman, 0, 0);
     popMatrix();
   }
 
