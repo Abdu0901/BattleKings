@@ -29,8 +29,10 @@ void GameScreen() {
 
   //Checks if any of the bases has lost all HP
   if (EnemyBase.life <= 0) {
+    BKWinTeam = BKBlueWin;
     Screen = 2;
   } else if (FriendBase.life <= 0) {
+    BKWinTeam = BKRedWin;
     Screen = 2;
   }
 }

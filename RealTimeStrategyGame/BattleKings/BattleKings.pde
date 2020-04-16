@@ -33,6 +33,8 @@ int bH = 700;
 //Images for the different screens
 PImage BKBackground;
 PImage BKStartScreen;
+PImage BKBlueWin;
+PImage BKRedWin;
 
 //Images for the Characters
 PImage BKSword;
@@ -52,6 +54,10 @@ void setup() {
   BKBackground.resize(bW, bH);
   BKStartScreen = loadImage("BK StartScreen.jpg");
   BKStartScreen.resize(bW, bH);
+  BKBlueWin = loadImage("BK BlueWin.jpg");
+  BKBlueWin.resize(bW, bH);
+  BKRedWin = loadImage("BK RedWin.jpg");
+  BKRedWin.resize(bW, bH);
   BKSword = loadImage("BK Sword.png");
   BKBow = loadImage("BK Bow.png");
   BKKing = loadImage("BK Crown.png");
@@ -60,8 +66,8 @@ void setup() {
   BKEBow = loadImage("BK EBow.png");
   BKEKing = loadImage("BK ECrown.png");
   BKEHorseman = loadImage("BK EHorse.png");
-  //Creates bases
-  FriendBase = new base();
+    //Creates bases
+    FriendBase = new base();
   EnemyBase = new enemyBase();
 }
 
