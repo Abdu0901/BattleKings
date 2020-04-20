@@ -37,4 +37,5 @@ int HorseManHP = 20;
 //Size of units/base (How close a unit has to be to the target to be incombat)
 int BaseSize = 120;
 int UnitSize = 60;
+int TargetSize = 60;
 int BowRange = 180;

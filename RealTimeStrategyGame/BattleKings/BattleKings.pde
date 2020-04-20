@@ -4,7 +4,6 @@
 import processing.sound.*;
 SoundFile Medieval;
 
-
 //ArrayList that contains the objects of each unit
 ArrayList<Fsword> Fswords = new ArrayList<Fsword>();
 ArrayList<Fking> Fkings = new ArrayList<Fking>();
@@ -53,8 +52,8 @@ PImage BKEHorseman;
 
 void setup() {
   //load music
-  Medieval = new SoundFile(this, "Medieval.mp3");
-  Medieval.play();
+  //Medieval = new SoundFile(this, "Medieval.mp3");
+  //Medieval.play();
   size(1400, 700);
   frameRate(60);
   //Loads images
@@ -77,6 +76,7 @@ void setup() {
   //Creates bases
   FriendBase = new base();
   EnemyBase = new enemyBase();
+  Target = new target();
 }
 
 void draw() {

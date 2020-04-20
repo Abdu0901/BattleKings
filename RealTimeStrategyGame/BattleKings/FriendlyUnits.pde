@@ -36,11 +36,15 @@ class Fsword extends FriendlyUnit {
       pos.x = constrain(pos.x, 0, width);
       pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
+      Target.pos.x = EnemyBase.pos.x;
+      Target.pos.y = EnemyBase.pos.y;
+      Target.life = EnemyBase.life;
+      TargetSize = BaseSize;
     } //If FriendlyUnit is close to enemy base, InCombat becomes true and FriendlyUnit damages the base
-    if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=BaseSize && taller > VeryFastAttackSpeed) {
+    if (dist(pos.x, pos.y, Target.pos.x, Target.pos.y)<=TargetSize && taller > VeryFastAttackSpeed) {
       InCombat = true;
       taller = 0;
-      EnemyBase.life = EnemyBase.life -SwordDamage;
+      Target.life = Target.life -SwordDamage;
     }
   }
 }
