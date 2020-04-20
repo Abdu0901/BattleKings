@@ -1,10 +1,9 @@
 //Class EnemyUnit includes the different EnemyUnits and their interactions
 class EnemyUnit {
-  PVector pos = new PVector (0,0);
+  PVector pos;
   PVector vel;
   int taller = 0;
   boolean InCombat = false;
-  int life;
 }
 
 class Esword extends EnemyUnit {
