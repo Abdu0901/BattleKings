@@ -15,6 +15,6 @@ void SettingsScreen() {
   //SwitchMusic Button
   SwitchMusic = new Button(550, 70, 450, 100, strokeColor, "Switch Music", 80, 0, bRed, bGreen, bBlue);
   SwitchMusic.ButtonUpdate();
-  if (SwitchMusic.isButtonPressed(mouseX, mouseY, mouseJustPressed, StartGame) == true) {
+  if (SwitchMusic.isButtonPressed(mouseX, mouseY, mouseJustPressed, SwitchMusic) == true) {
   }
 }
