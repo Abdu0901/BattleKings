@@ -1,5 +1,9 @@
 //Abdullah, Jens and Magnus DDU. BattleKings a RealTime Strategy Game.
- 
+
+import processing.sound.*;
+SoundFile Medieval;
+
+
 //ArrayList that contains the objects of each unit
 ArrayList<Fsword> Fswords = new ArrayList<Fsword>();
 ArrayList<Fking> Fkings = new ArrayList<Fking>();
@@ -47,6 +51,9 @@ PImage BKEKing;
 PImage BKEHorseman;
 
 void setup() {
+  //load music
+  Medieval = new SoundFile(this, "Medieval.mp3");
+  Medieval.play();
   size(1400, 700);
   frameRate(60);
   //Loads images
@@ -66,8 +73,8 @@ void setup() {
   BKEBow = loadImage("BK EBow.png");
   BKEKing = loadImage("BK ECrown.png");
   BKEHorseman = loadImage("BK EHorse.png");
-    //Creates bases
-    FriendBase = new base();
+  //Creates bases
+  FriendBase = new base();
   EnemyBase = new enemyBase();
 }
 
