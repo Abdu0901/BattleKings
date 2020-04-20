@@ -1,5 +1,6 @@
 //Abdullah, Jens and Magnus DDU. BattleKings a RealTime Strategy Game.
 
+//import lydfiler og processing funktioner
 import processing.sound.*;
 SoundFile Medieval;
 
@@ -54,6 +55,7 @@ void setup() {
   //load music
   Medieval = new SoundFile(this, "Medieval.mp3");
   Medieval.play();
+  
   size(1400, 700);
   frameRate(60);
   //Loads images
