@@ -10,7 +10,7 @@ class EnemyUnit {
 class Esword extends EnemyUnit {
   PVector pos = new PVector (EDeployLocationX, EDeployLocationY);
   PVector vel = new PVector (MediumSpeed, 0);
-  life = SwordHP;
+  int life = SwordHP;
 
   void update() {
     pushMatrix();
@@ -37,7 +37,7 @@ class Esword extends EnemyUnit {
       pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
     } //If EnemyUnit is close to enemy base, InCombat becomes true and EnemyUnit damages the base
-    if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=120 && taller > VeryFastAttackSpeed) {
+    if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=BaseSize && taller > VeryFastAttackSpeed) {
       InCombat = true;
       taller = 0;
       FriendBase.life = FriendBase.life -SwordDamage;
@@ -48,7 +48,7 @@ class Esword extends EnemyUnit {
 class Eking extends EnemyUnit {
   PVector pos = new PVector (EDeployLocationX, EDeployLocationY);
   PVector vel = new PVector (FastSpeed, 0);
-  life = KingHP;
+  int life = KingHP;
 
   void EkingMovement() {
     taller++;
@@ -63,7 +63,7 @@ class Eking extends EnemyUnit {
       pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
     } //If EnemyUnit is close to enemy base, InCombat becomes true and EnemyUnit damages the base
-    if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=120 && taller > SlowAttackSpeed) {
+    if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=BaseSize && taller > SlowAttackSpeed) {
       InCombat = true;
       taller = 0;
       FriendBase.life = FriendBase.life -KingDamage;
@@ -86,7 +86,7 @@ class Eking extends EnemyUnit {
 class Earcher extends EnemyUnit {
   PVector pos = new PVector (EDeployLocationX, EDeployLocationY);
   PVector vel = new PVector (SlowSpeed, 0);
-  life = ArcherHP;
+  int life = ArcherHP;
 
   void update() {
     pushMatrix();
@@ -113,7 +113,7 @@ class Earcher extends EnemyUnit {
       pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
     } //If EnemyUnit is close to enemy base, InCombat becomes true and EnemyUnit damages the base
-    if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=300 && taller > MediumAttackSpeed) {
+    if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=BaseSize+BowRange && taller > MediumAttackSpeed) {
       InCombat = true;
       taller = 0;
       FriendBase.life = FriendBase.life -ArcherDamage;
@@ -136,7 +136,7 @@ class Earcher extends EnemyUnit {
 class Ehorseman extends EnemyUnit {
   PVector pos = new PVector (EDeployLocationX, EDeployLocationY);
   PVector vel = new PVector (VeryFastSpeed, 0);
-  life = HorseManHP;
+  int life = HorseManHP;
 
   void update() {
     pushMatrix();
@@ -163,7 +163,7 @@ class Ehorseman extends EnemyUnit {
       pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
     } //If EnemyUnit is close to enemy base, InCombat becomes true and EnemyUnit damages the base
-    if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=120 && taller > FastAttackSpeed) {
+    if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=BaseSize && taller > FastAttackSpeed) {
       InCombat = true;
       taller = 0;
       FriendBase.life = FriendBase.life -HorseManDamage;
