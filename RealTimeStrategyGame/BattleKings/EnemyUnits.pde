@@ -10,7 +10,7 @@ class EnemyUnit {
 class Esword extends EnemyUnit {
   PVector pos = new PVector (EDeployLocationX, EDeployLocationY);
   PVector vel = new PVector (MediumSpeed, 0);
-  life = SwordHP;
+  int life = SwordHP;
 
   void update() {
     pushMatrix();
@@ -48,7 +48,7 @@ class Esword extends EnemyUnit {
 class Eking extends EnemyUnit {
   PVector pos = new PVector (EDeployLocationX, EDeployLocationY);
   PVector vel = new PVector (FastSpeed, 0);
-  life = KingHP;
+  int life = KingHP;
 
   void EkingMovement() {
     taller++;
@@ -86,7 +86,7 @@ class Eking extends EnemyUnit {
 class Earcher extends EnemyUnit {
   PVector pos = new PVector (EDeployLocationX, EDeployLocationY);
   PVector vel = new PVector (SlowSpeed, 0);
-  life = ArcherHP;
+  int life = ArcherHP;
 
   void update() {
     pushMatrix();
@@ -136,7 +136,7 @@ class Earcher extends EnemyUnit {
 class Ehorseman extends EnemyUnit {
   PVector pos = new PVector (EDeployLocationX, EDeployLocationY);
   PVector vel = new PVector (VeryFastSpeed, 0);
-  life = HorseManHP;
+  int life = HorseManHP;
 
   void update() {
     pushMatrix();
