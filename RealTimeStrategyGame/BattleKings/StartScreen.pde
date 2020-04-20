@@ -18,10 +18,10 @@ void StartScreen() {
   if (StartGame.isButtonPressed(mouseX, mouseY, mouseJustPressed, StartGame) == true) {
     Screen = 1;
   }
-    //SwitchMusic Button
+  //SwitchMusic Button
   Settings = new Button(550, 70, 450, 100, strokeColor, "Settings", 80, 0, bRed, bGreen, bBlue);
   Settings.ButtonUpdate();
-  if (Settings.isButtonPressed(mouseX, mouseY, mouseJustPressed, StartGame) == true) {
-    Screen = 4;
+  if (Settings.isButtonPressed(mouseX, mouseY, mouseJustPressed, Settings) == true) {
+    Screen = 3;
   }
 }
