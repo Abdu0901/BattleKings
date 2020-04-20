@@ -117,18 +117,6 @@ class Earcher extends EnemyUnit {
       taller = 0;
       FriendBase.life = FriendBase.life -ArcherDamage;
     }
-    /*
-    if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=200) {
-     PVector vel = PVector.sub(FriendBase.pos, pos);
-     vel.setMag(2.5);
-     pos.add(vel);
-     
-     //   add(arrow);
-     }
-     pos.x = constrain(pos.x, 0, width);
-     pos.y = constrain(pos.y, 0, height);
-     pos.add(this.vel);
-     */
   }
 }
 
@@ -169,24 +157,3 @@ class Ehorseman extends EnemyUnit {
     }
   }
 }
-/*
-class arrow extends EnemyUnit {
- //  PVector pos = new PVector (archer.pos.x, archer.pos.y);
- PVector vel = new PVector (15, 0);
- 
- void update() {
- pushMatrix();
- translate(pos.x, pos.y);
- rectMode(CENTER);
- fill(255, 0, 0);
- ellipse(0, 0, 20, 20);
- popMatrix();
- }
- 
- void arrowMovement() {
- PVector vel = PVector.sub(FriendBase.pos, pos);
- vel.setMag(2.5);
- pos.add(vel);
- pos.add(this.vel);
- }
- }*/
