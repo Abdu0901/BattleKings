@@ -5,14 +5,6 @@ class FriendlyUnit {
   int taller = 0;
   boolean InCombat = false;
 }
-/*
-void collisionDetection () {
-  if (dist(FriendlyUnit.pos.x, FriendlyUnit.pos.y, EnemyUnit.pos.x, EnemyUnit.pos.y) <= 120 && taller > 9) {
-    InCombat = true;
-    taller = 0;
-    EnemyUnit.life = EnemyUnit.life -SwordDamage;
-  }
-} */
 
 class Fsword extends FriendlyUnit {
   PVector pos = new PVector (DeployX, DeployY);
@@ -48,6 +40,11 @@ class Fsword extends FriendlyUnit {
       InCombat = true;
       taller = 0;
       EnemyBase.life = EnemyBase.life -SwordDamage;
+    }
+    if (dist(pos.x, pos.y, EnemyUnit.pos.x, EnemyUnit.pos.y) <= 120 && taller > 9) {
+      InCombat = true;
+      taller = 0;
+      EnemyUnit.life = EnemyUnit.life -SwordDamage;
     }
   }
 }
