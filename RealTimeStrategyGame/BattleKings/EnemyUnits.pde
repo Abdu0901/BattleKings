@@ -36,7 +36,7 @@ class Esword extends EnemyUnit {
       pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
     } //If EnemyUnit is close to enemy base, InCombat becomes true and EnemyUnit damages the base
-    if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=120 && taller > 9) {
+    if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=120 && taller > VeryFastAttackSpeed) {
       InCombat = true;
       taller = 0;
       FriendBase.life = FriendBase.life -SwordDamage;
@@ -62,7 +62,7 @@ class Eking extends EnemyUnit {
       pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
     } //If EnemyUnit is close to enemy base, InCombat becomes true and EnemyUnit damages the base
-    if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=120 && taller > 9) {
+    if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=120 && taller > SlowAttackSpeed) {
       InCombat = true;
       taller = 0;
       FriendBase.life = FriendBase.life -KingDamage;
@@ -112,7 +112,7 @@ class Earcher extends EnemyUnit {
       pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
     } //If EnemyUnit is close to enemy base, InCombat becomes true and EnemyUnit damages the base
-    if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=300 && taller > 9) {
+    if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=300 && taller > MediumAttackSpeed) {
       InCombat = true;
       taller = 0;
       FriendBase.life = FriendBase.life -ArcherDamage;
@@ -162,7 +162,7 @@ class Ehorseman extends EnemyUnit {
       pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
     } //If EnemyUnit is close to enemy base, InCombat becomes true and EnemyUnit damages the base
-    if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=120 && taller > 9) {
+    if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=120 && taller > FastAttackSpeed) {
       InCombat = true;
       taller = 0;
       FriendBase.life = FriendBase.life -HorseManDamage;
