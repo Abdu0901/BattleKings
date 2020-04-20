@@ -55,7 +55,7 @@ void setup() {
   //load music
   Medieval = new SoundFile(this, "Medieval.mp3");
   Medieval.play();
-  
+
   size(1400, 700);
   frameRate(60);
   //Loads images
@@ -91,6 +91,9 @@ void draw() {
     break;
   case 2:
     EndScreen();
+    break;
+  case 3:
+    SettingsScreen();
     break;
   }
 }
