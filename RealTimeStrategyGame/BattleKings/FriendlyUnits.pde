@@ -41,6 +41,11 @@ class Fsword extends FriendlyUnit {
       taller = 0;
       EnemyBase.life = EnemyBase.life -SwordDamage;
     }
+    if (dist(pos.x, pos.y, EnemyUnit.pos.x, EnemyUnit.pos.y) <= 120 && taller > 9) {
+      InCombat = true;
+      taller = 0;
+      EnemyUnit.life = EnemyUnit.life -SwordDamage;
+    }
   }
 }
 
