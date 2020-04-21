@@ -2,7 +2,7 @@ Button SwitchMusic;
 
 void SettingsScreen() {
   background(255,255,255);
-  Screen = 4;
+  Screen = 3;
   boolean mouseJustPressed = mousePressed & !lastMousePressed;
   lastMousePressed = mousePressed;
 
