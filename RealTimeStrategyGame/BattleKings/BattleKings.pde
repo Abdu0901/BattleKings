@@ -31,7 +31,7 @@ int textColor = 0;
 int strokeColor = 0;
 
 //Width and Height for Background 
-int bW = 1400; 
+int bW = 1400;
 int bH = 700;
 
 //Images for the different screens
@@ -52,8 +52,8 @@ PImage BKEHorseman;
 
 void setup() {
   //load music
-  //Medieval = new SoundFile(this, "Medieval.mp3");
-  //Medieval.play();
+  Medieval = new SoundFile(this, "Medieval.mp3");
+  Medieval.play();
   size(1400, 700);
   frameRate(60);
   //Loads images
