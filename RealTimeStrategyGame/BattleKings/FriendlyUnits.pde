@@ -27,8 +27,10 @@ class Fsword extends FriendlyUnit {
   void swordMovement() {
     taller++;
     //Checks if FriendlyUnit is in combat, if true, stops the FriendlyUnit from moving
-    if (InCombat == true) {
+    if (InCombat == true && taller > VeryFastAttackSpeed) {
       vel.set( 0, 0);
+      taller = 0;
+      Target.life = Target.life -SwordDamage;
     } //If above is false, FriendlyUnit will move towards enemy base
     else if (InCombat == false && TargetsInSight == false) {
       PVector vel = PVector.sub(EnemyBase.pos, pos);
@@ -41,10 +43,8 @@ class Fsword extends FriendlyUnit {
       Target.life = EnemyBase.life;
       TargetSize = BaseSize;
     } //If FriendlyUnit is close to enemy base, InCombat becomes true and FriendlyUnit damages the base
-    if (dist(pos.x, pos.y, Target.pos.x, Target.pos.y)<=TargetSize && taller > VeryFastAttackSpeed) {
+    if (dist(pos.x, pos.y, Target.pos.x, Target.pos.y)<=TargetSize) {
       InCombat = true;
-      taller = 0;
-      Target.life = Target.life -SwordDamage;
     }
   }
 }
@@ -57,8 +57,10 @@ class Fking extends FriendlyUnit {
   void kingMovement() {
     taller++;
     //Checks if FriendlyUnit is in combat, if true, stops the FriendlyUnit from moving
-    if (InCombat == true) {
+    if (InCombat == true && taller > SlowAttackSpeed) {
       vel.set( 0, 0);
+      taller = 0;
+      EnemyBase.life = EnemyBase.life -KingDamage;
     } //If above is false, FriendlyUnit will move towards enemy base
     else if (InCombat == false) {
       PVector vel = PVector.sub(EnemyBase.pos, pos);
@@ -67,10 +69,8 @@ class Fking extends FriendlyUnit {
       pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
     } //If FriendlyUnit is close to enemy base, InCombat becomes true and FriendlyUnit damages the base
-    if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=BaseSize && taller > SlowAttackSpeed) {
+    if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=BaseSize) {
       InCombat = true;
-      taller = 0;
-      EnemyBase.life = EnemyBase.life -KingDamage;
     }
   }
 
@@ -107,8 +107,10 @@ class Farcher extends FriendlyUnit {
   void archerMovement() {
     taller++;
     //Checks if FriendlyUnit is in combat, if true, stops the FriendlyUnit from moving
-    if (InCombat == true) {
+    if (InCombat == true && taller > MediumAttackSpeed) {
       vel.set( 0, 0);
+      taller = 0;
+      EnemyBase.life = EnemyBase.life -ArcherDamage;
     } //If above is false, FriendlyUnit will move towards enemy base
     else if (InCombat == false) {
       PVector vel = PVector.sub(EnemyBase.pos, pos);
@@ -117,10 +119,8 @@ class Farcher extends FriendlyUnit {
       pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
     } //If FriendlyUnit is close to enemy base, InCombat becomes true and FriendlyUnit damages the base
-    if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=BaseSize+BowRange && taller > MediumAttackSpeed) {
+    if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=BaseSize+BowRange) {
       InCombat = true;
-      taller = 0;
-      EnemyBase.life = EnemyBase.life -ArcherDamage;
     }
     /*
     if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=200) {
@@ -157,8 +157,10 @@ class Fhorseman extends FriendlyUnit {
   void horsemanMovement() {
     taller++;
     //Checks if FriendlyUnit is in combat, if true, stops the FriendlyUnit from moving
-    if (InCombat == true) {
-      vel.set(0, 0);
+    if (InCombat == true && taller > FastAttackSpeed) {
+      vel.set(0, 0);      
+      taller = 0;
+      EnemyBase.life = EnemyBase.life -HorseManDamage;
     } //If above is false, FriendlyUnit will move towards enemy base
     else if (InCombat == false) {
       PVector vel = PVector.sub(EnemyBase.pos, pos);
@@ -167,10 +169,8 @@ class Fhorseman extends FriendlyUnit {
       pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
     } //If FriendlyUnit is close to enemy base, InCombat becomes true and FriendlyUnit damages the base
-    if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=BaseSize && taller > FastAttackSpeed) {
+    if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=BaseSize) {
       InCombat = true;
-      taller = 0;
-      EnemyBase.life = EnemyBase.life -HorseManDamage;
     }
   }
 }

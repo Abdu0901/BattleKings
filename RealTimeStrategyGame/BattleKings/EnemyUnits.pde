@@ -26,8 +26,10 @@ class Esword extends EnemyUnit {
   void EswordMovement() {
     taller++;
     //Checks if EnemyUnit is in combat, if true, stops the EnemyUnit from moving
-    if (InCombat == true) {
-      vel.set( 0, 0);
+    if (InCombat == true && taller > VeryFastAttackSpeed) {
+      vel.set( 0, 0);      
+      taller = 0;
+      FriendBase.life = FriendBase.life -SwordDamage;
     } //If above is false, EnemyUnit will move towards enemy base
     else if (InCombat == false) {
       PVector vel = PVector.sub(FriendBase.pos, pos);
@@ -36,10 +38,8 @@ class Esword extends EnemyUnit {
       pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
     } //If EnemyUnit is close to enemy base, InCombat becomes true and EnemyUnit damages the base
-    if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=BaseSize && taller > VeryFastAttackSpeed) {
+    if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=BaseSize) {
       InCombat = true;
-      taller = 0;
-      FriendBase.life = FriendBase.life -SwordDamage;
     }
   }
 }
@@ -52,8 +52,10 @@ class Eking extends EnemyUnit {
   void EkingMovement() {
     taller++;
     //Checks if EnemyUnit is in combat, if true, stops the EnemyUnit from moving
-    if (InCombat == true) {
+    if (InCombat == true && taller > SlowAttackSpeed) {
       vel.set( 0, 0);
+      taller = 0;
+      FriendBase.life = FriendBase.life -KingDamage;
     } //If above is false, EnemyUnit will move towards enemy base
     else if (InCombat == false) {
       PVector vel = PVector.sub(FriendBase.pos, pos);
@@ -62,10 +64,8 @@ class Eking extends EnemyUnit {
       pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
     } //If EnemyUnit is close to enemy base, InCombat becomes true and EnemyUnit damages the base
-    if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=BaseSize && taller > SlowAttackSpeed) {
+    if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=BaseSize) {
       InCombat = true;
-      taller = 0;
-      FriendBase.life = FriendBase.life -KingDamage;
     }
   }
 
@@ -102,8 +102,10 @@ class Earcher extends EnemyUnit {
   void EarcherMovement() {
     taller++;
     //Checks if EnemyUnit is in combat, if true, stops the EnemyUnit from moving
-    if (InCombat == true) {
+    if (InCombat == true && taller > MediumAttackSpeed) {
       vel.set( 0, 0);
+      taller = 0;
+      FriendBase.life = FriendBase.life -ArcherDamage;
     } //If above is false, EnemyUnit will move towards enemy base
     else if (InCombat == false) {
       PVector vel = PVector.sub(FriendBase.pos, pos);
@@ -112,10 +114,8 @@ class Earcher extends EnemyUnit {
       pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
     } //If EnemyUnit is close to enemy base, InCombat becomes true and EnemyUnit damages the base
-    if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=BaseSize+BowRange && taller > MediumAttackSpeed) {
+    if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=BaseSize+BowRange) {
       InCombat = true;
-      taller = 0;
-      FriendBase.life = FriendBase.life -ArcherDamage;
     }
   }
 }
@@ -140,8 +140,10 @@ class Ehorseman extends EnemyUnit {
   void EhorsemanMovement() {
     taller++;
     //Checks if EnemyUnit is in combat, if true, stops the EnemyUnit from moving
-    if (InCombat == true) {
-      vel.set(0, 0);
+    if (InCombat == true && taller > FastAttackSpeed) {
+      vel.set(0, 0);      
+      taller = 0;
+      FriendBase.life = FriendBase.life -HorseManDamage;
     } //If above is false, EnemyUnit will move towards enemy base
     else if (InCombat == false) {
       PVector vel = PVector.sub(FriendBase.pos, pos);
@@ -150,10 +152,8 @@ class Ehorseman extends EnemyUnit {
       pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
     } //If EnemyUnit is close to enemy base, InCombat becomes true and EnemyUnit damages the base
-    if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=BaseSize && taller > FastAttackSpeed) {
+    if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=BaseSize) {
       InCombat = true;
-      taller = 0;
-      FriendBase.life = FriendBase.life -HorseManDamage;
     }
   }
 }
