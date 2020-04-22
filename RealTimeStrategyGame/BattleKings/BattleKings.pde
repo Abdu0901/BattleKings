@@ -2,7 +2,7 @@
 
 //import lydfiler og processing funktioner
 import processing.sound.*;
-SoundFile Medieval;
+//SoundFile Medieval;
 
 //ArrayList that contains the objects of each unit
 ArrayList<Fsword> Fswords = new ArrayList<Fsword>();
@@ -52,8 +52,8 @@ PImage BKEHorseman;
 
 void setup() {
   //load music
-  Medieval = new SoundFile(this, "Medieval.mp3");
-  Medieval.play();
+//  Medieval = new SoundFile(this, "Medieval.mp3");
+//  Medieval.play();
   size(1400, 700);
   frameRate(60);
   //Loads images
