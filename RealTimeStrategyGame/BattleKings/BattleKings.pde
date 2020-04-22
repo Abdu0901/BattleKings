@@ -50,10 +50,12 @@ PImage BKEBow;
 PImage BKEKing;
 PImage BKEHorseman;
 
+boolean dataLoaded = false;
+
 void setup() {
   //load music
-//  Medieval = new SoundFile(this, "Medieval.mp3");
-//  Medieval.play();
+  //  Medieval = new SoundFile(this, "Medieval.mp3");
+  //  Medieval.play();
   size(1400, 700);
   frameRate(60);
   //Loads images
@@ -77,22 +79,32 @@ void setup() {
   FriendBase = new base();
   EnemyBase = new enemyBase();
   Target = new target();
+  thread("loadData");
 }
 
 void draw() {
-  //Switch case that displays the current screen
-  switch(Screen) {
-  case 0:
-    StartScreen();
-    break;
-  case 1:
-    GameScreen();
-    break;
-  case 2:
-    EndScreen();
-    break;
-  case 3:
-    SettingsScreen();
-    break;
+
+  if (dataLoaded) {
+    //Switch case that displays the current screen
+    switch(Screen) {
+    case 0:
+      StartScreen();
+      break;
+    case 1:
+      GameScreen();
+      break;
+    case 2:
+      EndScreen();
+      break;
+    case 3:
+      SettingsScreen();
+      break;
+    }
+  } else {
+    
   }
+}
+
+void loadData() {
+  dataLoaded = true;
 }
