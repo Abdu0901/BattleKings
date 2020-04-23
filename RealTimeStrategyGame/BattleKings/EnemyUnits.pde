@@ -20,6 +20,10 @@ class Esword extends EnemyUnit {
     ellipse(0, 0, 50, 50);
     BKSword.resize(50, 50);
     image(BKSword, 0, 0);
+    fill(255);
+    textSize(30);
+    textAlign(CENTER, CENTER);
+    text("HP: " + life, 0, -35);
     popMatrix();
   }
 

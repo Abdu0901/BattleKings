@@ -5,6 +5,7 @@ class FriendlyUnit {
   int taller = 0;
   boolean InCombat = false;
   boolean TargetsInSight = false;
+  boolean EswordTargetted = false;
 }
 
 class Fsword extends FriendlyUnit {
@@ -57,20 +58,45 @@ class Fking extends FriendlyUnit {
   void kingMovement() {
     taller++;
     //Checks if FriendlyUnit is in combat, if true, stops the FriendlyUnit from moving
-    if (InCombat == true && taller > SlowAttackSpeed) {
+    if (InCombat == true && dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=BaseSize && taller > SlowAttackSpeed) {
       vel.set( 0, 0);
       taller = 0;
       EnemyBase.life = EnemyBase.life -KingDamage;
     } //If above is false, FriendlyUnit will move towards enemy base
-    else if (InCombat == false) {
+    else if (InCombat == false && EswordTargetted == false) {
       PVector vel = PVector.sub(EnemyBase.pos, pos);
       vel.setMag(FastSpeed);
       pos.x = constrain(pos.x, 0, width);
       pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
     } //If FriendlyUnit is close to enemy base, InCombat becomes true and FriendlyUnit damages the base
-    if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=BaseSize) {
+    if (EswordTargetted == false && dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=BaseSize) {
       InCombat = true;
+    } 
+    //For loop that checks for Eswords
+    for (Esword esword : Eswords) { 
+      //Checks if King is close to Eswords and changes Pvector accordingly
+      if (InCombat == false && EswordTargetted == false && dist(pos.x, pos.y, esword.pos.x, esword.pos.y)<=200) {
+        println("Target Aquired!");
+        PVector vel = PVector.sub(esword.pos, pos);
+        vel.setMag(FastSpeed);
+        pos.x = constrain(pos.x, 0, width);
+        pos.y = constrain(pos.y, 0, height);
+        pos.add(vel);
+        EswordTargetted = true;
+      }
+      if (InCombat == false && EswordTargetted == true && dist(pos.x, pos.y, esword.pos.x, esword.pos.y)<=UnitSize && taller > SlowAttackSpeed) {
+        vel.set( 0, 0);
+        taller = 0;
+        esword.life = esword.life -KingDamage;
+        println("King Engaging ESword!");
+      } else {
+        InCombat = false;
+        EswordTargetted = false;
+      }
+      if (esword.life == 0) {
+         Eswords.remove(this);
+      }
     }
   }
 
