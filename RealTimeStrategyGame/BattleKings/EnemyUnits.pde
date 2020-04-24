@@ -45,6 +45,10 @@ class Esword extends EnemyUnit {
     if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=BaseSize) {
       InCombat = true;
     }
+    if (life < 1) {
+pos.x = -20;
+pos.y = -20;
+    }
   }
 }
 
