@@ -78,7 +78,6 @@ void setup() {
   //Creates bases
   FriendBase = new base();
   EnemyBase = new enemyBase();
-  Target = new target();
   thread("loadData");
 }
 

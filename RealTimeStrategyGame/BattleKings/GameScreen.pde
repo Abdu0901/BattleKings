@@ -4,7 +4,7 @@ Button DeployHorseman;
 Button DeployArcher;
 enemyBase EnemyBase;
 base FriendBase;
-target Target;
+
 
 //Where all the fun is =]
 void GameScreen() {

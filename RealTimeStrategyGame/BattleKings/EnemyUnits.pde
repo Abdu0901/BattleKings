@@ -9,6 +9,7 @@ class EnemyUnit {
   boolean FhorseTargetted = false;
   boolean FarcherTargetted = false;
   boolean UnitIsAlive = false;
+  PVector FTempTarget = new PVector (FriendBase.pos.x, FriendBase.pos.y);
 }
 
 class Esword extends EnemyUnit {
@@ -21,7 +22,7 @@ class Esword extends EnemyUnit {
       UnitIsAlive = true;
       pushMatrix();
       translate(pos.x, pos.y);
-      rotate(atan2(FriendBase.pos.y - pos.y-10, FriendBase.pos.x + pos.x));
+      rotate(atan2(FTempTarget.y - pos.y-10, FTempTarget.x + pos.x));
       rectMode(CENTER);
       fill(255, 0, 0);
       ellipse(0, 0, 50, 50);
@@ -266,7 +267,7 @@ class Eking extends EnemyUnit {
       UnitIsAlive = true;
       pushMatrix();
       translate(pos.x, pos.y);
-      rotate(atan2(FriendBase.pos.y - pos.y-10, FriendBase.pos.x + pos.x));
+      rotate(atan2(FTempTarget.y - pos.y-10, FTempTarget.x + pos.x));
       rectMode(CENTER);
       fill(255, 0, 0);
       ellipse(0, 0, 50, 50);
@@ -295,7 +296,7 @@ class Earcher extends EnemyUnit {
       UnitIsAlive = true;
       pushMatrix();
       translate(pos.x, pos.y);
-      rotate(atan2(FriendBase.pos.y - pos.y-10, FriendBase.pos.x + pos.x));
+      rotate(atan2(FTempTarget.y - pos.y-10, FTempTarget.x + pos.x));
       rectMode(CENTER);
       fill(255, 0, 0);
       ellipse(0, 0, 50, 50);
@@ -432,7 +433,7 @@ class Ehorseman extends EnemyUnit {
       UnitIsAlive = true;
       pushMatrix();
       translate(pos.x, pos.y);
-      rotate(atan2(FriendBase.pos.y - pos.y-10, FriendBase.pos.x + pos.x));
+      rotate(atan2(FTempTarget.y - pos.y-10, FTempTarget.x + pos.x));
       rectMode(CENTER);
       fill(255, 0, 0);
       ellipse(0, 0, 50, 50);
