@@ -78,11 +78,7 @@ class Esword extends EnemyUnit {
             fsword.life = fsword.life -SwordDamage;
           }
         } else {
-          FbaseTargetted = false;
           FswordTargetted = false;
-          FkingTargetted = false;
-          FarcherTargetted = false;
-          FhorseTargetted = false;
         }
       }
       //For loop that checks for Fkings
@@ -103,11 +99,7 @@ class Esword extends EnemyUnit {
             fking.life = fking.life -SwordDamage;
           }
         } else {
-          FbaseTargetted = false;
-          FswordTargetted = false;
           FkingTargetted = false;
-          FarcherTargetted = false;
-          FhorseTargetted = false;
         }
       }
       //For loop that checks for Farchers
@@ -128,11 +120,7 @@ class Esword extends EnemyUnit {
             farcher.life = farcher.life -SwordDamage;
           }
         } else {
-          FbaseTargetted = false;
-          FswordTargetted = false;
-          FkingTargetted = false;
           FarcherTargetted = false;
-          FhorseTargetted = false;
         }
       }
       //For loop that checks for Fhorseman
@@ -153,10 +141,6 @@ class Esword extends EnemyUnit {
             fhorseman.life = fhorseman.life -SwordDamage;
           }
         } else {
-          FbaseTargetted = false;
-          FswordTargetted = false;
-          FkingTargetted = false;
-          FarcherTargetted = false;
           FhorseTargetted = false;
         }
       }
@@ -208,11 +192,7 @@ class Eking extends EnemyUnit {
             fsword.life = fsword.life -KingDamage;
           }
         } else {
-          FbaseTargetted = false;
           FswordTargetted = false;
-          FkingTargetted = false;
-          FarcherTargetted = false;
-          FhorseTargetted = false;
         }
       }
       //For loop that checks for Fkings
@@ -233,11 +213,7 @@ class Eking extends EnemyUnit {
             fking.life = fking.life -KingDamage;
           }
         } else {
-          FbaseTargetted = false;
-          FswordTargetted = false;
           FkingTargetted = false;
-          FarcherTargetted = false;
-          FhorseTargetted = false;
         }
       }
       //For loop that checks for Farchers
@@ -258,11 +234,7 @@ class Eking extends EnemyUnit {
             farcher.life = farcher.life -KingDamage;
           }
         } else {
-          FbaseTargetted = false;
-          FswordTargetted = false;
-          FkingTargetted = false;
           FarcherTargetted = false;
-          FhorseTargetted = false;
         }
       }
       //For loop that checks for Fhorseman
@@ -283,10 +255,6 @@ class Eking extends EnemyUnit {
             fhorseman.life = fhorseman.life -KingDamage;
           }
         } else {
-          FbaseTargetted = false;
-          FswordTargetted = false;
-          FkingTargetted = false;
-          FarcherTargetted = false;
           FhorseTargetted = false;
         }
       }
@@ -384,11 +352,7 @@ class Earcher extends EnemyUnit {
             fsword.life = fsword.life -ArcherDamage;
           }
         } else {
-          FbaseTargetted = false;
           FswordTargetted = false;
-          FkingTargetted = false;
-          FarcherTargetted = false;
-          FhorseTargetted = false;
         }
       }
       //For loop that checks for Fkings
@@ -409,11 +373,7 @@ class Earcher extends EnemyUnit {
             fking.life = fking.life -ArcherDamage;
           }
         } else {
-          FbaseTargetted = false;
-          FswordTargetted = false;
           FkingTargetted = false;
-          FarcherTargetted = false;
-          FhorseTargetted = false;
         }
       }
       //For loop that checks for Farchers
@@ -434,11 +394,7 @@ class Earcher extends EnemyUnit {
             farcher.life = farcher.life -ArcherDamage;
           }
         } else {
-          FbaseTargetted = false;
-          FswordTargetted = false;
-          FkingTargetted = false;
           FarcherTargetted = false;
-          FhorseTargetted = false;
         }
       }
       //For loop that checks for Fhorseman
@@ -459,10 +415,6 @@ class Earcher extends EnemyUnit {
             fhorseman.life = fhorseman.life -ArcherDamage;
           }
         } else {
-          FbaseTargetted = false;
-          FswordTargetted = false;
-          FkingTargetted = false;
-          FarcherTargetted = false;
           FhorseTargetted = false;
         }
       }
@@ -537,11 +489,7 @@ class Ehorseman extends EnemyUnit {
             fsword.life = fsword.life -HorseManDamage;
           }
         } else {
-          FbaseTargetted = false;
           FswordTargetted = false;
-          FkingTargetted = false;
-          FarcherTargetted = false;
-          FhorseTargetted = false;
         }
       }
       //For loop that checks for Fkings
@@ -562,11 +510,7 @@ class Ehorseman extends EnemyUnit {
             fking.life = fking.life -HorseManDamage;
           }
         } else {
-          FbaseTargetted = false;
-          FswordTargetted = false;
           FkingTargetted = false;
-          FarcherTargetted = false;
-          FhorseTargetted = false;
         }
       }
       //For loop that checks for Farchers
@@ -587,11 +531,7 @@ class Ehorseman extends EnemyUnit {
             farcher.life = farcher.life -HorseManDamage;
           }
         } else {
-          FbaseTargetted = false;
-          FswordTargetted = false;
-          FkingTargetted = false;
           FarcherTargetted = false;
-          FhorseTargetted = false;
         }
       }
       //For loop that checks for Fhorseman
@@ -612,10 +552,6 @@ class Ehorseman extends EnemyUnit {
             fhorseman.life = fhorseman.life -HorseManDamage;
           }
         } else {
-          FbaseTargetted = false;
-          FswordTargetted = false;
-          FkingTargetted = false;
-          FarcherTargetted = false;
           FhorseTargetted = false;
         }
       }
