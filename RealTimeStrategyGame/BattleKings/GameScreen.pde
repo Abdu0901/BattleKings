@@ -85,9 +85,10 @@ void AddUnits() {
     Fswords.add(new Fsword());
     SelectedUnitNum = 0;
   }
-  for (Fsword fsword : Fswords) { 
-    fsword.update();
-    fsword.swordMovement();
+  for (int i2 = Fswords.size()-1; i2>=0; i2--) {
+    s = Fswords.get(i2);
+    s.update();
+    s.swordMovement();
   }
 
   //Deploy Kings button
@@ -99,9 +100,10 @@ void AddUnits() {
     Fkings.add(new Fking());
     SelectedUnitNum = 0;
   }
-  for (Fking fking : Fkings) {
-    fking.update();
-    fking.kingMovement();
+  for (int i3 = Fkings.size()-1; i3>=0; i3--) {
+    k = Fkings.get(i3);
+    k.update();
+    k.kingMovement();
   }
 
   //Deploy Horsemen button
@@ -113,9 +115,10 @@ void AddUnits() {
     Fhorsemen.add(new Fhorseman());
     SelectedUnitNum = 0;
   }
-  for (Fhorseman fhorseman : Fhorsemen) { 
-    fhorseman.update();
-    fhorseman.horsemanMovement();
+  for (int i4 = Fhorsemen.size()-1; i4>=0; i4--) {
+    h = Fhorsemen.get(i4);
+    h.update();
+    h.horsemanMovement();
   }
 
   //Deploy Archers button
@@ -127,11 +130,11 @@ void AddUnits() {
     Farchers.add(new Farcher());
     SelectedUnitNum = 0;
   }
-  for (Farcher farcher : Farchers) { 
-    farcher.update();
-    farcher.archerMovement();
+  for (int i5 = Farchers.size()-1; i5>=0; i5--) {
+    a = Farchers.get(i5);
+    a.update();
+    a.archerMovement();
   }
-
 
   if (EUnitSelected == false) {
     ESelectedUnit = (int)random(0, UnitCount);
@@ -181,20 +184,24 @@ void AddUnits() {
       break;
     }
   }
-  for (Esword esword : Eswords) { 
-    esword.update();
-    esword.EswordMovement();
+  for (int i5 = Eswords.size()-1; i5>=0; i5--) {
+    es = Eswords.get(i5);
+    es.update();
+    es.EswordMovement();
   }
-  for (Eking eking : Ekings) { 
-    eking.update();
-    eking.EkingMovement();
+  for (int i6 = Ekings.size()-1; i6>=0; i6--) {
+    ek = Ekings.get(i6);
+    ek.update();
+    ek.EkingMovement();
   }
-  for (Ehorseman ehorseman : Ehorsemen) { 
-    ehorseman.update();
-    ehorseman.EhorsemanMovement();
+  for (int i7 = Ehorsemen.size()-1; i7>=0; i7--) {
+    eh = Ehorsemen.get(i7);
+    eh.update();
+    eh.EhorsemanMovement();
   }
-  for (Earcher earcher : Earchers) { 
-    earcher.update();
-    earcher.EarcherMovement();
+  for (int i8 = Earchers.size()-1; i8>=0; i8--) {
+    ea = Earchers.get(i8);
+    ea.update();
+    ea.EarcherMovement();
   }
 }
