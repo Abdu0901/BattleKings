@@ -429,7 +429,7 @@ class Farcher extends FriendlyUnit {
         }
         if (!EbaseTargetted && !EswordTargetted && !EkingTargetted && EarcherTargetted && !EhorseTargetted && dist(pos.x, pos.y, earcher.pos.x, earcher.pos.y)<=UnitSize+BowRange) {
           vel.set( 0, 0);
-          if (taller > MediumAttackSpeed) {
+          if (taller > SlowAttackSpeed) {
             taller = 0;
             earcher.life = earcher.life -ArcherDamage;
           }
