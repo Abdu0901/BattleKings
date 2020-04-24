@@ -351,7 +351,7 @@ class Earcher extends EnemyUnit {
       //Checks if FriendlyUnit is in combat, if true, stops the FriendlyUnit from moving
       if (FbaseTargetted && dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=BaseSize+BowRange) {
         vel.set(0, 0);
-        if (taller > MediumAttackSpeed) {
+        if (taller > SlowAttackSpeed) {
           taller = 0;
           EnemyBase.life = EnemyBase.life -ArcherDamage;
         }
@@ -379,7 +379,7 @@ class Earcher extends EnemyUnit {
         }
         if (!FbaseTargetted && FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fsword.pos.x, fsword.pos.y)<=UnitSize+BowRange) {
           vel.set( 0, 0);
-          if (taller > MediumSpeed) {
+          if (taller > SlowAttackSpeed) {
             taller = 0;
             fsword.life = fsword.life -ArcherDamage;
           }
@@ -404,7 +404,7 @@ class Earcher extends EnemyUnit {
         }
         if (!FbaseTargetted && !FswordTargetted && FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fking.pos.x, fking.pos.y)<=UnitSize+BowRange) {
           vel.set( 0, 0);
-          if (taller > MediumAttackSpeed) {
+          if (taller > SlowAttackSpeed) {
             taller = 0;
             fking.life = fking.life -ArcherDamage;
           }
@@ -429,7 +429,7 @@ class Earcher extends EnemyUnit {
         }
         if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, farcher.pos.x, farcher.pos.y)<=UnitSize+BowRange) {
           vel.set( 0, 0);
-          if (taller > MediumAttackSpeed) {
+          if (taller > SlowAttackSpeed) {
             taller = 0;
             farcher.life = farcher.life -ArcherDamage;
           }
@@ -454,7 +454,7 @@ class Earcher extends EnemyUnit {
         }
         if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && FhorseTargetted && dist(pos.x, pos.y, fhorseman.pos.x, fhorseman.pos.y)<=UnitSize+BowRange) {
           vel.set( 0, 0);
-          if (taller > MediumAttackSpeed) {
+          if (taller > SlowAttackSpeed) {
             taller = 0;
             fhorseman.life = fhorseman.life -ArcherDamage;
           }

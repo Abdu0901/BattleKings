@@ -351,7 +351,7 @@ class Farcher extends FriendlyUnit {
       //Checks if FriendlyUnit is in combat, if true, stops the FriendlyUnit from moving
       if (EbaseTargetted && dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=BaseSize+BowRange) {
         vel.set(0, 0);
-        if (taller > MediumAttackSpeed) {
+        if (taller > SlowAttackSpeed) {
           taller = 0;
           EnemyBase.life = EnemyBase.life -ArcherDamage;
         }
@@ -379,7 +379,7 @@ class Farcher extends FriendlyUnit {
         }
         if (!EbaseTargetted && EswordTargetted && !EkingTargetted && !EarcherTargetted && !EhorseTargetted && dist(pos.x, pos.y, esword.pos.x, esword.pos.y)<=UnitSize+BowRange) {
           vel.set( 0, 0);
-          if (taller > MediumSpeed) {
+          if (taller > SlowAttackSpeed) {
             taller = 0;
             esword.life = esword.life -ArcherDamage;
           }
@@ -404,7 +404,7 @@ class Farcher extends FriendlyUnit {
         }
         if (!EbaseTargetted && !EswordTargetted && EkingTargetted && !EarcherTargetted && !EhorseTargetted && dist(pos.x, pos.y, eking.pos.x, eking.pos.y)<=UnitSize+BowRange) {
           vel.set( 0, 0);
-          if (taller > MediumAttackSpeed) {
+          if (taller > SlowAttackSpeed) {
             taller = 0;
             eking.life = eking.life -ArcherDamage;
           }
@@ -454,7 +454,7 @@ class Farcher extends FriendlyUnit {
         }
         if (!EbaseTargetted && !EswordTargetted && !EkingTargetted && !EarcherTargetted && EhorseTargetted && dist(pos.x, pos.y, ehorseman.pos.x, ehorseman.pos.y)<=UnitSize+BowRange) {
           vel.set( 0, 0);
-          if (taller > MediumAttackSpeed) {
+          if (taller > SlowAttackSpeed) {
             taller = 0;
             ehorseman.life = ehorseman.life -ArcherDamage;
           }
