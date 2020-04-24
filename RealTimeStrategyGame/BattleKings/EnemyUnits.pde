@@ -33,6 +33,8 @@ class Esword extends EnemyUnit {
       text("HP:" + life, 0, -40);
       popMatrix();
     } else if (life < 1) {
+      pos.x = -30;
+      pos.y = -30;
       UnitIsAlive = false;
     }
   }
@@ -308,6 +310,8 @@ class Eking extends EnemyUnit {
       text("HP:" + life, 0, -40);
       popMatrix();
     } else if (life < 1) {
+      pos.x = -30;
+      pos.y = -30;
       UnitIsAlive = false;
     }
   }
@@ -335,6 +339,8 @@ class Earcher extends EnemyUnit {
       text("HP:" + life, 0, -40);
       popMatrix();
     } else if (life < 1) {
+      pos.x = -30;
+      pos.y = -30;
       UnitIsAlive = false;
     }
   }
@@ -486,6 +492,8 @@ class Ehorseman extends EnemyUnit {
       text("HP:" + life, 0, -40);
       popMatrix();
     } else if (life < 1) {
+      pos.x = -30;
+      pos.y = -30;
       UnitIsAlive = false;
     }
   }
