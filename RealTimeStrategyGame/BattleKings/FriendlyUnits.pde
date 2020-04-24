@@ -62,10 +62,12 @@ class Fking extends FriendlyUnit {
   void kingMovement() {
     taller++;
     //Checks if FriendlyUnit is in combat, if true, stops the FriendlyUnit from moving
-    if (EbaseTargetted && dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=BaseSize && taller > SlowAttackSpeed) {
+    if (EbaseTargetted && dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=BaseSize) {
       vel.set(0, 0);
-      taller = 0;
-      EnemyBase.life = EnemyBase.life -KingDamage;
+      if (taller > SlowAttackSpeed) {
+        taller = 0;
+        EnemyBase.life = EnemyBase.life -KingDamage;
+      }
     } //If above is false, FriendlyUnit will move towards enemy base
     else if (!EbaseTargetted && !EswordTargetted) {
       PVector vel = PVector.sub(EnemyBase.pos, pos);
@@ -88,10 +90,12 @@ class Fking extends FriendlyUnit {
         pos.add(vel);
         EswordTargetted = true;
       }
-      if (!EbaseTargetted && EswordTargetted && !EkingTargetted && !EarcherTargetted && !EhorseTargetted && dist(pos.x, pos.y, esword.pos.x, esword.pos.y)<=UnitSize && taller > SlowAttackSpeed) {
+      if (!EbaseTargetted && EswordTargetted && !EkingTargetted && !EarcherTargetted && !EhorseTargetted && dist(pos.x, pos.y, esword.pos.x, esword.pos.y)<=UnitSize) {
         vel.set( 0, 0);
-        taller = 0;
-        esword.life = esword.life -KingDamage;
+        if (taller > SlowAttackSpeed) {
+          taller = 0;
+          esword.life = esword.life -KingDamage;
+        }
       } else {
         EbaseTargetted = false;
         EswordTargetted = false;
@@ -111,10 +115,12 @@ class Fking extends FriendlyUnit {
         pos.add(vel);
         EkingTargetted = true;
       }
-      if (!EbaseTargetted && !EswordTargetted && EkingTargetted && !EarcherTargetted && !EhorseTargetted && dist(pos.x, pos.y, eking.pos.x, eking.pos.y)<=UnitSize && taller > SlowAttackSpeed) {
+      if (!EbaseTargetted && !EswordTargetted && EkingTargetted && !EarcherTargetted && !EhorseTargetted && dist(pos.x, pos.y, eking.pos.x, eking.pos.y)<=UnitSize) {
         vel.set( 0, 0);
-        taller = 0;
-        eking.life = eking.life -KingDamage;
+        if (taller > SlowAttackSpeed) {
+          taller = 0;
+          eking.life = eking.life -KingDamage;
+        }
       } else {
         EbaseTargetted = false;
         EswordTargetted = false;
@@ -134,10 +140,12 @@ class Fking extends FriendlyUnit {
         pos.add(vel);
         EarcherTargetted = true;
       }
-      if (!EbaseTargetted && !EswordTargetted && !EkingTargetted && EarcherTargetted && !EhorseTargetted && dist(pos.x, pos.y, earcher.pos.x, earcher.pos.y)<=UnitSize && taller > SlowAttackSpeed) {
+      if (!EbaseTargetted && !EswordTargetted && !EkingTargetted && EarcherTargetted && !EhorseTargetted && dist(pos.x, pos.y, earcher.pos.x, earcher.pos.y)<=UnitSize) {
         vel.set( 0, 0);
-        taller = 0;
-        earcher.life = earcher.life -KingDamage;
+        if (taller > SlowAttackSpeed) {
+          taller = 0;
+          earcher.life = earcher.life -KingDamage;
+        }
       } else {
         EbaseTargetted = false;
         EswordTargetted = false;
@@ -157,10 +165,12 @@ class Fking extends FriendlyUnit {
         pos.add(vel);
         EhorseTargetted = true;
       }
-      if (!EbaseTargetted && !EswordTargetted && !EkingTargetted && !EarcherTargetted && EhorseTargetted && dist(pos.x, pos.y, ehorseman.pos.x, ehorseman.pos.y)<=UnitSize && taller > SlowAttackSpeed) {
+      if (!EbaseTargetted && !EswordTargetted && !EkingTargetted && !EarcherTargetted && EhorseTargetted && dist(pos.x, pos.y, ehorseman.pos.x, ehorseman.pos.y)<=UnitSize) {
         vel.set( 0, 0);
-        taller = 0;
-        ehorseman.life = ehorseman.life -KingDamage;
+        if (taller > SlowAttackSpeed) {
+          taller = 0;
+          ehorseman.life = ehorseman.life -KingDamage;
+        }
       } else {
         EbaseTargetted = false;
         EswordTargetted = false;
