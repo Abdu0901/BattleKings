@@ -12,19 +12,21 @@ class Esword extends EnemyUnit {
   int life = SwordHP;
 
   void update() {
-    pushMatrix();
-    translate(pos.x, pos.y);
-    rotate(atan2(FriendBase.pos.y - pos.y, FriendBase.pos.x - pos.x));
-    rectMode(CENTER);
-    fill(255, 0, 0);
-    ellipse(0, 0, 50, 50);
-    BKSword.resize(50, 50);
-    image(BKSword, 0, 0);
-    fill(255);
-    textSize(30);
-    textAlign(CENTER, CENTER);
-    text("HP: " + life, 0, -35);
-    popMatrix();
+    if (life > 1) {
+      pushMatrix();
+      translate(pos.x, pos.y);
+      rotate(atan2(FriendBase.pos.y - pos.y, FriendBase.pos.x - pos.x));
+      rectMode(CENTER);
+      fill(255, 0, 0);
+      ellipse(0, 0, 50, 50);
+      BKSword.resize(50, 50);
+      image(BKSword, 0, 0);
+      fill(255);
+      textSize(30);
+      textAlign(CENTER, CENTER);
+      text("HP: " + life, 0, -35);
+      popMatrix();
+    }
   }
 
   void EswordMovement() {
@@ -44,10 +46,6 @@ class Esword extends EnemyUnit {
     } //If EnemyUnit is close to enemy base, InCombat becomes true and EnemyUnit damages the base
     if (dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=BaseSize) {
       InCombat = true;
-    }
-    if (life < 1) {
-pos.x = -20;
-pos.y = -20;
     }
   }
 }
@@ -78,15 +76,17 @@ class Eking extends EnemyUnit {
   }
 
   void update() {
-    pushMatrix();
-    translate(pos.x, pos.y);
-    rotate(atan2(FriendBase.pos.y - pos.y, FriendBase.pos.x - pos.x));
-    rectMode(CENTER);
-    fill(255, 0, 0);
-    ellipse(0, 0, 50, 50);
-    BKKing.resize(50, 50);
-    image(BKKing, 0, 0);
-    popMatrix();
+    if (life > 1) {
+      pushMatrix();
+      translate(pos.x, pos.y);
+      rotate(atan2(FriendBase.pos.y - pos.y, FriendBase.pos.x - pos.x));
+      rectMode(CENTER);
+      fill(255, 0, 0);
+      ellipse(0, 0, 50, 50);
+      BKKing.resize(50, 50);
+      image(BKKing, 0, 0);
+      popMatrix();
+    }
   }
 }
 
@@ -96,15 +96,17 @@ class Earcher extends EnemyUnit {
   int life = ArcherHP;
 
   void update() {
-    pushMatrix();
-    translate(pos.x, pos.y);
-    rotate(atan2(FriendBase.pos.y - pos.y, FriendBase.pos.x - pos.x));
-    rectMode(CENTER);
-    fill(255, 0, 0);
-    ellipse(0, 0, 50, 50);
-    BKBow.resize(50, 50);
-    image(BKBow, 0, 0);
-    popMatrix();
+    if (life > 1) {
+      pushMatrix();
+      translate(pos.x, pos.y);
+      rotate(atan2(FriendBase.pos.y - pos.y, FriendBase.pos.x - pos.x));
+      rectMode(CENTER);
+      fill(255, 0, 0);
+      ellipse(0, 0, 50, 50);
+      BKBow.resize(50, 50);
+      image(BKBow, 0, 0);
+      popMatrix();
+    }
   }
 
   void EarcherMovement() {
@@ -134,15 +136,17 @@ class Ehorseman extends EnemyUnit {
   int life = HorseManHP;
 
   void update() {
-    pushMatrix();
-    translate(pos.x, pos.y);
-    rotate(atan2(FriendBase.pos.y - pos.y, FriendBase.pos.x - pos.x));
-    rectMode(CENTER);
-    fill(255, 0, 0);
-    ellipse(0, 0, 50, 50);
-    BKHorseman.resize(50, 50);
-    image(BKHorseman, 0, 0);
-    popMatrix();
+    if (life > 1) {
+      pushMatrix();
+      translate(pos.x, pos.y);
+      rotate(atan2(FriendBase.pos.y - pos.y, FriendBase.pos.x - pos.x));
+      rectMode(CENTER);
+      fill(255, 0, 0);
+      ellipse(0, 0, 50, 50);
+      BKHorseman.resize(50, 50);
+      image(BKHorseman, 0, 0);
+      popMatrix();
+    }
   }
 
   void EhorsemanMovement() {

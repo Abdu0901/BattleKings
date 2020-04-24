@@ -14,15 +14,17 @@ class Fsword extends FriendlyUnit {
   int life = SwordHP;
 
   void update() {
-    pushMatrix();
-    translate(pos.x, pos.y);
-    rotate(atan2(EnemyBase.pos.y - pos.y, EnemyBase.pos.x - pos.x));
-    rectMode(CENTER);
-    fill(0, 0, 255);
-    ellipse(0, 0, 50, 50);
-    BKSword.resize(50, 50);
-    image(BKSword, 0, 0);
-    popMatrix();
+    if (life > 1) {
+      pushMatrix();
+      translate(pos.x, pos.y);
+      rotate(atan2(EnemyBase.pos.y - pos.y, EnemyBase.pos.x - pos.x));
+      rectMode(CENTER);
+      fill(0, 0, 255);
+      ellipse(0, 0, 50, 50);
+      BKSword.resize(50, 50);
+      image(BKSword, 0, 0);
+      popMatrix();
+    }
   }
 
   void swordMovement() {
@@ -94,22 +96,21 @@ class Fking extends FriendlyUnit {
         InCombat = false;
         EswordTargetted = false;
       }
-      if (esword.life == 0) {
-         Eswords.remove(this);
-      }
     }
   }
 
   void update() {
-    pushMatrix();
-    translate(pos.x, pos.y);
-    rotate(atan2(EnemyBase.pos.y - pos.y, EnemyBase.pos.x - pos.x));
-    rectMode(CENTER);
-    fill(0, 0, 255);
-    ellipse(0, 0, 50, 50);
-    BKKing.resize(50, 50);
-    image(BKKing, 0, 0);
-    popMatrix();
+    if (life > 1) {
+      pushMatrix();
+      translate(pos.x, pos.y);
+      rotate(atan2(EnemyBase.pos.y - pos.y, EnemyBase.pos.x - pos.x));
+      rectMode(CENTER);
+      fill(0, 0, 255);
+      ellipse(0, 0, 50, 50);
+      BKKing.resize(50, 50);
+      image(BKKing, 0, 0);
+      popMatrix();
+    }
   }
 }
 
@@ -119,15 +120,17 @@ class Farcher extends FriendlyUnit {
   int life = ArcherHP;
 
   void update() {
-    pushMatrix();
-    translate(pos.x, pos.y);
-    rotate(atan2(EnemyBase.pos.y - pos.y, EnemyBase.pos.x - pos.x));
-    rectMode(CENTER);
-    fill(0, 0, 255);
-    ellipse(0, 0, 50, 50);
-    BKBow.resize(50, 50);
-    image(BKBow, 0, 0);
-    popMatrix();
+    if (life > 1) {
+      pushMatrix();
+      translate(pos.x, pos.y);
+      rotate(atan2(EnemyBase.pos.y - pos.y, EnemyBase.pos.x - pos.x));
+      rectMode(CENTER);
+      fill(0, 0, 255);
+      ellipse(0, 0, 50, 50);
+      BKBow.resize(50, 50);
+      image(BKBow, 0, 0);
+      popMatrix();
+    }
   }
 
   void archerMovement() {
@@ -169,15 +172,17 @@ class Fhorseman extends FriendlyUnit {
   int life = HorseManHP;
 
   void update() {
-    pushMatrix();
-    translate(pos.x, pos.y);
-    rotate(atan2(EnemyBase.pos.y - pos.y, EnemyBase.pos.x - pos.x));
-    rectMode(CENTER);
-    fill(0, 0, 255);
-    ellipse(0, 0, 50, 50);
-    BKHorseman.resize(50, 50);
-    image(BKHorseman, 0, 0);
-    popMatrix();
+    if (life > 1) {
+      pushMatrix();
+      translate(pos.x, pos.y);
+      rotate(atan2(EnemyBase.pos.y - pos.y, EnemyBase.pos.x - pos.x));
+      rectMode(CENTER);
+      fill(0, 0, 255);
+      ellipse(0, 0, 50, 50);
+      BKHorseman.resize(50, 50);
+      image(BKHorseman, 0, 0);
+      popMatrix();
+    }
   }
 
   void horsemanMovement() {
