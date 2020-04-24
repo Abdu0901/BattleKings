@@ -92,7 +92,75 @@ class Fking extends FriendlyUnit {
         vel.set( 0, 0);
         taller = 0;
         esword.life = esword.life -KingDamage;
-        println("King Engaging ESword!");
+      } else {
+        EbaseTargetted = false;
+        EswordTargetted = false;
+        EkingTargetted = false;
+        EarcherTargetted = false;
+        EhorseTargetted = false;
+      }
+    }
+    //For loop that checks for Ekings
+    for (Eking eking : Ekings) { 
+      //Checks if King is close to Ekings and changes Pvector accordingly
+      if (!EbaseTargetted && !EswordTargetted && !EkingTargetted && !EarcherTargetted && !EhorseTargetted && dist(pos.x, pos.y, eking.pos.x, eking.pos.y)<=200) {
+        PVector vel = PVector.sub(eking.pos, pos);
+        vel.setMag(FastSpeed);
+        pos.x = constrain(pos.x, 0, width);
+        pos.y = constrain(pos.y, 0, height);
+        pos.add(vel);
+        EkingTargetted = true;
+      }
+      if (!EbaseTargetted && !EswordTargetted && EkingTargetted && !EarcherTargetted && !EhorseTargetted && dist(pos.x, pos.y, eking.pos.x, eking.pos.y)<=UnitSize && taller > SlowAttackSpeed) {
+        vel.set( 0, 0);
+        taller = 0;
+        eking.life = eking.life -KingDamage;
+      } else {
+        EbaseTargetted = false;
+        EswordTargetted = false;
+        EkingTargetted = false;
+        EarcherTargetted = false;
+        EhorseTargetted = false;
+      }
+    }
+    //For loop that checks for Earchers
+    for (Earcher earcher : Earchers) { 
+      //Checks if King is close to Earchers and changes Pvector accordingly
+      if (!EbaseTargetted && !EswordTargetted && !EkingTargetted && !EarcherTargetted && !EhorseTargetted && dist(pos.x, pos.y, earcher.pos.x, earcher.pos.y)<=200) {
+        PVector vel = PVector.sub(earcher.pos, pos);
+        vel.setMag(FastSpeed);
+        pos.x = constrain(pos.x, 0, width);
+        pos.y = constrain(pos.y, 0, height);
+        pos.add(vel);
+        EarcherTargetted = true;
+      }
+      if (!EbaseTargetted && !EswordTargetted && !EkingTargetted && EarcherTargetted && !EhorseTargetted && dist(pos.x, pos.y, earcher.pos.x, earcher.pos.y)<=UnitSize && taller > SlowAttackSpeed) {
+        vel.set( 0, 0);
+        taller = 0;
+        earcher.life = earcher.life -KingDamage;
+      } else {
+        EbaseTargetted = false;
+        EswordTargetted = false;
+        EkingTargetted = false;
+        EarcherTargetted = false;
+        EhorseTargetted = false;
+      }
+    }
+    //For loop that checks for Ehorseman
+    for (Ehorseman ehorseman : Ehorsemen) { 
+      //Checks if King is close to Ehorseman and changes Pvector accordingly
+      if (!EbaseTargetted && !EswordTargetted && !EkingTargetted && !EarcherTargetted && !EhorseTargetted && dist(pos.x, pos.y, ehorseman.pos.x, ehorseman.pos.y)<=200) {
+        PVector vel = PVector.sub(ehorseman.pos, pos);
+        vel.setMag(FastSpeed);
+        pos.x = constrain(pos.x, 0, width);
+        pos.y = constrain(pos.y, 0, height);
+        pos.add(vel);
+        EhorseTargetted = true;
+      }
+      if (!EbaseTargetted && !EswordTargetted && !EkingTargetted && !EarcherTargetted && EhorseTargetted && dist(pos.x, pos.y, ehorseman.pos.x, ehorseman.pos.y)<=UnitSize && taller > SlowAttackSpeed) {
+        vel.set( 0, 0);
+        taller = 0;
+        ehorseman.life = ehorseman.life -KingDamage;
       } else {
         EbaseTargetted = false;
         EswordTargetted = false;
