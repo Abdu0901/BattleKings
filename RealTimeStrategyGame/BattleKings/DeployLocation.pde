@@ -9,8 +9,13 @@ boolean SwordDP = false, KingDP = false, HorsemanDP = false, BowDP = false;
 int DeployX;
 int DeployY;
 
+//Temporary location which gets constrained
 int TempDeployX;
 int TempDeployY;
+
+//Location where dead units gets moved to
+int DeadPosX = -500;
+int DeadPosY = 0;
 
 //Switch case that checks which unit is selected and sets it to true
 void SelectUnit() {
@@ -55,7 +60,7 @@ void mousePressed() {
   TempDeployX = mouseX;
   TempDeployY = mouseY;
   DeployX = constrain(TempDeployX, 0, width/2);
-  DeployY = constrain(TempDeployY, 0, height/2);
+  DeployY = constrain(TempDeployY, 0, height);
 }
 
 //Selects units based on which numbers is pressed
