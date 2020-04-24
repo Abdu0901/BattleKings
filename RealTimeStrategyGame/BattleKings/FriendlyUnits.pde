@@ -25,6 +25,10 @@ class Fsword extends FriendlyUnit {
       ellipse(0, 0, 50, 50);
       BKSword.resize(50, 50);
       image(BKSword, 0, 0);
+      fill(255);
+      textSize(30);
+      textAlign(CENTER, CENTER);
+      text("HP:" + life, 0, -40);
       popMatrix();
     }
   }
@@ -289,6 +293,10 @@ class Fking extends FriendlyUnit {
       ellipse(0, 0, 50, 50);
       BKKing.resize(50, 50);
       image(BKKing, 0, 0);
+      fill(255);
+      textSize(30);
+      textAlign(CENTER, CENTER);
+      text("HP:" + life, 0, -40);
       popMatrix();
     }
   }
@@ -309,6 +317,10 @@ class Farcher extends FriendlyUnit {
       ellipse(0, 0, 50, 50);
       BKBow.resize(50, 50);
       image(BKBow, 0, 0);
+      fill(255);
+      textSize(30);
+      textAlign(CENTER, CENTER);
+      text("HP:" + life, 0, -40);
       popMatrix();
     }
   }
@@ -451,6 +463,10 @@ class Fhorseman extends FriendlyUnit {
       ellipse(0, 0, 50, 50);
       BKHorseman.resize(50, 50);
       image(BKHorseman, 0, 0);
+      fill(255);
+      textSize(30);
+      textAlign(CENTER, CENTER);
+      text("HP:" + life, 0, -40);
       popMatrix();
     }
   }
