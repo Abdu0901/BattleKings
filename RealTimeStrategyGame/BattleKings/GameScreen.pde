@@ -23,10 +23,10 @@ void GameScreen() {
   text("Selected unit: " + SelectedUnitString, 25, 60);
 
   GoldGenerator();
-  AddUnits();
   FriendBase.update();
   EnemyBase.update();
   SelectUnit();
+  AddUnits();
 
   //Checks if any of the bases has lost all HP
   if (EnemyBase.life <= 0) {
@@ -48,7 +48,7 @@ int Timer = 0;
 void GoldGenerator() {
   //Timer that generates gold for the player
   Timer = Timer +1;
-  if (Timer == 100) {
+  if (Timer == 75) {
     Gold = Gold +20;
     EGold = EGold +20;
     Timer = 0;
@@ -134,12 +134,12 @@ void AddUnits() {
     a = Farchers.get(i5);
     a.update();
     a.archerMovement();
-  }
+  }  
 
   if (EUnitSelected == false) {
     ESelectedUnit = (int)random(0, UnitCount);
     EDeployLocationX = (int)random(width/2, width);
-    EDeployLocationY = (int)random(0, height);
+    EDeployLocationY = (int)random(0, height-75);
     switch(ESelectedUnit) {
     case 0:
       EUnitSelected = true;

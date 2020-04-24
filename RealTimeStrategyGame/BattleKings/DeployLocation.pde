@@ -60,7 +60,7 @@ void mousePressed() {
   TempDeployX = mouseX;
   TempDeployY = mouseY;
   DeployX = constrain(TempDeployX, 0, width/2);
-  DeployY = constrain(TempDeployY, 0, height);
+  DeployY = constrain(TempDeployY, 0, height-75);
 }
 
 //Selects units based on which numbers is pressed
