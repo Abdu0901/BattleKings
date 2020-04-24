@@ -69,7 +69,7 @@ class Fking extends FriendlyUnit {
         EnemyBase.life = EnemyBase.life -KingDamage;
       }
     } //If above is false, FriendlyUnit will move towards enemy base
-    else if (!EbaseTargetted && !EswordTargetted) {
+    else if (!EswordTargetted && !EkingTargetted && !EarcherTargetted && !EhorseTargetted) {
       PVector vel = PVector.sub(EnemyBase.pos, pos);
       vel.setMag(FastSpeed);
       pos.x = constrain(pos.x, 0, width);
