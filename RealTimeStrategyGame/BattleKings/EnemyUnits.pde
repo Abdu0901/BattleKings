@@ -47,7 +47,7 @@ class Esword extends EnemyUnit {
         vel.set(0, 0);
         if (taller > VeryFastAttackSpeed) {
           taller = 0;
-          EnemyBase.life = EnemyBase.life -SwordDamage;
+          FriendBase.life = FriendBase.life -SwordDamage;
         }
       } //If above is false, FriendlyUnit will move towards enemy base
       else if (!FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted) {
@@ -161,7 +161,7 @@ class Eking extends EnemyUnit {
         vel.set(0, 0);
         if (taller > SlowAttackSpeed) {
           taller = 0;
-          EnemyBase.life = EnemyBase.life -KingDamage;
+          FriendBase.life = FriendBase.life -KingDamage;
         }
       } //If above is false, FriendlyUnit will move towards enemy base
       else if (!FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted) {
@@ -321,7 +321,7 @@ class Earcher extends EnemyUnit {
         vel.set(0, 0);
         if (taller > SlowAttackSpeed) {
           taller = 0;
-          EnemyBase.life = EnemyBase.life -ArcherDamage;
+          FriendBase.life = FriendBase.life -ArcherDamage;
         }
       } //If above is false, FriendlyUnit will move towards enemy base
       else if (!FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted) {
@@ -458,7 +458,7 @@ class Ehorseman extends EnemyUnit {
         vel.set(0, 0);
         if (taller > FastAttackSpeed) {
           taller = 0;
-          EnemyBase.life = EnemyBase.life -HorseManDamage;
+          FriendBase.life = FriendBase.life -HorseManDamage;
         }
       } //If above is false, FriendlyUnit will move towards enemy base
       else if (!FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted) {
