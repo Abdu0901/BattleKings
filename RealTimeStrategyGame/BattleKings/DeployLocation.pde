@@ -9,6 +9,9 @@ boolean SwordDP = false, KingDP = false, HorsemanDP = false, BowDP = false;
 int DeployX;
 int DeployY;
 
+int TempDeployX;
+int TempDeployY;
+
 //Switch case that checks which unit is selected and sets it to true
 void SelectUnit() {
   switch(SelectedUnitNum) {
@@ -48,9 +51,11 @@ void DeselectAllUnits() {
 }
 
 //Deploys units in the location the moust is pressed
-void mousePressed(){
-  DeployX = mouseX;
-  DeployY = mouseY;
+void mousePressed() {
+  TempDeployX = mouseX;
+  TempDeployY = mouseY;
+  DeployX = constrain(TempDeployX, 0, width/2);
+  DeployY = constrain(TempDeployY, 0, height/2);
 }
 
 //Selects units based on which numbers is pressed
