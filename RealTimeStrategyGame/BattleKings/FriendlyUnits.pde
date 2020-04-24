@@ -3,9 +3,11 @@ class FriendlyUnit {
   PVector pos;
   PVector vel;
   int taller = 0;
-  boolean InCombat = false;
-  boolean TargetsInSight = false;
+  boolean EbaseTargetted = false;
   boolean EswordTargetted = false;
+  boolean EkingTargetted = false;
+  boolean EhorseTargetted = false;
+  boolean EarcherTargetted = false;
 }
 
 class Fsword extends FriendlyUnit {
@@ -30,12 +32,12 @@ class Fsword extends FriendlyUnit {
   void swordMovement() {
     taller++;
     //Checks if FriendlyUnit is in combat, if true, stops the FriendlyUnit from moving
-    if (InCombat == true && taller > VeryFastAttackSpeed) {
+    if (EbaseTargetted == true && taller > VeryFastAttackSpeed) {
       vel.set( 0, 0);
       taller = 0;
       Target.life = Target.life -SwordDamage;
     } //If above is false, FriendlyUnit will move towards enemy base
-    else if (InCombat == false && TargetsInSight == false) {
+    else if (EbaseTargetted == false) {
       PVector vel = PVector.sub(EnemyBase.pos, pos);
       vel.setMag(MediumSpeed);
       pos.x = constrain(pos.x, 0, width);
@@ -45,9 +47,9 @@ class Fsword extends FriendlyUnit {
       Target.pos.y = EnemyBase.pos.y;
       Target.life = EnemyBase.life;
       TargetSize = BaseSize;
-    } //If FriendlyUnit is close to enemy base, InCombat becomes true and FriendlyUnit damages the base
+    } //If FriendlyUnit is close to enemy base, EbaseTargetted becomes true and FriendlyUnit damages the base
     if (dist(pos.x, pos.y, Target.pos.x, Target.pos.y)<=TargetSize) {
-      InCombat = true;
+      EbaseTargetted = true;
     }
   }
 }
@@ -60,26 +62,25 @@ class Fking extends FriendlyUnit {
   void kingMovement() {
     taller++;
     //Checks if FriendlyUnit is in combat, if true, stops the FriendlyUnit from moving
-    if (InCombat == true && dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=BaseSize && taller > SlowAttackSpeed) {
-      vel.set( 0, 0);
+    if (EbaseTargetted == true && dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=BaseSize && taller > SlowAttackSpeed) {
+      vel.set(0, 0);
       taller = 0;
       EnemyBase.life = EnemyBase.life -KingDamage;
     } //If above is false, FriendlyUnit will move towards enemy base
-    else if (InCombat == false && EswordTargetted == false) {
+    else if (EbaseTargetted == false && EswordTargetted == false) {
       PVector vel = PVector.sub(EnemyBase.pos, pos);
       vel.setMag(FastSpeed);
       pos.x = constrain(pos.x, 0, width);
       pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
-    } //If FriendlyUnit is close to enemy base, InCombat becomes true and FriendlyUnit damages the base
-    if (EswordTargetted == false && dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=BaseSize) {
-      InCombat = true;
+    } //If FriendlyUnit is close to enemy base, EbaseTargetted becomes true and FriendlyUnit damages the base
+    if (EswordTargetted == false && EkingTargetted == false && EarcherTargetted == false && EhorseTargetted == false && dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=BaseSize) {
+      EbaseTargetted = true;
     } 
     //For loop that checks for Eswords
     for (Esword esword : Eswords) { 
       //Checks if King is close to Eswords and changes Pvector accordingly
-      if (InCombat == false && EswordTargetted == false && dist(pos.x, pos.y, esword.pos.x, esword.pos.y)<=200) {
-        println("Target Aquired!");
+      if (EbaseTargetted == false && EswordTargetted == false && EkingTargetted == false && EarcherTargetted == false && EhorseTargetted == false && dist(pos.x, pos.y, esword.pos.x, esword.pos.y)<=200) {
         PVector vel = PVector.sub(esword.pos, pos);
         vel.setMag(FastSpeed);
         pos.x = constrain(pos.x, 0, width);
@@ -87,14 +88,17 @@ class Fking extends FriendlyUnit {
         pos.add(vel);
         EswordTargetted = true;
       }
-      if (InCombat == false && EswordTargetted == true && dist(pos.x, pos.y, esword.pos.x, esword.pos.y)<=UnitSize && taller > SlowAttackSpeed) {
+      if (EbaseTargetted == false && EswordTargetted == true && EkingTargetted == false && EarcherTargetted == false && EhorseTargetted == false && dist(pos.x, pos.y, esword.pos.x, esword.pos.y)<=UnitSize && taller > SlowAttackSpeed) {
         vel.set( 0, 0);
         taller = 0;
         esword.life = esword.life -KingDamage;
         println("King Engaging ESword!");
       } else {
-        InCombat = false;
+        EbaseTargetted = false;
         EswordTargetted = false;
+        EkingTargetted = false;
+        EarcherTargetted = false;
+        EhorseTargetted = false;
       }
     }
   }
@@ -136,20 +140,20 @@ class Farcher extends FriendlyUnit {
   void archerMovement() {
     taller++;
     //Checks if FriendlyUnit is in combat, if true, stops the FriendlyUnit from moving
-    if (InCombat == true && taller > MediumAttackSpeed) {
+    if (EbaseTargetted == true && taller > MediumAttackSpeed) {
       vel.set( 0, 0);
       taller = 0;
       EnemyBase.life = EnemyBase.life -ArcherDamage;
     } //If above is false, FriendlyUnit will move towards enemy base
-    else if (InCombat == false) {
+    else if (EbaseTargetted == false) {
       PVector vel = PVector.sub(EnemyBase.pos, pos);
       vel.setMag(SlowSpeed);
       pos.x = constrain(pos.x, 0, width);
       pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
-    } //If FriendlyUnit is close to enemy base, InCombat becomes true and FriendlyUnit damages the base
+    } //If FriendlyUnit is close to enemy base, EbaseTargetted becomes true and FriendlyUnit damages the base
     if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=BaseSize+BowRange) {
-      InCombat = true;
+      EbaseTargetted = true;
     }
     /*
     if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=200) {
@@ -188,20 +192,20 @@ class Fhorseman extends FriendlyUnit {
   void horsemanMovement() {
     taller++;
     //Checks if FriendlyUnit is in combat, if true, stops the FriendlyUnit from moving
-    if (InCombat == true && taller > FastAttackSpeed) {
+    if (EbaseTargetted == true && taller > FastAttackSpeed) {
       vel.set(0, 0);      
       taller = 0;
       EnemyBase.life = EnemyBase.life -HorseManDamage;
     } //If above is false, FriendlyUnit will move towards enemy base
-    else if (InCombat == false) {
+    else if (EbaseTargetted == false) {
       PVector vel = PVector.sub(EnemyBase.pos, pos);
       vel.setMag(VeryFastSpeed);
       pos.x = constrain(pos.x, 0, width);
       pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
-    } //If FriendlyUnit is close to enemy base, InCombat becomes true and FriendlyUnit damages the base
+    } //If FriendlyUnit is close to enemy base, EbaseTargetted becomes true and FriendlyUnit damages the base
     if (dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=BaseSize) {
-      InCombat = true;
+      EbaseTargetted = true;
     }
   }
 }
