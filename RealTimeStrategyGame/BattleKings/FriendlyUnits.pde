@@ -62,25 +62,25 @@ class Fking extends FriendlyUnit {
   void kingMovement() {
     taller++;
     //Checks if FriendlyUnit is in combat, if true, stops the FriendlyUnit from moving
-    if (EbaseTargetted == true && dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=BaseSize && taller > SlowAttackSpeed) {
+    if (EbaseTargetted && dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=BaseSize && taller > SlowAttackSpeed) {
       vel.set(0, 0);
       taller = 0;
       EnemyBase.life = EnemyBase.life -KingDamage;
     } //If above is false, FriendlyUnit will move towards enemy base
-    else if (EbaseTargetted == false && EswordTargetted == false) {
+    else if (!EbaseTargetted && !EswordTargetted) {
       PVector vel = PVector.sub(EnemyBase.pos, pos);
       vel.setMag(FastSpeed);
       pos.x = constrain(pos.x, 0, width);
       pos.y = constrain(pos.y, 0, height);
       pos.add(vel);
     } //If FriendlyUnit is close to enemy base, EbaseTargetted becomes true and FriendlyUnit damages the base
-    if (EswordTargetted == false && EkingTargetted == false && EarcherTargetted == false && EhorseTargetted == false && dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=BaseSize) {
+    if (!EswordTargetted && !EkingTargetted && !EarcherTargetted && !EhorseTargetted && dist(pos.x, pos.y, EnemyBase.pos.x, EnemyBase.pos.y)<=BaseSize) {
       EbaseTargetted = true;
     } 
     //For loop that checks for Eswords
     for (Esword esword : Eswords) { 
       //Checks if King is close to Eswords and changes Pvector accordingly
-      if (EbaseTargetted == false && EswordTargetted == false && EkingTargetted == false && EarcherTargetted == false && EhorseTargetted == false && dist(pos.x, pos.y, esword.pos.x, esword.pos.y)<=200) {
+      if (!EbaseTargetted && !EswordTargetted && !EkingTargetted && !EarcherTargetted && !EhorseTargetted && dist(pos.x, pos.y, esword.pos.x, esword.pos.y)<=200) {
         PVector vel = PVector.sub(esword.pos, pos);
         vel.setMag(FastSpeed);
         pos.x = constrain(pos.x, 0, width);
@@ -88,7 +88,7 @@ class Fking extends FriendlyUnit {
         pos.add(vel);
         EswordTargetted = true;
       }
-      if (EbaseTargetted == false && EswordTargetted == true && EkingTargetted == false && EarcherTargetted == false && EhorseTargetted == false && dist(pos.x, pos.y, esword.pos.x, esword.pos.y)<=UnitSize && taller > SlowAttackSpeed) {
+      if (!EbaseTargetted && EswordTargetted && !EkingTargetted && !EarcherTargetted && !EhorseTargetted && dist(pos.x, pos.y, esword.pos.x, esword.pos.y)<=UnitSize && taller > SlowAttackSpeed) {
         vel.set( 0, 0);
         taller = 0;
         esword.life = esword.life -KingDamage;
