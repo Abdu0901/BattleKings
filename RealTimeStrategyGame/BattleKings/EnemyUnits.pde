@@ -52,6 +52,7 @@ class Esword extends EnemyUnit {
         }
       } //If above is false, FriendlyUnit will move towards enemy base
       else if (!FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted) {
+        FTempTarget = FriendBase.pos;
         PVector vel = PVector.sub(FriendBase.pos, pos);
         vel.setMag(MediumSpeed);
         pos.x = constrain(pos.x, 0, width);
@@ -65,6 +66,7 @@ class Esword extends EnemyUnit {
       for (Fsword fsword : Fswords) { 
         //Checks if King is close to Fswords and changes Pvector accordingly
         if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fsword.pos.x, fsword.pos.y)<=200) {
+          FTempTarget = fsword.pos;
           PVector vel = PVector.sub(fsword.pos, pos);
           vel.setMag(MediumSpeed);
           pos.x = constrain(pos.x, 0, width);
@@ -86,6 +88,7 @@ class Esword extends EnemyUnit {
       for (Fking fking : Fkings) { 
         //Checks if King is close to Fkings and changes Pvector accordingly
         if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fking.pos.x, fking.pos.y)<=200) {
+          FTempTarget = fking.pos;
           PVector vel = PVector.sub(fking.pos, pos);
           vel.setMag(MediumSpeed);
           pos.x = constrain(pos.x, 0, width);
@@ -107,6 +110,7 @@ class Esword extends EnemyUnit {
       for (Farcher farcher : Farchers) { 
         //Checks if King is close to Farchers and changes Pvector accordingly
         if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, farcher.pos.x, farcher.pos.y)<=200) {
+          FTempTarget = farcher.pos;
           PVector vel = PVector.sub(farcher.pos, pos);
           vel.setMag(MediumSpeed);
           pos.x = constrain(pos.x, 0, width);
@@ -128,6 +132,7 @@ class Esword extends EnemyUnit {
       for (Fhorseman fhorseman : Fhorsemen) { 
         //Checks if King is close to Fhorseman and changes Pvector accordingly
         if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fhorseman.pos.x, fhorseman.pos.y)<=200) {
+          FTempTarget = fhorseman.pos;
           PVector vel = PVector.sub(fhorseman.pos, pos);
           vel.setMag(MediumSpeed);
           pos.x = constrain(pos.x, 0, width);
@@ -166,6 +171,7 @@ class Eking extends EnemyUnit {
         }
       } //If above is false, FriendlyUnit will move towards enemy base
       else if (!FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted) {
+        FTempTarget = FriendBase.pos;
         PVector vel = PVector.sub(FriendBase.pos, pos);
         vel.setMag(FastSpeed);
         pos.x = constrain(pos.x, 0, width);
@@ -179,6 +185,7 @@ class Eking extends EnemyUnit {
       for (Fsword fsword : Fswords) { 
         //Checks if King is close to Fswords and changes Pvector accordingly
         if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fsword.pos.x, fsword.pos.y)<=200) {
+          FTempTarget = fsword.pos;
           PVector vel = PVector.sub(fsword.pos, pos);
           vel.setMag(FastSpeed);
           pos.x = constrain(pos.x, 0, width);
@@ -200,6 +207,7 @@ class Eking extends EnemyUnit {
       for (Fking fking : Fkings) { 
         //Checks if King is close to Fkings and changes Pvector accordingly
         if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fking.pos.x, fking.pos.y)<=200) {
+          FTempTarget = fking.pos;
           PVector vel = PVector.sub(fking.pos, pos);
           vel.setMag(FastSpeed);
           pos.x = constrain(pos.x, 0, width);
@@ -221,6 +229,7 @@ class Eking extends EnemyUnit {
       for (Farcher farcher : Farchers) { 
         //Checks if King is close to Farchers and changes Pvector accordingly
         if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, farcher.pos.x, farcher.pos.y)<=200) {
+          FTempTarget = farcher.pos;
           PVector vel = PVector.sub(farcher.pos, pos);
           vel.setMag(FastSpeed);
           pos.x = constrain(pos.x, 0, width);
@@ -242,6 +251,7 @@ class Eking extends EnemyUnit {
       for (Fhorseman fhorseman : Fhorsemen) { 
         //Checks if King is close to Fhorseman and changes Pvector accordingly
         if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fhorseman.pos.x, fhorseman.pos.y)<=200) {
+          FTempTarget = fhorseman.pos;
           PVector vel = PVector.sub(fhorseman.pos, pos);
           vel.setMag(FastSpeed);
           pos.x = constrain(pos.x, 0, width);
@@ -326,6 +336,7 @@ class Earcher extends EnemyUnit {
         }
       } //If above is false, FriendlyUnit will move towards enemy base
       else if (!FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted) {
+        FTempTarget = FriendBase.pos;
         PVector vel = PVector.sub(FriendBase.pos, pos);
         vel.setMag(SlowSpeed);
         pos.x = constrain(pos.x, 0, width);
@@ -339,6 +350,7 @@ class Earcher extends EnemyUnit {
       for (Fsword fsword : Fswords) { 
         //Checks if King is close to Fswords and changes Pvector accordingly
         if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fsword.pos.x, fsword.pos.y)<=200) {
+          FTempTarget = fsword.pos;
           PVector vel = PVector.sub(fsword.pos, pos);
           vel.setMag(SlowSpeed);
           pos.x = constrain(pos.x, 0, width);
@@ -360,6 +372,7 @@ class Earcher extends EnemyUnit {
       for (Fking fking : Fkings) { 
         //Checks if King is close to Fkings and changes Pvector accordingly
         if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fking.pos.x, fking.pos.y)<=200) {
+          FTempTarget = fking.pos;
           PVector vel = PVector.sub(fking.pos, pos);
           vel.setMag(SlowSpeed);
           pos.x = constrain(pos.x, 0, width);
@@ -381,6 +394,7 @@ class Earcher extends EnemyUnit {
       for (Farcher farcher : Farchers) { 
         //Checks if King is close to Farchers and changes Pvector accordingly
         if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, farcher.pos.x, farcher.pos.y)<=200) {
+          FTempTarget = farcher.pos;
           PVector vel = PVector.sub(farcher.pos, pos);
           vel.setMag(SlowSpeed);
           pos.x = constrain(pos.x, 0, width);
@@ -402,6 +416,7 @@ class Earcher extends EnemyUnit {
       for (Fhorseman fhorseman : Fhorsemen) { 
         //Checks if King is close to Fhorseman and changes Pvector accordingly
         if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fhorseman.pos.x, fhorseman.pos.y)<=200) {
+          FTempTarget = fhorseman.pos;
           PVector vel = PVector.sub(fhorseman.pos, pos);
           vel.setMag(SlowSpeed);
           pos.x = constrain(pos.x, 0, width);
@@ -463,6 +478,7 @@ class Ehorseman extends EnemyUnit {
         }
       } //If above is false, FriendlyUnit will move towards enemy base
       else if (!FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted) {
+        FTempTarget = FriendBase.pos;
         PVector vel = PVector.sub(FriendBase.pos, pos);
         vel.setMag(VeryFastSpeed);
         pos.x = constrain(pos.x, 0, width);
@@ -476,6 +492,7 @@ class Ehorseman extends EnemyUnit {
       for (Fsword fsword : Fswords) { 
         //Checks if King is close to Fswords and changes Pvector accordingly
         if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fsword.pos.x, fsword.pos.y)<=200) {
+          FTempTarget = fsword.pos;
           PVector vel = PVector.sub(fsword.pos, pos);
           vel.setMag(VeryFastSpeed);
           pos.x = constrain(pos.x, 0, width);
@@ -497,6 +514,7 @@ class Ehorseman extends EnemyUnit {
       for (Fking fking : Fkings) { 
         //Checks if King is close to Fkings and changes Pvector accordingly
         if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fking.pos.x, fking.pos.y)<=200) {
+          FTempTarget = fking.pos;
           PVector vel = PVector.sub(fking.pos, pos);
           vel.setMag(VeryFastSpeed);
           pos.x = constrain(pos.x, 0, width);
@@ -518,6 +536,7 @@ class Ehorseman extends EnemyUnit {
       for (Farcher farcher : Farchers) { 
         //Checks if King is close to Farchers and changes Pvector accordingly
         if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, farcher.pos.x, farcher.pos.y)<=200) {
+          FTempTarget = farcher.pos;
           PVector vel = PVector.sub(farcher.pos, pos);
           vel.setMag(VeryFastSpeed);
           pos.x = constrain(pos.x, 0, width);
@@ -539,6 +558,7 @@ class Ehorseman extends EnemyUnit {
       for (Fhorseman fhorseman : Fhorsemen) { 
         //Checks if King is close to Fhorseman and changes Pvector accordingly
         if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fhorseman.pos.x, fhorseman.pos.y)<=200) {
+          FTempTarget = fhorseman.pos;
           PVector vel = PVector.sub(fhorseman.pos, pos);
           vel.setMag(VeryFastSpeed);
           pos.x = constrain(pos.x, 0, width);
