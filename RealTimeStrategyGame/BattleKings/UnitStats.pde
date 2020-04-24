@@ -6,9 +6,9 @@ int VeryExpensiveCost = 80;
 
 //Assigning cost to troops
 int SwordCost = CheapCost, ESwordCost = CheapCost;
-int KingCost = CheapCost, EKingCost = CheapCost;
-int ArcherCost = CheapCost, EArcherCost = CheapCost;
-int HorseManCost = CheapCost, EHorseManCost = CheapCost;
+int KingCost = VeryExpensiveCost, EKingCost = VeryExpensiveCost;
+int ArcherCost = MediumCost, EArcherCost = MediumCost;
+int HorseManCost = ExpensiveCost, EHorseManCost = ExpensiveCost;
 
 //Damage of the troops
 int SwordDamage = 2;
