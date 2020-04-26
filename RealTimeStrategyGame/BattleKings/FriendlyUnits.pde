@@ -22,16 +22,16 @@ class Fsword extends FriendlyUnit {
       UnitIsAlive = true;
       pushMatrix();
       translate(pos.x, pos.y);
+      fill(255);
+      textSize(30);
+      textAlign(CENTER, CENTER);
+      text("HP:" + life, 0, -40);
       rotate(atan2(ETempTarget.y - pos.y, ETempTarget.x - pos.x));
       rectMode(CENTER);
       fill(0, 0, 255);
       ellipse(0, 0, 50, 50);
       BKSword.resize(50, 50);
       image(BKSword, 0, 0);
-      fill(255);
-      textSize(30);
-      textAlign(CENTER, CENTER);
-      text("HP:" + life, 0, -40);
       popMatrix();
     } else if (life < 1) {
       pos.x = DeadPosX;
@@ -277,16 +277,16 @@ class Fking extends FriendlyUnit {
       UnitIsAlive = true;
       pushMatrix();
       translate(pos.x, pos.y);
+      fill(255);
+      textSize(30);
+      textAlign(CENTER, CENTER);
+      text("HP:" + life, 0, -40);
       rotate(atan2(ETempTarget.y - pos.y, ETempTarget.x - pos.x));
       rectMode(CENTER);
       fill(0, 0, 255);
       ellipse(0, 0, 50, 50);
       BKKing.resize(50, 50);
       image(BKKing, 0, 0);
-      fill(255);
-      textSize(30);
-      textAlign(CENTER, CENTER);
-      text("HP:" + life, 0, -40);
       popMatrix();
     } else if (life < 1) {
       pos.x = DeadPosX;
@@ -306,16 +306,16 @@ class Farcher extends FriendlyUnit {
       UnitIsAlive = true;
       pushMatrix();
       translate(pos.x, pos.y);
+      fill(255);
+      textSize(30);
+      textAlign(CENTER, CENTER);
+      text("HP:" + life, 0, -40);
       rotate(atan2(ETempTarget.y - pos.y, ETempTarget.x - pos.x));
       rectMode(CENTER);
       fill(0, 0, 255);
       ellipse(0, 0, 50, 50);
       BKBow.resize(50, 50);
       image(BKBow, 0, 0);
-      fill(255);
-      textSize(30);
-      textAlign(CENTER, CENTER);
-      text("HP:" + life, 0, -40);
       popMatrix();
     } else if (life < 1) {
       pos.x = DeadPosX;
@@ -448,16 +448,16 @@ class Fhorseman extends FriendlyUnit {
       UnitIsAlive = true;
       pushMatrix();
       translate(pos.x, pos.y);
+      fill(255);
+      textSize(30);
+      textAlign(CENTER, CENTER);
+      text("HP:" + life, 0, -40);
       rotate(atan2(ETempTarget.y - pos.y, ETempTarget.x - pos.x));
       rectMode(CENTER);
       fill(0, 0, 255);
       ellipse(0, 0, 50, 50);
       BKHorseman.resize(50, 50);
       image(BKHorseman, 0, 0);
-      fill(255);
-      textSize(30);
-      textAlign(CENTER, CENTER);
-      text("HP:" + life, 0, -40);
       popMatrix();
     } else if (life < 1) {
       pos.x = DeadPosX;
