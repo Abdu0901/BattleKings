@@ -26,7 +26,7 @@ class Esword extends EnemyUnit {
       textSize(30);
       textAlign(CENTER, CENTER);
       text("HP:" + life, 0, -40);
-      rotate(atan2(FTempTarget.y - pos.y-10, FTempTarget.x + pos.x));
+      rotate(atan2(pos.y - FTempTarget.y, pos.x - FTempTarget.x));
       rectMode(CENTER);
       fill(255, 0, 0);
       ellipse(0, 0, 50, 50);
@@ -281,7 +281,7 @@ class Eking extends EnemyUnit {
       textSize(30);
       textAlign(CENTER, CENTER);
       text("HP:" + life, 0, -40);
-      rotate(atan2(FTempTarget.y - pos.y-10, FTempTarget.x + pos.x));
+      rotate(atan2(pos.y - FTempTarget.y, pos.x - FTempTarget.x));
       rectMode(CENTER);
       fill(255, 0, 0);
       ellipse(0, 0, 50, 50);
@@ -310,7 +310,7 @@ class Earcher extends EnemyUnit {
       textSize(30);
       textAlign(CENTER, CENTER);
       text("HP:" + life, 0, -40);
-      rotate(atan2(FTempTarget.y - pos.y-10, FTempTarget.x + pos.x));
+      rotate(atan2(pos.y - FTempTarget.y, pos.x - FTempTarget.x));
       rectMode(CENTER);
       fill(255, 0, 0);
       ellipse(0, 0, 50, 50);
@@ -452,7 +452,7 @@ class Ehorseman extends EnemyUnit {
       textSize(30);
       textAlign(CENTER, CENTER);
       text("HP:" + life, 0, -40);
-      rotate(atan2(FTempTarget.y - pos.y-10, FTempTarget.x + pos.x));
+      rotate(atan2(pos.y - FTempTarget.y, pos.x - FTempTarget.x));
       rectMode(CENTER);
       fill(255, 0, 0);
       ellipse(0, 0, 50, 50);

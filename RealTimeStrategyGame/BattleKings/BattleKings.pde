@@ -1,7 +1,5 @@
 //Abdullah, Jens and Magnus DDU. BattleKings a RealTime Strategy Game.
 
-//import lydfiler og processing funktioner
-
 //ArrayList that contains the objects of each unit
 ArrayList<Fsword> Fswords = new ArrayList<Fsword>();
 ArrayList<Fking> Fkings = new ArrayList<Fking>();
