@@ -1,8 +1,9 @@
 //Class EnemyUnit includes the different EnemyUnits and their interactions
 class EnemyUnit {
-  PVector pos;
-  PVector vel;
+  int life = 20;
   int taller = 0;
+  int UnitRange = MeleeRange;
+  PImage UnitImage = BKSword;
   boolean FbaseTargetted = false;
   boolean FswordTargetted = false;
   boolean FkingTargetted = false;
@@ -10,12 +11,11 @@ class EnemyUnit {
   boolean FarcherTargetted = false;
   boolean UnitIsAlive = false;
   PVector FTempTarget = new PVector (FriendBase.pos.x, FriendBase.pos.y);
-}
-
-class Esword extends EnemyUnit {
+  int UnitDamage;
+  int AttackSpeed;
+  int MovementSpeed;
   PVector pos = new PVector (EDeployLocationX, EDeployLocationY);
-  PVector vel = new PVector (MediumSpeed, 0);
-  int life = SwordHP;
+  PVector vel = new PVector (MovementSpeed, 0);
 
   void update() {
     if (life > 1) {
@@ -30,8 +30,8 @@ class Esword extends EnemyUnit {
       rectMode(CENTER);
       fill(255, 0, 0);
       ellipse(0, 0, 50, 50);
-      BKESword.resize(50, 50);
-      image(BKESword, 0, 0);
+      UnitImage.resize(50, 50);
+      image(UnitImage, 0, 0);
       popMatrix();
     } else if (life < 1) {
       pos.x = DeadPosX;
@@ -40,542 +40,157 @@ class Esword extends EnemyUnit {
     }
   }
 
-  void EswordMovement() {
+  void EMovement() {
     if (UnitIsAlive) {
       taller++;
-      //Checks if FriendlyUnit is in combat, if true, stops the FriendlyUnit from moving
+      //Checks if Unit is in combat, if true, Unit attacks target and stops it from moving
       if (FbaseTargetted && dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=BaseSize) {
         vel.set(0, 0);
-        if (taller > VeryFastAttackSpeed) {
+        if (taller > AttackSpeed) {
           taller = 0;
-          FriendBase.life = FriendBase.life -SwordDamage;
+          FriendBase.life = FriendBase.life -UnitDamage;
         }
-      } //If above is false, FriendlyUnit will move towards enemy base
+      } //If above is false, Unit will move towards enemy base
       else if (!FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted) {
         FTempTarget = FriendBase.pos;
         PVector vel = PVector.sub(FriendBase.pos, pos);
-        vel.setMag(MediumSpeed);
+        vel.setMag(MovementSpeed);
         pos.x = constrain(pos.x, 0, width);
         pos.y = constrain(pos.y, 0, height);
         pos.add(vel);
-      } //If FriendlyUnit is close to enemy base, FbaseTargetted becomes true and FriendlyUnit damages the base
-      if (!FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=BaseSize) {
+      } //If Unit is close to base it becomes its target
+      if (!FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=BaseSize + UnitRange) {
         FbaseTargetted = true;
       } 
-      //For loop that checks for Fswords
+      //For loop that checks for Eswords
       for (Fsword fsword : Fswords) { 
-        //Checks if King is close to Fswords and changes Pvector accordingly
-        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fsword.pos.x, fsword.pos.y)<=200) {
+        //Checks if Unit is close to Eswords and changes Pvector accordingly
+        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fsword.pos.x, fsword.pos.y)<=DetectionRange) {
           FTempTarget = fsword.pos;
           PVector vel = PVector.sub(fsword.pos, pos);
-          vel.setMag(MediumSpeed);
+          vel.setMag(MovementSpeed);
           pos.x = constrain(pos.x, 0, width);
           pos.y = constrain(pos.y, 0, height);
           pos.add(vel);
           FswordTargetted = true;
         }
-        if (!FbaseTargetted && FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fsword.pos.x, fsword.pos.y)<=UnitSize) {
+        if (!FbaseTargetted && FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fsword.pos.x, fsword.pos.y)<=UnitSize + UnitRange) {
           vel.set( 0, 0);
-          if (taller > VeryFastAttackSpeed) {
+          if (taller > AttackSpeed) {
             taller = 0;
-            fsword.life = fsword.life -SwordDamage;
+            fsword.life = fsword.life -UnitDamage;
           }
         } else {
           FswordTargetted = false;
         }
       }
-      //For loop that checks for Fkings
+      //For loop that checks for Ekings
       for (Fking fking : Fkings) { 
-        //Checks if King is close to Fkings and changes Pvector accordingly
-        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fking.pos.x, fking.pos.y)<=200) {
+        //Checks if Unit is close to Ekings and changes Pvector accordingly
+        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fking.pos.x, fking.pos.y)<=DetectionRange) {
           FTempTarget = fking.pos;
           PVector vel = PVector.sub(fking.pos, pos);
-          vel.setMag(MediumSpeed);
+          vel.setMag(MovementSpeed);
           pos.x = constrain(pos.x, 0, width);
           pos.y = constrain(pos.y, 0, height);
           pos.add(vel);
           FkingTargetted = true;
         }
-        if (!FbaseTargetted && !FswordTargetted && FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fking.pos.x, fking.pos.y)<=UnitSize) {
+        if (!FbaseTargetted && !FswordTargetted && FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fking.pos.x, fking.pos.y)<=UnitSize + UnitRange) {
           vel.set( 0, 0);
-          if (taller > VeryFastAttackSpeed) {
+          if (taller > AttackSpeed) {
             taller = 0;
-            fking.life = fking.life -SwordDamage;
+            fking.life = fking.life -UnitDamage;
           }
         } else {
           FkingTargetted = false;
         }
       }
-      //For loop that checks for Farchers
+      //For loop that checks for Earchers
       for (Farcher farcher : Farchers) { 
-        //Checks if King is close to Farchers and changes Pvector accordingly
-        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, farcher.pos.x, farcher.pos.y)<=200) {
+        //Checks if Unit is close to Earchers and changes Pvector accordingly
+        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, farcher.pos.x, farcher.pos.y)<=DetectionRange) {
           FTempTarget = farcher.pos;
           PVector vel = PVector.sub(farcher.pos, pos);
-          vel.setMag(MediumSpeed);
+          vel.setMag(MovementSpeed);
           pos.x = constrain(pos.x, 0, width);
           pos.y = constrain(pos.y, 0, height);
           pos.add(vel);
           FarcherTargetted = true;
         }
-        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, farcher.pos.x, farcher.pos.y)<=UnitSize) {
+        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, farcher.pos.x, farcher.pos.y)<=UnitSize + UnitRange) {
           vel.set( 0, 0);
-          if (taller > VeryFastAttackSpeed) {
+          if (taller > AttackSpeed) {
             taller = 0;
-            farcher.life = farcher.life -SwordDamage;
+            farcher.life = farcher.life -UnitDamage;
           }
         } else {
           FarcherTargetted = false;
         }
       }
-      //For loop that checks for Fhorseman
+      //For loop that checks for Ehorseman
       for (Fhorseman fhorseman : Fhorsemen) { 
-        //Checks if King is close to Fhorseman and changes Pvector accordingly
-        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fhorseman.pos.x, fhorseman.pos.y)<=200) {
+        //Checks if Unit is close to Ehorseman and changes Pvector accordingly
+        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fhorseman.pos.x, fhorseman.pos.y)<=DetectionRange) {
           FTempTarget = fhorseman.pos;
           PVector vel = PVector.sub(fhorseman.pos, pos);
-          vel.setMag(MediumSpeed);
+          vel.setMag(MovementSpeed);
           pos.x = constrain(pos.x, 0, width);
           pos.y = constrain(pos.y, 0, height);
           pos.add(vel);
           FhorseTargetted = true;
         }
-        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && FhorseTargetted && dist(pos.x, pos.y, fhorseman.pos.x, fhorseman.pos.y)<=UnitSize) {
+        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && FhorseTargetted && dist(pos.x, pos.y, fhorseman.pos.x, fhorseman.pos.y)<=UnitSize + UnitRange) {
           vel.set( 0, 0);
-          if (taller > VeryFastAttackSpeed) {
+          if (taller > AttackSpeed) {
             taller = 0;
-            fhorseman.life = fhorseman.life -SwordDamage;
+            fhorseman.life = fhorseman.life -UnitDamage;
           }
         } else {
           FhorseTargetted = false;
         }
       }
     }
+  }
+}
+
+class Esword extends EnemyUnit {
+  Esword(int SwordHP, PImage BKESword, int SwordDamage, int VeryFastAttackSpeed, int MediumSpeed) {
+    this.life = SwordHP;
+    this.UnitImage = BKESword;
+    this.UnitDamage = SwordDamage;
+    this.AttackSpeed = VeryFastAttackSpeed;
+    this.MovementSpeed = MediumSpeed;
   }
 }
 
 class Eking extends EnemyUnit {
-  PVector pos = new PVector (EDeployLocationX, EDeployLocationY);
-  PVector vel = new PVector (FastSpeed, 0);
-  int life = KingHP;
-
-  void EkingMovement() {
-    if (UnitIsAlive) {
-      taller++;
-      //Checks if FriendlyUnit is in combat, if true, stops the FriendlyUnit from moving
-      if (FbaseTargetted && dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=BaseSize) {
-        vel.set(0, 0);
-        if (taller > SlowAttackSpeed) {
-          taller = 0;
-          FriendBase.life = FriendBase.life -KingDamage;
-        }
-      } //If above is false, FriendlyUnit will move towards enemy base
-      else if (!FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted) {
-        FTempTarget = FriendBase.pos;
-        PVector vel = PVector.sub(FriendBase.pos, pos);
-        vel.setMag(FastSpeed);
-        pos.x = constrain(pos.x, 0, width);
-        pos.y = constrain(pos.y, 0, height);
-        pos.add(vel);
-      } //If FriendlyUnit is close to enemy base, FbaseTargetted becomes true and FriendlyUnit damages the base
-      if (!FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=BaseSize) {
-        FbaseTargetted = true;
-      } 
-      //For loop that checks for Fswords
-      for (Fsword fsword : Fswords) { 
-        //Checks if King is close to Fswords and changes Pvector accordingly
-        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fsword.pos.x, fsword.pos.y)<=200) {
-          FTempTarget = fsword.pos;
-          PVector vel = PVector.sub(fsword.pos, pos);
-          vel.setMag(FastSpeed);
-          pos.x = constrain(pos.x, 0, width);
-          pos.y = constrain(pos.y, 0, height);
-          pos.add(vel);
-          FswordTargetted = true;
-        }
-        if (!FbaseTargetted && FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fsword.pos.x, fsword.pos.y)<=UnitSize) {
-          vel.set( 0, 0);
-          if (taller > SlowAttackSpeed) {
-            taller = 0;
-            fsword.life = fsword.life -KingDamage;
-          }
-        } else {
-          FswordTargetted = false;
-        }
-      }
-      //For loop that checks for Fkings
-      for (Fking fking : Fkings) { 
-        //Checks if King is close to Fkings and changes Pvector accordingly
-        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fking.pos.x, fking.pos.y)<=200) {
-          FTempTarget = fking.pos;
-          PVector vel = PVector.sub(fking.pos, pos);
-          vel.setMag(FastSpeed);
-          pos.x = constrain(pos.x, 0, width);
-          pos.y = constrain(pos.y, 0, height);
-          pos.add(vel);
-          FkingTargetted = true;
-        }
-        if (!FbaseTargetted && !FswordTargetted && FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fking.pos.x, fking.pos.y)<=UnitSize) {
-          vel.set( 0, 0);
-          if (taller > SlowAttackSpeed) {
-            taller = 0;
-            fking.life = fking.life -KingDamage;
-          }
-        } else {
-          FkingTargetted = false;
-        }
-      }
-      //For loop that checks for Farchers
-      for (Farcher farcher : Farchers) { 
-        //Checks if King is close to Farchers and changes Pvector accordingly
-        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, farcher.pos.x, farcher.pos.y)<=200) {
-          FTempTarget = farcher.pos;
-          PVector vel = PVector.sub(farcher.pos, pos);
-          vel.setMag(FastSpeed);
-          pos.x = constrain(pos.x, 0, width);
-          pos.y = constrain(pos.y, 0, height);
-          pos.add(vel);
-          FarcherTargetted = true;
-        }
-        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, farcher.pos.x, farcher.pos.y)<=UnitSize) {
-          vel.set( 0, 0);
-          if (taller > SlowAttackSpeed) {
-            taller = 0;
-            farcher.life = farcher.life -KingDamage;
-          }
-        } else {
-          FarcherTargetted = false;
-        }
-      }
-      //For loop that checks for Fhorseman
-      for (Fhorseman fhorseman : Fhorsemen) { 
-        //Checks if King is close to Fhorseman and changes Pvector accordingly
-        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fhorseman.pos.x, fhorseman.pos.y)<=200) {
-          FTempTarget = fhorseman.pos;
-          PVector vel = PVector.sub(fhorseman.pos, pos);
-          vel.setMag(FastSpeed);
-          pos.x = constrain(pos.x, 0, width);
-          pos.y = constrain(pos.y, 0, height);
-          pos.add(vel);
-          FhorseTargetted = true;
-        }
-        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && FhorseTargetted && dist(pos.x, pos.y, fhorseman.pos.x, fhorseman.pos.y)<=UnitSize) {
-          vel.set( 0, 0);
-          if (taller > SlowAttackSpeed) {
-            taller = 0;
-            fhorseman.life = fhorseman.life -KingDamage;
-          }
-        } else {
-          FhorseTargetted = false;
-        }
-      }
-    }
-  }
-
-  void update() {
-    if (life > 1) {
-      UnitIsAlive = true;
-      pushMatrix();
-      translate(pos.x, pos.y);
-      fill(255);
-      textSize(30);
-      textAlign(CENTER, CENTER);
-      text("HP:" + life, 0, -40);
-      rotate(atan2(pos.y - FTempTarget.y, pos.x - FTempTarget.x));
-      rectMode(CENTER);
-      fill(255, 0, 0);
-      ellipse(0, 0, 50, 50);
-      BKEKing.resize(50, 50);
-      image(BKEKing, 0, 0);
-      popMatrix();
-    } else if (life < 1) {
-      pos.x = DeadPosX;
-      pos.y = DeadPosY;
-      UnitIsAlive = false;
-    }
+  Eking(int KingHP, PImage BKEKing, int KingDamage, int SlowAttackSpeed, int FastSpeed) {
+    this.life = KingHP;
+    this.UnitImage = BKEKing;
+    this.UnitDamage = KingDamage;
+    this.AttackSpeed = SlowAttackSpeed;
+    this.MovementSpeed = FastSpeed;
   }
 }
 
 class Earcher extends EnemyUnit {
-  PVector pos = new PVector (EDeployLocationX, EDeployLocationY);
-  PVector vel = new PVector (SlowSpeed, 0);
-  int life = ArcherHP;
-
-  void update() {
-    if (life > 1) {
-      UnitIsAlive = true;
-      pushMatrix();
-      translate(pos.x, pos.y);
-      fill(255);
-      textSize(30);
-      textAlign(CENTER, CENTER);
-      text("HP:" + life, 0, -40);
-      rotate(atan2(pos.y - FTempTarget.y, pos.x - FTempTarget.x));
-      rectMode(CENTER);
-      fill(255, 0, 0);
-      ellipse(0, 0, 50, 50);
-      BKEBow.resize(50, 50);
-      image(BKEBow, 0, 0);
-      popMatrix();
-    } else if (life < 1) {
-      pos.x = DeadPosX;
-      pos.y = DeadPosY;
-      UnitIsAlive = false;
-    }
-  }
-
-  void EarcherMovement() {
-    if (UnitIsAlive) {
-      taller++;
-      //Checks if FriendlyUnit is in combat, if true, stops the FriendlyUnit from moving
-      if (FbaseTargetted && dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=BaseSize+BowRange) {
-        vel.set(0, 0);
-        if (taller > SlowAttackSpeed) {
-          taller = 0;
-          FriendBase.life = FriendBase.life -ArcherDamage;
-        }
-      } //If above is false, FriendlyUnit will move towards enemy base
-      else if (!FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted) {
-        FTempTarget = FriendBase.pos;
-        PVector vel = PVector.sub(FriendBase.pos, pos);
-        vel.setMag(SlowSpeed);
-        pos.x = constrain(pos.x, 0, width);
-        pos.y = constrain(pos.y, 0, height);
-        pos.add(vel);
-      } //If FriendlyUnit is close to enemy base, FbaseTargetted becomes true and FriendlyUnit damages the base
-      if (!FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=BaseSize+BowRange) {
-        FbaseTargetted = true;
-      } 
-      //For loop that checks for Fswords
-      for (Fsword fsword : Fswords) { 
-        //Checks if King is close to Fswords and changes Pvector accordingly
-        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fsword.pos.x, fsword.pos.y)<=200) {
-          FTempTarget = fsword.pos;
-          PVector vel = PVector.sub(fsword.pos, pos);
-          vel.setMag(SlowSpeed);
-          pos.x = constrain(pos.x, 0, width);
-          pos.y = constrain(pos.y, 0, height);
-          pos.add(vel);
-          FswordTargetted = true;
-        }
-        if (!FbaseTargetted && FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fsword.pos.x, fsword.pos.y)<=UnitSize+BowRange) {
-          vel.set( 0, 0);
-          if (taller > SlowAttackSpeed) {
-            taller = 0;
-            fsword.life = fsword.life -ArcherDamage;
-          }
-        } else {
-          FswordTargetted = false;
-        }
-      }
-      //For loop that checks for Fkings
-      for (Fking fking : Fkings) { 
-        //Checks if King is close to Fkings and changes Pvector accordingly
-        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fking.pos.x, fking.pos.y)<=200) {
-          FTempTarget = fking.pos;
-          PVector vel = PVector.sub(fking.pos, pos);
-          vel.setMag(SlowSpeed);
-          pos.x = constrain(pos.x, 0, width);
-          pos.y = constrain(pos.y, 0, height);
-          pos.add(vel);
-          FkingTargetted = true;
-        }
-        if (!FbaseTargetted && !FswordTargetted && FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fking.pos.x, fking.pos.y)<=UnitSize+BowRange) {
-          vel.set( 0, 0);
-          if (taller > SlowAttackSpeed) {
-            taller = 0;
-            fking.life = fking.life -ArcherDamage;
-          }
-        } else {
-          FkingTargetted = false;
-        }
-      }
-      //For loop that checks for Farchers
-      for (Farcher farcher : Farchers) { 
-        //Checks if King is close to Farchers and changes Pvector accordingly
-        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, farcher.pos.x, farcher.pos.y)<=200) {
-          FTempTarget = farcher.pos;
-          PVector vel = PVector.sub(farcher.pos, pos);
-          vel.setMag(SlowSpeed);
-          pos.x = constrain(pos.x, 0, width);
-          pos.y = constrain(pos.y, 0, height);
-          pos.add(vel);
-          FarcherTargetted = true;
-        }
-        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, farcher.pos.x, farcher.pos.y)<=UnitSize+BowRange) {
-          vel.set( 0, 0);
-          if (taller > SlowAttackSpeed) {
-            taller = 0;
-            farcher.life = farcher.life -ArcherDamage;
-          }
-        } else {
-          FarcherTargetted = false;
-        }
-      }
-      //For loop that checks for Fhorseman
-      for (Fhorseman fhorseman : Fhorsemen) { 
-        //Checks if King is close to Fhorseman and changes Pvector accordingly
-        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fhorseman.pos.x, fhorseman.pos.y)<=200) {
-          FTempTarget = fhorseman.pos;
-          PVector vel = PVector.sub(fhorseman.pos, pos);
-          vel.setMag(SlowSpeed);
-          pos.x = constrain(pos.x, 0, width);
-          pos.y = constrain(pos.y, 0, height);
-          pos.add(vel);
-          FhorseTargetted = true;
-        }
-        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && FhorseTargetted && dist(pos.x, pos.y, fhorseman.pos.x, fhorseman.pos.y)<=UnitSize+BowRange) {
-          vel.set( 0, 0);
-          if (taller > SlowAttackSpeed) {
-            taller = 0;
-            fhorseman.life = fhorseman.life -ArcherDamage;
-          }
-        } else {
-          FhorseTargetted = false;
-        }
-      }
-    }
+  Earcher(int ArcherHP, PImage BKEBow, int ArcherDamage, int SlowAttackSpeed, int SlowSpeed, int BowRange) {
+    this.life = ArcherHP;
+    this.UnitImage = BKEBow;
+    this.UnitDamage = ArcherDamage;
+    this.AttackSpeed = SlowAttackSpeed;
+    this.MovementSpeed = SlowSpeed;
+    this.UnitRange = BowRange;
   }
 }
 
 class Ehorseman extends EnemyUnit {
-  PVector pos = new PVector (EDeployLocationX, EDeployLocationY);
-  PVector vel = new PVector (VeryFastSpeed, 0);
-  int life = HorseManHP;
-
-  void update() {
-    if (life > 1) {
-      UnitIsAlive = true;
-      pushMatrix();
-      translate(pos.x, pos.y);
-      fill(255);
-      textSize(30);
-      textAlign(CENTER, CENTER);
-      text("HP:" + life, 0, -40);
-      rotate(atan2(pos.y - FTempTarget.y, pos.x - FTempTarget.x));
-      rectMode(CENTER);
-      fill(255, 0, 0);
-      ellipse(0, 0, 50, 50);
-      BKEHorseman.resize(50, 50);
-      image(BKEHorseman, 0, 0);
-      popMatrix();
-    } else if (life < 1) {
-      pos.x = DeadPosX;
-      pos.y = DeadPosY;
-      UnitIsAlive = false;
-    }
-  }
-
-  void EhorsemanMovement() {
-    if (UnitIsAlive) {
-      taller++;
-      //Checks if FriendlyUnit is in combat, if true, stops the FriendlyUnit from moving
-      if (FbaseTargetted && dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=BaseSize) {
-        vel.set(0, 0);
-        if (taller > FastAttackSpeed) {
-          taller = 0;
-          FriendBase.life = FriendBase.life -HorseManDamage;
-        }
-      } //If above is false, FriendlyUnit will move towards enemy base
-      else if (!FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted) {
-        FTempTarget = FriendBase.pos;
-        PVector vel = PVector.sub(FriendBase.pos, pos);
-        vel.setMag(VeryFastSpeed);
-        pos.x = constrain(pos.x, 0, width);
-        pos.y = constrain(pos.y, 0, height);
-        pos.add(vel);
-      } //If FriendlyUnit is close to enemy base, FbaseTargetted becomes true and FriendlyUnit damages the base
-      if (!FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, FriendBase.pos.x, FriendBase.pos.y)<=BaseSize) {
-        FbaseTargetted = true;
-      } 
-      //For loop that checks for Fswords
-      for (Fsword fsword : Fswords) { 
-        //Checks if King is close to Fswords and changes Pvector accordingly
-        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fsword.pos.x, fsword.pos.y)<=200) {
-          FTempTarget = fsword.pos;
-          PVector vel = PVector.sub(fsword.pos, pos);
-          vel.setMag(VeryFastSpeed);
-          pos.x = constrain(pos.x, 0, width);
-          pos.y = constrain(pos.y, 0, height);
-          pos.add(vel);
-          FswordTargetted = true;
-        }
-        if (!FbaseTargetted && FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fsword.pos.x, fsword.pos.y)<=UnitSize) {
-          vel.set( 0, 0);
-          if (taller > FastAttackSpeed) {
-            taller = 0;
-            fsword.life = fsword.life -HorseManDamage;
-          }
-        } else {
-          FswordTargetted = false;
-        }
-      }
-      //For loop that checks for Fkings
-      for (Fking fking : Fkings) { 
-        //Checks if King is close to Fkings and changes Pvector accordingly
-        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fking.pos.x, fking.pos.y)<=200) {
-          FTempTarget = fking.pos;
-          PVector vel = PVector.sub(fking.pos, pos);
-          vel.setMag(VeryFastSpeed);
-          pos.x = constrain(pos.x, 0, width);
-          pos.y = constrain(pos.y, 0, height);
-          pos.add(vel);
-          FkingTargetted = true;
-        }
-        if (!FbaseTargetted && !FswordTargetted && FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fking.pos.x, fking.pos.y)<=UnitSize) {
-          vel.set( 0, 0);
-          if (taller > FastAttackSpeed) {
-            taller = 0;
-            fking.life = fking.life -HorseManDamage;
-          }
-        } else {
-          FkingTargetted = false;
-        }
-      }
-      //For loop that checks for Farchers
-      for (Farcher farcher : Farchers) { 
-        //Checks if King is close to Farchers and changes Pvector accordingly
-        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, farcher.pos.x, farcher.pos.y)<=200) {
-          FTempTarget = farcher.pos;
-          PVector vel = PVector.sub(farcher.pos, pos);
-          vel.setMag(VeryFastSpeed);
-          pos.x = constrain(pos.x, 0, width);
-          pos.y = constrain(pos.y, 0, height);
-          pos.add(vel);
-          FarcherTargetted = true;
-        }
-        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, farcher.pos.x, farcher.pos.y)<=UnitSize) {
-          vel.set( 0, 0);
-          if (taller > FastAttackSpeed) {
-            taller = 0;
-            farcher.life = farcher.life -HorseManDamage;
-          }
-        } else {
-          FarcherTargetted = false;
-        }
-      }
-      //For loop that checks for Fhorseman
-      for (Fhorseman fhorseman : Fhorsemen) { 
-        //Checks if King is close to Fhorseman and changes Pvector accordingly
-        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && !FhorseTargetted && dist(pos.x, pos.y, fhorseman.pos.x, fhorseman.pos.y)<=200) {
-          FTempTarget = fhorseman.pos;
-          PVector vel = PVector.sub(fhorseman.pos, pos);
-          vel.setMag(VeryFastSpeed);
-          pos.x = constrain(pos.x, 0, width);
-          pos.y = constrain(pos.y, 0, height);
-          pos.add(vel);
-          FhorseTargetted = true;
-        }
-        if (!FbaseTargetted && !FswordTargetted && !FkingTargetted && !FarcherTargetted && FhorseTargetted && dist(pos.x, pos.y, fhorseman.pos.x, fhorseman.pos.y)<=UnitSize) {
-          vel.set( 0, 0);
-          if (taller > FastAttackSpeed) {
-            taller = 0;
-            fhorseman.life = fhorseman.life -HorseManDamage;
-          }
-        } else {
-          FhorseTargetted = false;
-        }
-      }
-    }
+  Ehorseman(int HorseManHP, PImage BKEHorseman, int HorseManDamage, int FastAttackSpeed, int VeryFastSpeed) {
+    this.life = HorseManHP;
+    this.UnitImage = BKEHorseman;
+    this.UnitDamage = HorseManDamage;
+    this.AttackSpeed = FastAttackSpeed;
+    this.MovementSpeed = VeryFastSpeed;
   }
 }

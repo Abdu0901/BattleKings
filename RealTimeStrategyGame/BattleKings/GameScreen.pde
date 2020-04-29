@@ -163,22 +163,22 @@ void AddUnits() {
   if (EUnitSelected == true && EGold > ChosenUnitCost - 1) {
     switch(ESelectedUnit) {
     case 0:
-      Eswords.add(new Esword());
+      Eswords.add(new Esword(SwordHP, BKESword, SwordDamage, VeryFastAttackSpeed, MediumSpeed));
       EUnitSelected = false;
       EGold = EGold - ESwordCost;
       break;
     case 1:
-      Ekings.add(new Eking());
+      Ekings.add(new Eking(KingHP, BKEKing, KingDamage, SlowAttackSpeed, FastSpeed));
       EUnitSelected = false;
       EGold = EGold - EKingCost;
       break;
     case 2:
-      Ehorsemen.add(new Ehorseman());
+      Ehorsemen.add(new Ehorseman(HorseManHP, BKEHorseman, HorseManDamage, FastAttackSpeed, VeryFastSpeed));
       EUnitSelected = false;
       EGold = EGold - EHorseManCost;
       break;
     case 3:
-      Earchers.add(new Earcher());
+      Earchers.add(new Earcher(ArcherHP, BKEBow, ArcherDamage, SlowAttackSpeed, SlowSpeed, BowRange));
       EUnitSelected = false;
       EGold = EGold - EArcherCost;
       break;
@@ -187,21 +187,21 @@ void AddUnits() {
   for (int i5 = Eswords.size()-1; i5>=0; i5--) {
     es = Eswords.get(i5);
     es.update();
-    es.EswordMovement();
+    es.EMovement();
   }
   for (int i6 = Ekings.size()-1; i6>=0; i6--) {
     ek = Ekings.get(i6);
     ek.update();
-    ek.EkingMovement();
+    ek.EMovement();
   }
   for (int i7 = Ehorsemen.size()-1; i7>=0; i7--) {
     eh = Ehorsemen.get(i7);
     eh.update();
-    eh.EhorsemanMovement();
+    eh.EMovement();
   }
   for (int i8 = Earchers.size()-1; i8>=0; i8--) {
     ea = Earchers.get(i8);
     ea.update();
-    ea.EarcherMovement();
+    ea.EMovement();
   }
 }
