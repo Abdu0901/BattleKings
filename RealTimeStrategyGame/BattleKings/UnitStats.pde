@@ -38,4 +38,9 @@ int HorseManHP = 45;
 int BaseSize = 120;
 int UnitSize = 60;
 int TargetSize = 60;
+
+//Range of Units
+int UnitRange = 0;
+int MeleeRange = 0;
 int BowRange = 180;
+int DetectionRange = 200;

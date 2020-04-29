@@ -82,13 +82,13 @@ void AddUnits() {
   if (SwordDP == true && Gold > SwordCost-1 && mousePressed == true) {
     Gold = Gold -SwordCost;
     println("Current amount of Gold: " + Gold);
-    Fswords.add(new Fsword());
+    Fswords.add(new Fsword(SwordHP, BKSword, SwordDamage, VeryFastAttackSpeed, MediumSpeed));
     SelectedUnitNum = 0;
   }
   for (int i2 = Fswords.size()-1; i2>=0; i2--) {
     s = Fswords.get(i2);
     s.update();
-    s.swordMovement();
+    s.Movement();
   }
 
   //Deploy Kings button
@@ -97,13 +97,13 @@ void AddUnits() {
   if (KingDP == true && Gold > KingCost-1 && mousePressed == true) {
     Gold = Gold -KingCost;
     println("Current amount of Gold: " + Gold);
-    Fkings.add(new Fking());
+    Fkings.add(new Fking(KingHP, BKKing, KingDamage, SlowAttackSpeed, FastSpeed));
     SelectedUnitNum = 0;
   }
   for (int i3 = Fkings.size()-1; i3>=0; i3--) {
     k = Fkings.get(i3);
     k.update();
-    k.kingMovement();
+    k.Movement();
   }
 
   //Deploy Horsemen button
@@ -112,13 +112,13 @@ void AddUnits() {
   if (HorsemanDP == true && Gold > HorseManCost-1 && mousePressed == true) {
     Gold = Gold -HorseManCost;
     println("Current amount of Gold: " + Gold);
-    Fhorsemen.add(new Fhorseman());
+    Fhorsemen.add(new Fhorseman(HorseManHP, BKHorseman, HorseManDamage, FastAttackSpeed, VeryFastSpeed));
     SelectedUnitNum = 0;
   }
   for (int i4 = Fhorsemen.size()-1; i4>=0; i4--) {
     h = Fhorsemen.get(i4);
     h.update();
-    h.horsemanMovement();
+    h.Movement();
   }
 
   //Deploy Archers button
@@ -127,13 +127,13 @@ void AddUnits() {
   if (BowDP == true && Gold > ArcherCost-1 && mousePressed == true) {
     Gold = Gold -ArcherCost;
     println("Current amount of Gold: " + Gold);
-    Farchers.add(new Farcher());
+    Farchers.add(new Farcher(ArcherHP, BKBow, ArcherDamage, SlowAttackSpeed, SlowSpeed, BowRange));
     SelectedUnitNum = 0;
   }
   for (int i5 = Farchers.size()-1; i5>=0; i5--) {
     a = Farchers.get(i5);
     a.update();
-    a.archerMovement();
+    a.Movement();
   }  
 
   if (EUnitSelected == false) {
