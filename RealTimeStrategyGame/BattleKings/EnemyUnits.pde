@@ -16,7 +16,8 @@ class EnemyUnit {
   int MovementSpeed;
   PVector pos = new PVector (EDeployLocationX, EDeployLocationY);
   PVector vel = new PVector (MovementSpeed, 0);
-
+  
+  //Function to draw the unit and its health on screen
   void update() {
     if (life > 1) {
       UnitIsAlive = true;
@@ -39,7 +40,8 @@ class EnemyUnit {
       UnitIsAlive = false;
     }
   }
-
+  
+  //Function that controls the Unit's movement and allows it to hurt the enemy units and base
   void EMovement() {
     if (UnitIsAlive) {
       taller++;
@@ -154,6 +156,7 @@ class EnemyUnit {
   }
 }
 
+//Class Enemy Sword
 class Esword extends EnemyUnit {
   Esword(int SwordHP, PImage BKESword, int SwordDamage, int VeryFastAttackSpeed, int MediumSpeed) {
     this.life = SwordHP;
@@ -164,6 +167,7 @@ class Esword extends EnemyUnit {
   }
 }
 
+//Class Enemy King
 class Eking extends EnemyUnit {
   Eking(int KingHP, PImage BKEKing, int KingDamage, int SlowAttackSpeed, int FastSpeed) {
     this.life = KingHP;
@@ -174,6 +178,7 @@ class Eking extends EnemyUnit {
   }
 }
 
+//Class Enemy Archer
 class Earcher extends EnemyUnit {
   Earcher(int ArcherHP, PImage BKEBow, int ArcherDamage, int SlowAttackSpeed, int SlowSpeed, int BowRange) {
     this.life = ArcherHP;
@@ -185,6 +190,7 @@ class Earcher extends EnemyUnit {
   }
 }
 
+//Class Enemy Horseman
 class Ehorseman extends EnemyUnit {
   Ehorseman(int HorseManHP, PImage BKEHorseman, int HorseManDamage, int FastAttackSpeed, int VeryFastSpeed) {
     this.life = HorseManHP;

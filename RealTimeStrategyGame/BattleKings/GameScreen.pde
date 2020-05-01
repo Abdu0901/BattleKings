@@ -5,7 +5,6 @@ Button DeployArcher;
 enemyBase EnemyBase;
 base FriendBase;
 
-
 //Where all the fun is =]
 void GameScreen() {
   background (BKBackground);
@@ -55,6 +54,7 @@ void GoldGenerator() {
   }
 }
 
+//Variables used in the enemy selecting unit process
 int UnitCount = 4;
 int ESelectedUnit = 0;
 boolean EUnitSelected = false;

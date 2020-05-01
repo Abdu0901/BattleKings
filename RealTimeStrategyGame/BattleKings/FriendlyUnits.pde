@@ -16,7 +16,8 @@ class FriendlyUnit {
   int MovementSpeed;
   PVector pos = new PVector (DeployX, DeployY);
   PVector vel = new PVector (MovementSpeed, 0);
-
+  
+  //Function to draw the unit and its health on screen
   void update() {
     if (life > 1) {
       UnitIsAlive = true;
@@ -39,7 +40,8 @@ class FriendlyUnit {
       UnitIsAlive = false;
     }
   }
-
+  
+  //Function that controls the Unit's movement and allows it to hurt the enemy units and base
   void Movement() {
     if (UnitIsAlive) {
       taller++;
@@ -154,6 +156,7 @@ class FriendlyUnit {
   }
 }
 
+//Class Friendly Sword
 class Fsword extends FriendlyUnit {
   Fsword(int SwordHP, PImage BKSword, int SwordDamage, int VeryFastAttackSpeed, int MediumSpeed) {
     this.life = SwordHP;
@@ -164,6 +167,7 @@ class Fsword extends FriendlyUnit {
   }
 }
 
+//Class Friendly King
 class Fking extends FriendlyUnit {
   Fking(int KingHP, PImage BKKing, int KingDamage, int SlowAttackSpeed, int FastSpeed) {
     this.life = KingHP;
@@ -174,6 +178,7 @@ class Fking extends FriendlyUnit {
   }
 }
 
+//Class Friendly Archer
 class Farcher extends FriendlyUnit {
   Farcher(int ArcherHP, PImage BKBow, int ArcherDamage, int SlowAttackSpeed, int SlowSpeed, int BowRange) {
     this.life = ArcherHP;
@@ -185,6 +190,7 @@ class Farcher extends FriendlyUnit {
   }
 }
 
+//Class Friendly Horseman
 class Fhorseman extends FriendlyUnit {
   Fhorseman(int HorseManHP, PImage BKHorseman, int HorseManDamage, int FastAttackSpeed, int VeryFastSpeed) {
     this.life = HorseManHP;

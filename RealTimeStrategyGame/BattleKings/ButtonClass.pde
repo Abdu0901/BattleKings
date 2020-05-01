@@ -18,6 +18,7 @@ class Button {
     return false;
   }
   
+  //Button Constructor
   Button(int xPos, int yPos, int wSize, int hSize, int strokeColor, String buttonText, int textSize, int textAlign, int bRed, int bGreen, int bBlue) {
     this.xPos = xPos;
     this.yPos = yPos;
@@ -32,7 +33,8 @@ class Button {
     this.bGreen = bGreen;
     this.bBlue = bBlue;
   }
-
+  
+  //Draws the button
   void ButtonUpdate() {
     stroke(strokeColor);
     fill(bRed, bGreen, bBlue);

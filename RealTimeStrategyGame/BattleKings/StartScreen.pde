@@ -1,5 +1,4 @@
 Button StartGame;
-Button Settings;
 
 //Definin variables needed or button check
 boolean lastMousePressed = false;
@@ -17,11 +16,5 @@ void StartScreen() {
   StartGame.ButtonUpdate();
   if (StartGame.isButtonPressed(mouseX, mouseY, mouseJustPressed, StartGame) == true) {
     Screen = 1;
-  }
-  //SwitchMusic Button
-  Settings = new Button(550, 70, 450, 100, strokeColor, "Settings", 80, 0, bRed, bGreen, bBlue);
-  Settings.ButtonUpdate();
-  if (Settings.isButtonPressed(mouseX, mouseY, mouseJustPressed, Settings) == true) {
-    Screen = 3;
   }
 }

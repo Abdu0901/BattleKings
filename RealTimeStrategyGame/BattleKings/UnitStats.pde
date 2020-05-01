@@ -1,3 +1,5 @@
+//Page with stats of all units
+
 //Cost of the troops
 int CheapCost = 20;
 int MediumCost = 40;

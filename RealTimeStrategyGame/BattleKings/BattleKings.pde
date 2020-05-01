@@ -46,8 +46,6 @@ PImage BKEBow;
 PImage BKEKing;
 PImage BKEHorseman;
 
-boolean dataLoaded = false;
-
 void setup() {
   size(1400, 700);
   frameRate(60);
