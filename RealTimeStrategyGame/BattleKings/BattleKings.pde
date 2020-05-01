@@ -83,8 +83,5 @@ void draw() {
   case 2:
     EndScreen();
     break;
-  case 3:
-    SettingsScreen();
-    break;
   }
 }
