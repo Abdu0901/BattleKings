@@ -14,9 +14,9 @@ int HorseManCost = ExpensiveCost, EHorseManCost = ExpensiveCost;
 
 //Damage of the troops
 int SwordDamage = 1;
-int KingDamage = 6;
-int ArcherDamage = 5;
-int HorseManDamage = 3;
+int KingDamage = 12;
+int ArcherDamage = 10;
+int HorseManDamage = 6;
 
 //Speed of the troops
 int VeryFastSpeed = 4;
@@ -31,10 +31,10 @@ int MediumAttackSpeed = 40;
 int SlowAttackSpeed = 60;
 
 //Health of the troops
-int SwordHP = 25;
-int KingHP = 50;
+int SwordHP = 15;
+int KingHP = 85;
 int ArcherHP = 10;
-int HorseManHP = 45;
+int HorseManHP = 55;
 
 //Size of units/base (How close a unit has to be to the target to be incombat)
 int BaseSize = 120;
