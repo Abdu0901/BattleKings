@@ -78,7 +78,7 @@ void draw() {
     StartScreen();
     break;
   case 1:
-    GameScreen();
+    GameConfirmationScreen();
     break;
   case 2:
     EndScreen();

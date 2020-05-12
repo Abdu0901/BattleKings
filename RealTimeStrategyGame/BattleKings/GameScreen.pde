@@ -2,13 +2,48 @@ Button DeploySword;
 Button DeployKing;
 Button DeployHorseman;
 Button DeployArcher;
+Button ConfirmGameStart;
 enemyBase EnemyBase;
 base FriendBase;
+
+boolean GameStartConfirmed = true;
+boolean RunOnce = true;
+
+void GameConfirmationScreen() {
+  boolean mouseJustPressed = mousePressed & !lastMousePressed;
+  lastMousePressed = mousePressed;
+  if (GameStartConfirmed == false) {
+    //Makes the whole screen darker
+    fill(150, 150, 150, 2);
+    rect(width/2, height/2, width, height);
+    //Highlights the player's arena
+    fill(0, 255, 0, 1);
+    rect(350, 0, width/2, 1300);
+    
+    fill(255);
+    textSize(20);
+    textAlign(LEFT, CENTER);
+    text("1. Amount of gold and your current selected unit is displayed here", 150, 150, 200, 200);
+    text("3. To Deploy a unit, press anywhere on your half of the arena. (Marked with green)", width/2, height/2, 200, 200);
+    text("2. Select a unit by pressing the corresponding Number Key next to a unit's name in [ ]", 30, 620);
+
+    //ConfirmGameStart Button
+    ConfirmGameStart = new Button(1250, 70, 250, 100, strokeColor, "Got it!", 80, 0, bRed, bGreen, bBlue);
+    ConfirmGameStart.ButtonUpdate();
+    if (ConfirmGameStart.isButtonPressed(mouseX, mouseY, mouseJustPressed, ConfirmGameStart) == true) {
+      GameStartConfirmed = true;
+    }
+  }
+
+  if (GameStartConfirmed == true) {
+    GameScreen();
+  }
+}
+
 
 //Where all the fun is =]
 void GameScreen() {
   background (BKBackground);
-
   //Text that shows the current amount of Gold the player has
   fill(255);
   textSize(30);
@@ -34,6 +69,10 @@ void GameScreen() {
   } else if (FriendBase.life <= 0) {
     BKWinTeam = BKRedWin;
     Screen = 2;
+  }
+  if (RunOnce == true) {
+    GameStartConfirmed = false;
+    RunOnce = false;
   }
 }
 
