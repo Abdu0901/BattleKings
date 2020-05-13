@@ -20,7 +20,13 @@ void GameConfirmationScreen() {
     //Highlights the player's arena
     fill(0, 255, 0, 1);
     rect(350, 0, width/2, 1300);
-    
+
+    fill(255);
+    textSize(30);
+    textAlign(LEFT, CENTER);
+    text("Gold: " + Gold, 25, 25);
+    text("Selected unit: " + SelectedUnitString, 25, 60);
+
     fill(255);
     textSize(20);
     textAlign(LEFT, CENTER);
@@ -36,7 +42,7 @@ void GameConfirmationScreen() {
       GameStartConfirmed = true;
     }
   }
-  
+
   //If confirm screen is clicked Game starts
   if (GameStartConfirmed == true) {
     GameScreen();
