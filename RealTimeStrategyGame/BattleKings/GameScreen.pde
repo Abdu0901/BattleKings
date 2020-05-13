@@ -12,6 +12,7 @@ boolean RunOnce = true;
 void GameConfirmationScreen() {
   boolean mouseJustPressed = mousePressed & !lastMousePressed;
   lastMousePressed = mousePressed;
+  //Shows the confirmation screen which explains a couple of important things 
   if (GameStartConfirmed == false) {
     //Makes the whole screen darker
     fill(150, 150, 150, 2);
@@ -23,9 +24,10 @@ void GameConfirmationScreen() {
     fill(255);
     textSize(20);
     textAlign(LEFT, CENTER);
+    //Text of the information
     text("1. Amount of gold and your current selected unit is displayed here", 150, 150, 200, 200);
     text("3. To Deploy a unit, press anywhere on your half of the arena. (Marked with green)", width/2, height/2, 200, 200);
-    text("2. Select a unit by pressing the corresponding Number Key next to a unit's name in [ ]", 30, 620);
+    text("2. Select a unit by pressing the corresponding Number Key next to a unit's name in [ ]. The numbers in () indicate cost of the Unit", 30, 620);
 
     //ConfirmGameStart Button
     ConfirmGameStart = new Button(1250, 70, 250, 100, strokeColor, "Got it!", 80, 0, bRed, bGreen, bBlue);
@@ -34,7 +36,8 @@ void GameConfirmationScreen() {
       GameStartConfirmed = true;
     }
   }
-
+  
+  //If confirm screen is clicked Game starts
   if (GameStartConfirmed == true) {
     GameScreen();
   }
@@ -70,6 +73,7 @@ void GameScreen() {
     BKWinTeam = BKRedWin;
     Screen = 2;
   }
+  //Runs the game screen once to load game elements and then shows confirmation screen
   if (RunOnce == true) {
     GameStartConfirmed = false;
     RunOnce = false;
